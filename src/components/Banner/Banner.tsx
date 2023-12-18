@@ -1,32 +1,86 @@
-const Banner = ({ images, speed = 5000 }:{images:[], speed:number}) => {
-    return (
-      <div className="inner">
-        <div className="wrapper">
-          <section style={{ "--speed": `${speed}ms` }}>
-            {images.map(({ id, image }) => (
-              <div className="image" key={id}>
-                <img src={image} alt={id} />
-              </div>
-            ))}
-          </section>
-          <section style={{ "--speed": `${speed}ms` }}>
-            {images.map(({ id, image }) => (
-              <div className="image" key={id}>
-                <img src={image} alt={id} />
-              </div>
-            ))}
-          </section>
-          <section style={{ "--speed": `${speed}ms` }}>
-            {images.map(({ id, image }) => (
-              <div className="image" key={id}>
-                <img src={image} alt={id} />
-              </div>
-            ))}
-          </section>
-        </div>
+"use client";
+import Image from "next/image";
+import "./style.css";
+// import { bannerImages as images } from "@/store/staticData/BannerImages";
+
+import gs from "../../../public/assets/images/banner/banner1.svg";
+import novellis from "../../../public/assets/images/banner/banner2.svg";
+import comfortDelgro from "../../../public/assets/images/banner/banner3.svg";
+import borusan from "../../../public/assets/images/banner/banner4.svg";
+
+export const images = [
+  {
+    image: gs,
+    width: 54,
+    w2: 'sm:min-w-[87px]',
+    w3: "xl:min-w-[130px]",
+  },
+  {
+    image: novellis,
+    width: 38,
+    w2: "sm:min-w-[66px]",
+    w3: "xl:min-w-[90px]",
+  },
+  {
+    image: comfortDelgro,
+    width: 65,
+    w2: "sm:min-w-[110px]",
+    w3: "xl:min-w-[130px]",
+  },
+  {
+    image: borusan,
+    width: 51,
+    w2: "sm:min-w-[85px]",
+    w3: "xl:min-w-[120px]",
+  },
+];
+// style={{ "--speed": `${speed}ms` }}
+const Banner = ({ speed = 5000 }: { speed: number }) => {
+  return (
+    <div className="inner relative overflow-hidden w-[100vw] sm:w-[100% h-5 sm:h-[60px] ">
+      <div className="wrapper absolute w-full h-full flex items-center gap-8  ">
+        <section>
+          {images.map((image, id) => (
+            <div className="image" key={id}>
+              <Image
+                width={image.width}
+                height={8}
+                className={`img h-2 sm:h-[14px] xl:h-[20px] ${image.w2} ${image.w3} object-cover `}
+                src={image.image}
+                alt={`${id}`}
+              />
+            </div>
+          ))}
+        </section>
+        <section>
+          {images.map((image, id) => (
+            <div className="image" key={id}>
+              <Image
+                width={image.width}
+                height={8}
+                className={`img h-2 sm:h-[14px] xl:h-[18px] ${image.w2}  ${image.w3} object-cover `}
+                src={image.image}
+                alt={`${id}`}
+              />
+            </div>
+          ))}
+        </section>
+        <section>
+          {images.map((image, id) => (
+            <div className="image w-full" key={id}>
+              <Image
+                width={image.width}
+                height={8}
+                className={`img h-2 sm:h-[14px] xl:h-[18px] ${image.w2}  ${image.w3} object-cover `}
+                src={image.image}
+                alt={`${id}`}
+              />
+            </div>
+          ))}
+        </section>
       </div>
-    );
-  };
-  
-  export { Banner };
-  
+    </div>
+  );
+};
+
+export { Banner };

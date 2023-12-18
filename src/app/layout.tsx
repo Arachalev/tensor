@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { AppContextProvider } from "@/store/contexts/appContext";
 import NavBar from "@/components/NavBar";
+import Footer from "@/components/Banner/Footer";
 
 // const inter = Inter({ subsets: ["latin"] });
 // className={inter.className}
@@ -22,6 +23,7 @@ export default function RootLayout({
         <body >
           <NavBar />
           {children}
+          <Footer/>
         </body>
       </AppContextProvider>
     </html>

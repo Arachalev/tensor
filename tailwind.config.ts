@@ -21,6 +21,10 @@ const config: Config = {
       fontFamily: {
         inter: ["Inter"],
       },
+      colors: {
+        darkGreen: "#005050",
+        softBlue: "#E3F8F5",
+      },
     },
   },
   plugins: [],
