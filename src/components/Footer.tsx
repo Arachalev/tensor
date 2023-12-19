@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import mailIcon from "../../../public/assets/icons/footer/mail.svg";
-import arxicIcon from "../../../public/assets/icons/footer/arxic.svg";
-import doiIcon from "../../../public/assets/icons/footer/doi.svg";
-import githubIcon from "../../../public/assets/icons/footer/github.svg";
-import linkedinIcon from "../../../public/assets/icons/footer/linkedin.svg";
-import mediumIcon from "../../../public/assets/icons/footer/medium.svg";
-import xIcon from "../../../public/assets/icons/footer/x.svg";
+import mailIcon from "../../public/assets/icons/footer/mail.svg";
+import arxicIcon from "../../public/assets/icons/footer/arxic.svg";
+import doiIcon from "../../public/assets/icons/footer/doi.svg";
+import githubIcon from "../../public/assets/icons/footer/github.svg";
+import linkedinIcon from "../../public/assets/icons/footer/linkedin.svg";
+import mediumIcon from "../../public/assets/icons/footer/medium.svg";
+import xIcon from "../../public/assets/icons/footer/x.svg";
 
 const Footer = () => {
   return (

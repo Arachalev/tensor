@@ -60,9 +60,9 @@ const NavBar = () => {
           <Banner   speed={5000} />
         </div>
       </div>
-      {/* <div className="sm:hidden flex w-full">
-        <Banner images={bannerImages} speed={5000} />
-      </div> */}
+      <div className="sm:hidden flex w-full">
+        <Banner   speed={5000} />
+      </div>
     </nav>
   );
 };

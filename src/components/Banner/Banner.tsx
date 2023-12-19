@@ -12,24 +12,29 @@ export const images = [
   {
     image: gs,
     width: 54,
+
+    w1: 'min-w-[54px]',
     w2: 'sm:min-w-[87px]',
     w3: "xl:min-w-[130px]",
   },
   {
     image: novellis,
     width: 38,
+    w1: "min-w-[38px]",
     w2: "sm:min-w-[66px]",
     w3: "xl:min-w-[90px]",
   },
   {
     image: comfortDelgro,
     width: 65,
+    w1: "min-w-[65px]",
     w2: "sm:min-w-[110px]",
     w3: "xl:min-w-[130px]",
   },
   {
     image: borusan,
     width: 51,
+    w1: "min-w-[51px]",
     w2: "sm:min-w-[85px]",
     w3: "xl:min-w-[120px]",
   },
@@ -45,7 +50,7 @@ const Banner = ({ speed = 5000 }: { speed: number }) => {
               <Image
                 width={image.width}
                 height={8}
-                className={`img h-2 sm:h-[14px] xl:h-[20px] ${image.w2} ${image.w3} object-cover `}
+                className={`img h-2 sm:h-[14px] xl:h-[20px]  ${image.w1} ${image.w2} ${image.w3} object-cover `}
                 src={image.image}
                 alt={`${id}`}
               />
@@ -58,7 +63,7 @@ const Banner = ({ speed = 5000 }: { speed: number }) => {
               <Image
                 width={image.width}
                 height={8}
-                className={`img h-2 sm:h-[14px] xl:h-[18px] ${image.w2}  ${image.w3} object-cover `}
+                className={`img h-2 sm:h-[14px] xl:h-[18px] ${image.w1} ${image.w2}  ${image.w3} object-cover `}
                 src={image.image}
                 alt={`${id}`}
               />
@@ -71,7 +76,7 @@ const Banner = ({ speed = 5000 }: { speed: number }) => {
               <Image
                 width={image.width}
                 height={8}
-                className={`img h-2 sm:h-[14px] xl:h-[18px] ${image.w2}  ${image.w3} object-cover `}
+                className={`img h-2 sm:h-[14px] xl:h-[18px] ${image.w1} ${image.w2}  ${image.w3} object-cover `}
                 src={image.image}
                 alt={`${id}`}
               />

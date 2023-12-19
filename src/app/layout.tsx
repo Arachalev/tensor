@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { AppContextProvider } from "@/store/contexts/appContext";
 import NavBar from "@/components/NavBar";
-import Footer from "@/components/Banner/Footer";
+import Footer from "@/components/Footer";
 
 // const inter = Inter({ subsets: ["latin"] });
 // className={inter.className}

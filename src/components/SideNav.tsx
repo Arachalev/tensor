@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
-import arrow from "../../../public/assets/icons/arrow.svg";
+import arrow from "../../public/assets/icons/arrow.svg";
 
 const SideNav = () => {
   return (
