@@ -1,9 +1,9 @@
 "use client";
 
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
 export const AppContext = createContext({
-  deviceWidth: window.outerWidth,
+  deviceWidth: 1300,
   updateDeviceWidth: (value: number) => {},
 });
 
