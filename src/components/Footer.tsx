@@ -41,7 +41,9 @@ const Footer = () => {
         </ul>
       </div>
       <div>
-        <h4 className="font-semibold underline mb-3 ">What We Do</h4>
+        <h4 className="font-semibold underline mb-3 xl:text-2xl ">
+          What We Do
+        </h4>
 
         <ul className="flex flex-col gap-[6px] list-none text-sm sm:text-lg">
           <li>
@@ -53,7 +55,9 @@ const Footer = () => {
         </ul>
       </div>
       <div>
-        <h4 className="font-semibold underline mb-3 ">How to Join</h4>
+        <h4 className="font-semibold underline mb-3 xl:text-2xl ">
+          How to Join
+        </h4>
 
         <ul className="flex flex-col gap-[6px] list-none text-sm sm:text-lg">
           <li>
