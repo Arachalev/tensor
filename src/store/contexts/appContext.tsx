@@ -12,7 +12,10 @@ export const AppContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [deviceWidth, setDeviceWidth] = useState(window.outerWidth);
+  const [deviceWidth, setDeviceWidth] = useState(1300);
+  useEffect(() => {
+    setDeviceWidth(window.outerWidth);
+  }, []);
 
   const updateDeviceWidth = (value: number) => {
     setDeviceWidth(value);
