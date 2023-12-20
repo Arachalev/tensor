@@ -140,7 +140,11 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
                           })
                         : null;
                     }}
-                    className="fixed top-0 left-0  w-screen sm:w-auto h-screen sm:h-auto flex justify-center  pt-20 sm:pt-0 sm:absolute sm:left-11 z-50"
+                    className={`fixed top-0 left-0  ${
+                      showCompany.showModal &&
+                      item.comp1.name === showCompany.company.name &&
+                      "w-screen h-screen"
+                    }  sm:w-auto   sm:h-auto flex justify-center  pt-20 sm:pt-0 sm:absolute sm:left-11 z-50`}
                   >
                     {showCompany.showModal &&
                       item.comp1.name === showCompany.company.name && (
@@ -216,7 +220,27 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
                     src={item.comp2.img}
                     alt={item.comp2.name}
                   />
-                  <div className="fixed top-0 left-0  w-screen sm:w-auto h-screen sm:h-auto flex justify-center  pt-20 sm:pt-0 sm:absolute sm:left-11 z-50">
+                  <div
+                    onClick={(e) => {
+                      // e.stopPropagation();
+                      showCompany.showModal
+                        ? setShowCompany({
+                            showModal: false,
+                            company: {
+                              name: "",
+                              deals: 0,
+                              value: "",
+                              leadDays: 0,
+                            },
+                          })
+                        : null;
+                    }}
+                    className={`fixed top-0 left-0 ${
+                      showCompany.showModal &&
+                      item.comp2.name === showCompany.company.name &&
+                      "w-screen h-screen"
+                    }  sm:w-auto   sm:h-auto flex justify-center  pt-20 sm:pt-0 sm:absolute sm:left-11 z-50`}
+                  >
                     {showCompany.showModal &&
                       item.comp2.name === showCompany.company.name && (
                         <CompanyCard
@@ -291,7 +315,27 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
                     src={item.comp3.img}
                     alt={item.comp3.name}
                   />
-                  <div className="fixed top-0 left-0  w-screen sm:w-auto h-screen sm:h-auto flex justify-center  pt-20 sm:pt-0 sm:absolute sm:left-11 z-50">
+                  <div
+                    onClick={(e) => {
+                      // e.stopPropagation();
+                      showCompany.showModal
+                        ? setShowCompany({
+                            showModal: false,
+                            company: {
+                              name: "",
+                              deals: 0,
+                              value: "",
+                              leadDays: 0,
+                            },
+                          })
+                        : null;
+                    }}
+                    className={`fixed top-0 left-0  ${
+                      showCompany.showModal &&
+                      item.comp3.name === showCompany.company.name &&
+                      "w-screen h-screen"
+                    }  sm:w-auto   sm:h-auto flex justify-center  pt-20 sm:pt-0 sm:absolute sm:left-11 z-50`}
+                  >
                     {showCompany.showModal &&
                       item.comp3.name === showCompany.company.name && (
                         <CompanyCard
@@ -366,7 +410,27 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
                     src={item.comp4.img}
                     alt={item.comp4.name}
                   />
-                  <div className="fixed top-0 left-0  w-screen sm:w-auto h-screen sm:h-auto flex justify-center  pt-20 sm:pt-0 sm:absolute sm:left-11 z-50">
+                  <div
+                    onClick={(e) => {
+                      // e.stopPropagation();
+                      showCompany.showModal
+                        ? setShowCompany({
+                            showModal: false,
+                            company: {
+                              name: "",
+                              deals: 0,
+                              value: "",
+                              leadDays: 0,
+                            },
+                          })
+                        : null;
+                    }}
+                    className={`fixed top-0 left-0  ${
+                      showCompany.showModal &&
+                      item.comp4.name === showCompany.company.name &&
+                      "w-screen h-screen"
+                    }  sm:w-auto   sm:h-auto flex justify-center  pt-20 sm:pt-0 sm:absolute sm:left-11 z-50`}
+                  >
                     {showCompany.showModal &&
                       item.comp4.name === showCompany.company.name && (
                         <CompanyCard
@@ -441,7 +505,27 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
                     src={item.comp5.img}
                     alt={item.comp5.name}
                   />
-                  <div className="fixed top-0 left-0  w-screen sm:w-auto h-screen sm:h-auto flex justify-center  pt-20 sm:pt-0 sm:absolute sm:left-11 z-50">
+                  <div
+                    onClick={(e) => {
+                      // e.stopPropagation();
+                      showCompany.showModal
+                        ? setShowCompany({
+                            showModal: false,
+                            company: {
+                              name: "",
+                              deals: 0,
+                              value: "",
+                              leadDays: 0,
+                            },
+                          })
+                        : null;
+                    }}
+                    className={`fixed top-0 left-0 ${
+                      showCompany.showModal &&
+                      item.comp5.name === showCompany.company.name &&
+                      "w-screen h-screen"
+                    }  sm:w-auto   sm:h-auto flex justify-center  pt-20 sm:pt-0 sm:absolute sm:left-11 z-50`}
+                  >
                     {showCompany.showModal &&
                       item.comp5.name === showCompany.company.name && (
                         <CompanyCard
@@ -516,7 +600,27 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
                     src={item.comp6.img}
                     alt={item.comp6.name}
                   />
-                  <div className="fixed top-0 left-0  w-screen sm:w-auto h-screen sm:h-auto flex justify-center  pt-20 sm:pt-0 sm:absolute sm:left-11 z-50">
+                  <div
+                    onClick={(e) => {
+                      // e.stopPropagation();
+                      showCompany.showModal
+                        ? setShowCompany({
+                            showModal: false,
+                            company: {
+                              name: "",
+                              deals: 0,
+                              value: "",
+                              leadDays: 0,
+                            },
+                          })
+                        : null;
+                    }}
+                    className={`fixed top-0 left-0  ${
+                      showCompany.showModal &&
+                      item.comp6.name === showCompany.company.name &&
+                      "w-screen h-screen"
+                    }  sm:w-auto   sm:h-auto flex justify-center  pt-20 sm:pt-0 sm:absolute sm:left-11 z-50`}
+                  >
                     {showCompany.showModal &&
                       item.comp6.name === showCompany.company.name && (
                         <CompanyCard
