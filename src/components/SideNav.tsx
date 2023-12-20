@@ -2,10 +2,17 @@ import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 import arrow from "../../public/assets/icons/arrow.svg";
+import arrowWhite from "../../public/assets/icons/arrow-white.svg";
 
 const SideNav = ({ variant = "dark" }: { variant?: "light" | "dark" }) => {
   return (
-    <div className="font-inter flex flex-col gap-4">
+    <div
+      className={`font-inter flex flex-col gap-4 ${
+        variant === "light"
+          ? "bg-gradient-to-r from-[#005050]/90 to-[#005050]/40 sm:px-4"
+          : ""
+      }`}
+    >
       {variant === "light" && (
         <Link
           href=""
@@ -32,10 +39,10 @@ const SideNav = ({ variant = "dark" }: { variant?: "light" | "dark" }) => {
             variant === "dark" ? "text-darkGreen" : "text-white"
           }`}
         >
-          <Image src={arrow} alt="arrow" />
+          <Image src={variant === "dark" ? arrow : arrowWhite} alt="arrow" />
           <h4>What We Do</h4>
         </div>
-        <div className="ml-4 flex flex-col gap-1 mt-1">
+        <div className="ml-4 flex flex-col gap-1 mt-1  text-[9px]">
           <Link href="">Our Product</Link>
           <Link href="">Pricing</Link>
         </div>
@@ -50,10 +57,11 @@ const SideNav = ({ variant = "dark" }: { variant?: "light" | "dark" }) => {
             variant === "dark" ? "text-darkGreen" : "text-white"
           }`}
         >
-          <Image src={arrow} alt="arrow" />
+          <Image src={variant === "dark" ? arrow : arrowWhite} alt="arrow" />
+
           <h4>Who We Are</h4>
         </div>
-        <div className="ml-4 flex flex-col gap-1 mt-1">
+        <div className="ml-4 flex flex-col gap-1 mt-1  text-[9px]">
           <Link href="">Leadership</Link>
           <Link href="">Founder</Link>
           <Link href="">Our People</Link>
@@ -72,10 +80,11 @@ const SideNav = ({ variant = "dark" }: { variant?: "light" | "dark" }) => {
             variant === "dark" ? "text-darkGreen" : "text-white"
           }`}
         >
-          <Image src={arrow} alt="arrow" />
+          <Image src={variant === "dark" ? arrow : arrowWhite} alt="arrow" />
+
           <h4>How to Join</h4>
         </div>
-        <div className="ml-4 flex flex-col gap-1 mt-1">
+        <div className="ml-4 flex flex-col gap-1 mt-1  text-[9px]">
           <Link href="">Career Development</Link>
           <Link href="">Choose Your Path</Link>
           <Link href="">Interviewing</Link>

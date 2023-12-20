@@ -76,7 +76,6 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
     }
   };
 
-  console.log(showCompany);
   return (
     <div className="flex items-center justify-between  ">
       {companies.map((item, index) => (
@@ -92,6 +91,19 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
               {item.comp1.img && (
                 <div
                   onMouseOver={() => handleModal(item.comp1?.name!, "comp1")}
+                  onClick={() => {
+                    showCompany.showModal
+                      ? setShowCompany({
+                          showModal: false,
+                          company: {
+                            name: "",
+                            deals: 0,
+                            value: "",
+                            leadDays: 0,
+                          },
+                        })
+                      : handleModal(item.comp1?.name!, "comp1");
+                  }}
                   onMouseLeave={() => {
                     setShowCompany({
                       showModal: false,
@@ -108,12 +120,28 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
                   <Image
                     width={30}
                     height={30}
-                    onClick={() => handleModal(item.comp1?.name!, "comp1")}
+                    // onClick={() => handleModal(item.comp1?.name!, "comp1")}
                     className="w-8 sm:w-[43px] h-8 sm:h-[43px] rounded-full cursor-pointer"
                     src={item.comp1.img}
                     alt={item.comp1.name}
                   />
-                  <div className="fixed top-0 left-0  w-screen sm:w-auto h-screen sm:h-auto flex justify-center  pt-20 sm:pt-0 sm:absolute sm:left-11 z-50">
+                  <div
+                    onClick={(e) => {
+                      // e.stopPropagation();
+                      showCompany.showModal
+                        ? setShowCompany({
+                            showModal: false,
+                            company: {
+                              name: "",
+                              deals: 0,
+                              value: "",
+                              leadDays: 0,
+                            },
+                          })
+                        : null;
+                    }}
+                    className="fixed top-0 left-0  w-screen sm:w-auto h-screen sm:h-auto flex justify-center  pt-20 sm:pt-0 sm:absolute sm:left-11 z-50"
+                  >
                     {showCompany.showModal &&
                       item.comp1.name === showCompany.company.name && (
                         <CompanyCard
