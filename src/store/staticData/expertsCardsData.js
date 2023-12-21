@@ -2,7 +2,7 @@ import github from "../../../public/assets/images/experts/github.svg";
 import doi from "../../../public/assets/images/experts/doi.svg";
 import linkedin from "../../../public/assets/images/experts/linkedin.svg";
 import mark from "../../../public/assets/images/experts/mark.png";
-import caspar from "../../../public/assets/images/experts/caspar.jpg";
+import caspar from "../../../public/assets/images/experts/caspar.png";
 import stanislav from "../../../public/assets/images/experts/stanislav.png";
 import anton from "../../../public/assets/images/experts/anton.png";
 

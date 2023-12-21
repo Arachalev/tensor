@@ -4,7 +4,13 @@ import Image from "next/image";
 import arrow from "../../public/assets/icons/arrow.svg";
 import arrowWhite from "../../public/assets/icons/arrow-white.svg";
 
-const SideNav = ({ variant = "dark" }: { variant?: "light" | "dark" }) => {
+const SideNav = ({
+  variant = "dark",
+  showInvestor = false,
+}: {
+  variant?: "light" | "dark";
+  showInvestor?: boolean;
+}) => {
   return (
     <div
       className={`font-inter flex flex-col gap-4 ${
@@ -13,10 +19,10 @@ const SideNav = ({ variant = "dark" }: { variant?: "light" | "dark" }) => {
           : ""
       }`}
     >
-      {variant === "light" && (
+      {showInvestor && (
         <Link
           href=""
-          className={`font-semibold text-xs text-[#F3F0F0]/70 mb-2 ml-4 `}
+          className={`font-semibold text-xs text-[#8F9C8B]/70 mb-2 ml-4 `}
         >
           Investor Login
         </Link>

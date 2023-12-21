@@ -28,7 +28,11 @@ const ExpertsCard = (expertDetails: ExpertsCardProps) => {
 
   return (
     <div className="font-inter w-[250px] ">
-      <Image src={profile} alt={name} className="mb-3 w-[250px] h-[230px]" />
+      <Image
+        src={profile}
+        alt={name}
+        className="mb-3 w-[250px] xl:w-[277px] h-[230px] xl:h-[217px]"
+      />
       <div className="px-3 flex flex-col gap-3 ">
         <h4 className="text-darkGreen font-bold text-xl">{name}</h4>
         <div className="flex items-center gap-2">

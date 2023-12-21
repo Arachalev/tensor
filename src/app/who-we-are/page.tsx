@@ -11,14 +11,14 @@ import SideNav from "@/components/SideNav";
 const Page = () => {
   return (
     <div className="font-inter w-full relative">
-      <section className=" px-6 sm:px-10 py-8 sm:py-[85px] bg-white text-darkGreen  ">
-        <div className="absolute -left-4 top-[20rem] min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center  ">
+      <section className=" px-6 sm:px-10 xl:px-28 py-8 sm:py-[85px] xl:py-28 bg-white text-darkGreen  ">
+        <div className="absolute -left-4 top-[20rem] xl:top-[70rem] min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center  ">
           <p className=" underline font-serif text-[9px] sm:text-sm xl:text-lg text-[#035F5F] rotate-[90deg] scale-y-[-1] scale-x-[-1]">
             TwoTensor
           </p>
         </div>
-        <div className="sm:w-[480px]">
-          <h4 className="underline font-semibold text-xl sm:text-3xl mb-5">
+        <div className="sm:w-[480px] xl:w-[900px]">
+          <h4 className="underline font-semibold text-xl sm:text-3xl xl:text-4xl mb-5 xl:mb-10">
             WHO WE ARE
           </h4>
           <p className="font-medium text-sm sm:text-2xl leading-6 sm:leading-10">
@@ -39,15 +39,15 @@ const Page = () => {
             and our spirit undying.
           </p>
         </div>
-        <div className="hidden sm:block absolute top-[32px] right-[20px]">
-          <SideNav />
+        <div className="hidden sm:block absolute top-[32px] right-[20px] xl:right-[72px]">
+          <SideNav showInvestor={true} />
         </div>
       </section>
-      <section className=" px-6 sm:px-10 py-11 text-darkGreen bg-fadedBlue">
+      <section className=" px-6 sm:px-10 xl:px-28 py-11 xl:py-28 text-darkGreen bg-fadedBlue">
         <h4 className="underline text-[8px] sm:text-xl font-bold mb-3 sm:mb-5  ">
           Research
         </h4>
-        <div className="text-sm sm:text-2xl font-medium leading-6 sm:leading-10 sm:w-[480px]">
+        <div className="text-sm sm:text-2xl font-medium leading-6 sm:leading-10 sm:w-[480px] xl:w-[900px]">
           <p>
             Guided by a trio of researchers, our team holds degrees in Physics,
             Theoretical Physics, and Data Science from prestigious institutions
@@ -60,13 +60,13 @@ const Page = () => {
           </p>
         </div>
       </section>
-      <section className="bg-darkGreen text-softBlue px-6 sm:px-10 pt-9 sm:pt-14 pb-11 sm:pb-32 ">
-        <h4 className="underline text-[8px] sm:text-xl font-bold mb-7">
+      <section className="bg-darkGreen text-softBlue px-6 sm:px-10 xl:px-28 pt-9 sm:pt-14 pb-11 sm:pb-32 xl:pt-40 ">
+        <h4 className="underline text-[8px] sm:text-xl font-bold mb-7 xl:mb-12">
           Founder
         </h4>
-        <Image src={founder} alt="image of founder" />
-        <div className="font-medium text-sm sm:text-2xl leading-6 sm:leading-10 mt-10 sm:mt-14 sm:w-[480px]">
-          <p className="mb-5">
+        <Image src={founder} className="xl:w-[485px]" alt="image of founder" />
+        <div className="font-medium text-sm sm:text-2xl leading-6 sm:leading-10 mt-10 sm:mt-14 sm:w-[480px] xl:w-[900px]">
+          <p className="mb-5 sm:mb-6 xl:mb-8">
             Daniel Malikzade Afshar holds a Physics degree from The University
             of St Andrews, the top-ranking institution in the subject during
             2021-2022. His acumen in investment banking led him to be the
@@ -89,8 +89,8 @@ const Page = () => {
             clients.
           </p>
         </div>
-        <div className="mt-14 sm:mt-20 font-medium text-sm sm:text-2xl leading-6 sm:leading-10 sm:w-[480px]">
-          <h4 className="underline text-[8px] sm:text-xl font-bold mb-4 sm:mb-8">
+        <div className="mt-14 sm:mt-20 xl:mt-24 font-medium text-sm sm:text-2xl leading-6 sm:leading-10 sm:w-[480px] xl:w-[900px]">
+          <h4 className="underline text-[8px] sm:text-xl font-bold mb-4 sm:mb-8 xl:mb-10">
             Our People
           </h4>
           <p className="">
@@ -102,11 +102,11 @@ const Page = () => {
           </p>
         </div>
       </section>
-      <section className="bg-white text-darkGreen px-6 sm:px-10 pt-5 pb-10 sm:py-24">
+      <section className="bg-white text-darkGreen px-6 sm:px-10 xl:px-28 pt-5 pb-10 sm:py-24">
         <h4 className="underline font-semibold text-[8px] sm:text-xl mb-3 sm:mb-10">
           Our Engineering Team
         </h4>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-5">
+        <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-5 xl:w-[1200px]">
           <div className="flex justify-between items-center ">
             <div className="flex items-center gap-2 sm:gap-3">
               <p className="underline font-bold text-xl sm:text-4xl">5/5</p>
@@ -116,13 +116,14 @@ const Page = () => {
             </div>
             <div className="h-7 sm:h-12 w-[1px] bg-darkGreen/20 mr-5" />
           </div>
-          <div className="flex justify-between items-center sm:col-span-2 ">
-            <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex justify-between items-center sm:col-span-2 xl:col-span-1 ">
+            <div className="flex items-center gap-2 sm:gap-3 ">
               <p className="underline font-bold text-xl sm:text-4xl">2/5</p>
               <p className="font-medium text-[9px] sm:text-base">
                 Hold Data <br /> Science Degrees
               </p>
             </div>
+            <div className="hidden xl:block h-7 sm:h-12 w-[1px] bg-darkGreen/20 " />
           </div>
           <div className="flex justify-between items-center ">
             <div className="flex items-center gap-2 sm:gap-3">
@@ -153,18 +154,18 @@ const Page = () => {
           </div>
         </div>
       </section>
-      <section className="px-6 sm:px-10 pt-6 sm:pt-16 pb-11 sm:pb-24 bg-fadedBlue text-darkGreen">
+      <section className="px-6 sm:px-10 xl:px-28 pt-6 sm:pt-16 xl:pt-20 pb-11 sm:pb-24 bg-fadedBlue text-darkGreen">
         <div className="text-center flex flex-col gap-2 sm:gap-3 items-center">
           <h4 className="text-[7px] sm:text-sm">OUR EXPERTS</h4>
           <h2 className="text-2xl sm:text-4xl font-bold  ">Meet TwoTensor</h2>
-          <p className="font-medium text-[8px] sm:text-sm sm:w-[550px] ">
+          <p className="font-medium text-[8px] sm:text-sm sm:w-[550px] xl:w-[900px] ">
             We operate in a sophisticated team tailored to specialist private
             equity challenges. Learning from one another, we advance AI
             boundaries while acquiring broader, more rounded insights.
           </p>
         </div>
 
-        <div className="pt-9 flex flex-col sm:grid sm:grid-cols-2 justify-items-center gap-7 sm:gap-x-5 sm:gap-y-20 items-center">
+        <div className="pt-9 xl:pt-16 flex flex-col xl:flex-row sm:grid sm:grid-cols-2 xl:flex xl:justify-center xl:items-start xl:gap-7 sm:justify-items-center gap-7 sm:gap-x-5 sm:gap-y-20 items-center">
           {expertCardsData.map((item) => (
             <ExpertsCard
               key={item.name}
@@ -179,14 +180,16 @@ const Page = () => {
         </div>
       </section>
       <section
-        className={`px-6 sm:px-10 pt-14 sm:py-24 pb-11 bg-white text-darkGreen text-sm sm:text-2xl 
+        className={`px-6 sm:px-10 xl:px-28 pt-14 sm:py-24 xl:pt-28 pb-11  bg-white text-darkGreen text-sm sm:text-2xl 
       font-medium flex flex-col gap-6 sm:gap-10 leading-6 sm:leading-10`}
       >
-        <h4 className="font-semibold text-[8px] sm:text-xl underline ">
+        <h4 className="font-semibold text-[8px] sm:text-xl underline">
           Diversity
         </h4>
-        <p>Our Commitment to Global Synergy and Inclusion</p>
-        <p className="sm:w-480px]">
+        <p className=" sm:w-[480px] xl:w-[900px]">
+          Our Commitment to Global Synergy and Inclusion
+        </p>
+        <p className="sm:w-[480px] xl:w-[900px]">
           At TwoTensor, we are proud that our engineering team of 6 represents
           heritage from 6 different countries. We advocate for a workplace where
           40% of our members are women, and we take pride in our lateral company
@@ -197,23 +200,23 @@ const Page = () => {
           mirrors the global community we serve. Our dedication to fostering an
           inclusive atmosphere is manifested in:
         </p>
-        <p className="sm:w-480px]">
+        <p className="sm:w-[480px] xl:w-[900px]">
           Daily interactive sessions, bridging gaps between senior and junior
           roles Regular team meetings to ensure alignment and collaboration
         </p>
-        <p className="sm:w-480px]">
+        <p className="sm:w-[480px] xl:w-[900px]">
           We strive to make TwoTensor a platform where every individual feels
           valued and can achieve their utmost potential.
         </p>
       </section>
       <section
-        className={`px-6 sm:px-10 pt-11 sm:pt-24 py-14 bg-darkGreen text-softBlue text-sm sm:text-2xl
+        className={`px-6 sm:px-10 xl:px-28 pt-11 sm:pt-24 xl:pt-32 xl:pb-24 py-14 bg-darkGreen text-softBlue text-sm sm:text-2xl
        font-medium leading-6 sm:leading-10 flex flex-col gap-6 sm:gap-10 `}
       >
         <h4 className="underline text-[8px] sm:text-xl font-semibold">
           Core Principles
         </h4>
-        <p className="sm:w-[480px]">
+        <p className="sm:w-[480px] xl:w-[900px]">
           At TwoTensor&apos;s heart lie five foundational principles that
           delineate our ethos and inform our choices. These principles are woven
           into our very fabric. Recruit and Nurture Outstanding Talent The
@@ -224,7 +227,7 @@ const Page = () => {
           individuals with unmatched innate aptitude and enduring potential. A
           diverse team, in various aspects, is instrumental in our success.
         </p>
-        <div className="sm:w-[480px]">
+        <div className="sm:w-[480px] xl:w-[900px]">
           <p>Prioritize Ethical Standards</p>
           <p>
             Our unwavering commitment is to uphold supreme ethical and legal
@@ -235,7 +238,7 @@ const Page = () => {
             Establish Exceptionally High Targets
           </p>
         </div>
-        <p className="sm:w-[480px]">
+        <p className="sm:w-[480px] xl:w-[900px]">
           TwoTensor&apos;s foundation is rooted in embarking on ventures others
           deemed unattainable or didn&apos;t conceive. A lone groundbreaking
           idea that materializes might outweigh numerous failed attempts. The
@@ -243,7 +246,7 @@ const Page = () => {
           single monumental win. When an elite squad sets sky-high objectives,
           groundbreaking successes become the norm.
         </p>
-        <p className="sm:w-[480px]">
+        <p className="sm:w-[480px] xl:w-[900px]">
           Champion Collective Endeavors Our ethos is anchored in fostering a
           spirit of collaboration where individuals and teams unite to further
           shared goals and those of TwoTensor. The collective efforts of staff
@@ -255,12 +258,16 @@ const Page = () => {
           approach has notably propelled our accomplishments over time.
         </p>
       </section>
-      <section className="px-6 sm:px-10 pt-11 sm:py-32 pb-14 bg-white text-sm sm:text-2xl text-darkGreen font-medium leading-6 sm:leading-10">
-        <div className="flex flex-col gap-8 sm:gap-16 sm:w-[480px]">
+      <section className="px-6 sm:px-10 xl:px-28 pt-11 sm:py-32 xl:pt-36 pb-14 xl:pb-28 bg-white text-sm sm:text-2xl text-darkGreen font-medium leading-6 sm:leading-10">
+        <div className="flex flex-col gap-8 sm:gap-16 xl:gap-20 sm:w-[480px] xl:w-[900px]">
           <h4 className="text-[8px] sm:text-xl font-semibold underline ">
             Community Impact
           </h4>
-          <Image src={community1} alt="woman sitting" />
+          <Image
+            src={community1}
+            className="w-[272px] h-[277px] sm:w-[467px] sm:h-[476px] xl:w-[560px] xl:h-[570px]"
+            alt="woman sitting"
+          />
           <p>
             Fiona Hill is a British-American foreign affairs specialist, known
             for her expertise in Russian and European affairs. She served on the
@@ -282,8 +289,12 @@ const Page = () => {
             </p>
           </Link>
         </div>
-        <div className="mt-20 sm:mt-32 flex flex-col gap-8 sm:w-[480px]">
-          <Image src={community2} alt="abstract art" />
+        <div className="mt-20 sm:mt-32 flex flex-col gap-8 sm:gap-16 xl:gap-20 sm:w-[480px] xl:w-[900px]">
+          <Image
+            src={community2}
+            className="w-[283px] h-[194px] sm:w-[551px] sm:h-[378px] xl:w-[750px] xl:h-[515px] "
+            alt="abstract art"
+          />
           <p>
             Fiona Hill is a British-American foreign affairs specialist, known
             for her expertise in Russian and European affairs. She served on the
