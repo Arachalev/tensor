@@ -1,10 +1,10 @@
 import github from "../../../public/assets/images/experts/github.svg";
 import doi from "../../../public/assets/images/experts/doi.svg";
 import linkedin from "../../../public/assets/images/experts/linkedin.svg";
-import mark from "../../../public/assets/images/experts/mark.svg";
-import caspar from "../../../public/assets/images/experts/caspar.svg";
-import stanislav from "../../../public/assets/images/experts/stanislav.svg";
-import anton from "../../../public/assets/images/experts/anton.svg";
+import mark from "../../../public/assets/images/experts/mark.png";
+import caspar from "../../../public/assets/images/experts/caspar.jpg";
+import stanislav from "../../../public/assets/images/experts/stanislav.png";
+import anton from "../../../public/assets/images/experts/anton.png";
 
 export const expertCardsData = [
   {

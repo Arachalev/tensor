@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import React from "react";
 
 interface ExpertsCardProps {
-  profile: string;
+  profile: StaticImageData;
   name: string;
   social: {
     img: string;
@@ -22,44 +22,46 @@ const ExpertsCard = (expertDetails: ExpertsCardProps) => {
 
   const rawDetailsArr = details.split("!");
   const detailsArr = rawDetailsArr.map((item) => item.replace("\n", "").trim());
-  console.log(detailsArr);
+  // console.log(detailsArr);
 
   //   detailsArr.forEach(item => ())
 
   return (
-    <div>
-      <Image src={profile} alt={name} />
-      <h4>{name}</h4>
-      <div>
-        {social.map((item, index) => (
-          <Link href={item.link} key={item.name}>
-            <Image src={item.img} alt={item.name} />
-          </Link>
-        ))}
-      </div>
-      <p>{title}</p>
-      {/* <p>{details}</p> */}
-      <div className="">
-        {detailsArr.map((item) => {
-          let link;
-          let text;
-          links.forEach((linksItem) => {
-            if (item === linksItem.text) {
-              link = (
-                <Link className="underline" href={linksItem.link}>
-                  {linksItem.text.trim()} {" "}
-                </Link>
-              );
+    <div className="font-inter w-[250px] ">
+      <Image src={profile} alt={name} className="mb-3 w-[250px] h-[230px]" />
+      <div className="px-3 flex flex-col gap-3 ">
+        <h4 className="text-darkGreen font-bold text-xl">{name}</h4>
+        <div className="flex items-center gap-2">
+          {social.map((item, index) => (
+            <Link href={item.link} key={item.name}>
+              <Image src={item.img} alt={item.name} />
+            </Link>
+          ))}
+        </div>
+        <p className="text-darkGreen/70 font-medium text-xs">{title}</p>
+        {/* <p>{details}</p> */}
+        <div className="font-medium text-xs leading-6 ">
+          {detailsArr.map((item) => {
+            let link;
+            let text;
+            links.forEach((linksItem) => {
+              if (item === linksItem.text) {
+                link = (
+                  <Link className="underline" href={linksItem.link}>
+                    {linksItem.text.trim()}{" "}
+                  </Link>
+                );
+              } else {
+                text = <p className="inline">{item.trim()} </p>;
+              }
+            });
+            if (link) {
+              return link;
             } else {
-              text = <p className="inline">{item.trim()} </p>;
+              return text;
             }
-          });
-          if (link) {
-            return link;
-          } else {
-            return text;
-          }
-        })}
+          })}
+        </div>
       </div>
     </div>
   );
