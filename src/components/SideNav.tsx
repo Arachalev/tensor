@@ -9,7 +9,7 @@ const SideNav = ({ variant = "dark" }: { variant?: "light" | "dark" }) => {
     <div
       className={`font-inter flex flex-col gap-4 ${
         variant === "light"
-          ? "bg-gradient-to-r from-[#005050]/90 to-[#005050]/40 sm:px-4"
+          ? "g-gradient-to-r from-[#005050]/90 to-[#005050]/40 sm:px-4"
           : ""
       }`}
     >

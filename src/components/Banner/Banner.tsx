@@ -44,7 +44,7 @@ const Banner = ({ speed = 5000 }: { speed: number }) => {
   return (
     <div className="inner relative overflow-hidden w-[100vw] sm:w-[100% h-5 sm:h-[60px] ">
       <div className="wrapper absolute w-full h-full flex items-center gap-8  ">
-        <section>
+        <section className="section">
           {images.map((image, id) => (
             <div className="image" key={id}>
               <Image
@@ -57,7 +57,7 @@ const Banner = ({ speed = 5000 }: { speed: number }) => {
             </div>
           ))}
         </section>
-        <section>
+        <section className="section">
           {images.map((image, id) => (
             <div className="image" key={id}>
               <Image
@@ -70,7 +70,7 @@ const Banner = ({ speed = 5000 }: { speed: number }) => {
             </div>
           ))}
         </section>
-        <section>
+        <section className="section">
           {images.map((image, id) => (
             <div className="image w-full" key={id}>
               <Image

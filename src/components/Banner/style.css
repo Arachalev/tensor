@@ -28,7 +28,7 @@ img:last-of-type {
   gap: 2rem;
 } */
 
-section {
+.section {
   display: flex;
   gap: 2rem;
   align-items: center;
