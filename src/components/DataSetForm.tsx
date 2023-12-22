@@ -73,22 +73,25 @@ const DataSetForm = () => {
                     alignItems: "center",
                   }),
                   indicatorsContainer: (baseStyles, state) => ({}),
-
-                  valueContainer: (baseStyles, state) => ({
+                  // @ts-ignore
+                  valueContainer: (baseStyles: CSSObjectWithLabel, state) => ({
                     ...baseStyles,
                     width: "60%",
                   }),
+                  // @ts-ignore
                   placeholder: (baseStyles, state) => ({
                     ...baseStyles,
                     fontSize:
                       deviceWidth > 1280 ? 10 : deviceWidth > 640 ? 16 : 8,
                   }),
+                  // @ts-ignore
                   dropdownIndicator: (baseStyles, state) => ({
                     ...baseStyles,
                     padding: deviceWidth > 640 ? 8 : 0,
                     height: deviceWidth > 640 ? 36 : 20,
                     width: deviceWidth > 640 ? 36 : 15,
                   }),
+                  // @ts-ignore
                   singleValue: (baseStyles, state) => ({
                     ...baseStyles,
                     fontSize: deviceWidth > 640 ? 114 : 10,
@@ -124,22 +127,26 @@ const DataSetForm = () => {
                     // ...baseStyles
                   }),
 
+                  // @ts-ignore
                   valueContainer: (baseStyles, state) => ({
                     ...baseStyles,
                     width: "60%",
                   }),
 
+                  // @ts-ignore
                   placeholder: (baseStyles, state) => ({
                     ...baseStyles,
                     fontSize:
                       deviceWidth > 1280 ? 10 : deviceWidth > 640 ? 16 : 8,
                   }),
+                  // @ts-ignore
                   dropdownIndicator: (baseStyles, state) => ({
                     ...baseStyles,
                     padding: deviceWidth > 640 ? 8 : 0,
                     height: deviceWidth > 640 ? 36 : 20,
                     width: deviceWidth > 640 ? 36 : 15,
                   }),
+                  // @ts-ignore
                   singleValue: (baseStyles, state) => ({
                     ...baseStyles,
                     fontSize: 10,
