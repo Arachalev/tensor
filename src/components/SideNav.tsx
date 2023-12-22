@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import React, { useContext } from "react";
 import Image from "next/image";
@@ -15,9 +16,7 @@ const SideNav = ({
   return (
     <div
       className={`z-50 font-inter flex flex-col gap-4 ${
-        variant === "light"
-          ? " sm:px-4"
-          : ""
+        variant === "light" ? " sm:px-4" : ""
       }`}
     >
       {showInvestor && (
