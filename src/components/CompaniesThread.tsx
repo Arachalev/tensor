@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import CompanyCard from "./CompanyCard";
 
@@ -54,6 +54,23 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
     showModal: false,
   });
   const { companies } = props;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      !showCompany.showModal &&
+        setShowCompany({
+          showModal: false,
+          company: {
+            name: "",
+            deals: 0,
+            value: "",
+            leadDays: 0,
+          },
+        });
+    };
+    document.addEventListener("scroll", handleScroll);
+    return () => document.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleModal = (
     name: string,
@@ -140,11 +157,11 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
                           })
                         : null;
                     }}
-                    className={`fixed top-0 left-0  ${
+                    className={`fixed top-20 left-0  ${
                       showCompany.showModal &&
                       item.comp1.name === showCompany.company.name &&
                       "w-screen h-screen"
-                    }  sm:w-auto   sm:h-auto flex justify-center  pt-20 sm:pt-0 sm:absolute sm:left-11 z-50`}
+                    }  sm:w-auto   sm:h-auto flex justify-center  pt-20 sm:pt-0 sm:absolute sm:top-28 sm:left-28 z-[60]`}
                   >
                     {showCompany.showModal &&
                       item.comp1.name === showCompany.company.name && (
@@ -235,11 +252,11 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
                           })
                         : null;
                     }}
-                    className={`fixed top-0 left-0 ${
+                    className={`fixed top-20 left-0 ${
                       showCompany.showModal &&
                       item.comp2.name === showCompany.company.name &&
                       "w-screen h-screen"
-                    }  sm:w-auto   sm:h-auto flex justify-center  pt-20 sm:pt-0 sm:absolute sm:left-11 z-50`}
+                    }  sm:w-auto   sm:h-auto flex justify-center  pt-20 sm:pt-0 sm:absolute sm:top-28 sm:left-28 z-50`}
                   >
                     {showCompany.showModal &&
                       item.comp2.name === showCompany.company.name && (
@@ -330,11 +347,11 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
                           })
                         : null;
                     }}
-                    className={`fixed top-0 left-0  ${
+                    className={`fixed top-20 left-0  ${
                       showCompany.showModal &&
                       item.comp3.name === showCompany.company.name &&
                       "w-screen h-screen"
-                    }  sm:w-auto   sm:h-auto flex justify-center  pt-20 sm:pt-0 sm:absolute sm:left-11 z-50`}
+                    }  sm:w-auto   sm:h-auto flex justify-center  pt-20 sm:pt-0 sm:absolute sm:top-28 sm:left-28 z-50`}
                   >
                     {showCompany.showModal &&
                       item.comp3.name === showCompany.company.name && (
@@ -425,11 +442,11 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
                           })
                         : null;
                     }}
-                    className={`fixed top-0 left-0  ${
+                    className={`fixed top-20 left-0  ${
                       showCompany.showModal &&
                       item.comp4.name === showCompany.company.name &&
                       "w-screen h-screen"
-                    }  sm:w-auto   sm:h-auto flex justify-center  pt-20 sm:pt-0 sm:absolute sm:left-11 z-50`}
+                    }  sm:w-auto   sm:h-auto flex justify-center  pt-20 sm:pt-0 sm:absolute sm:top-28 sm:left-28 z-50`}
                   >
                     {showCompany.showModal &&
                       item.comp4.name === showCompany.company.name && (
@@ -520,11 +537,11 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
                           })
                         : null;
                     }}
-                    className={`fixed top-0 left-0 ${
+                    className={`fixed top-20 left-0 ${
                       showCompany.showModal &&
                       item.comp5.name === showCompany.company.name &&
                       "w-screen h-screen"
-                    }  sm:w-auto   sm:h-auto flex justify-center  pt-20 sm:pt-0 sm:absolute sm:left-11 z-50`}
+                    }  sm:w-auto   sm:h-auto flex justify-center  pt-20 sm:pt-0 sm:absolute sm:top-28 sm:left-28 z-50`}
                   >
                     {showCompany.showModal &&
                       item.comp5.name === showCompany.company.name && (
@@ -615,11 +632,11 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
                           })
                         : null;
                     }}
-                    className={`fixed top-0 left-0  ${
+                    className={`fixed top-20 left-0  ${
                       showCompany.showModal &&
                       item.comp6.name === showCompany.company.name &&
                       "w-screen h-screen"
-                    }  sm:w-auto   sm:h-auto flex justify-center  pt-20 sm:pt-0 sm:absolute sm:left-11 z-50`}
+                    }  sm:w-auto   sm:h-auto flex justify-center  pt-20 sm:pt-0 sm:absolute sm:top-28 sm:left-28 z-50`}
                   >
                     {showCompany.showModal &&
                       item.comp6.name === showCompany.company.name && (

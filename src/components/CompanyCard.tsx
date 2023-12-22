@@ -1,6 +1,7 @@
 import React from "react";
 import type { Companies } from "./CompaniesThread";
 import Image from "next/image";
+import "./CompanyCardStyles.css";
 
 interface CompanyCardProps extends Companies {
   handleClose: () => void;
@@ -29,7 +30,7 @@ const CompanyCard = (props: CompanyCardProps) => {
 
   return (
     <div
-      className="bg-softBlue h-[231px] w-[186px] px-3 pt-[14px]  flex flex-col gap-2 rounded-t-[9px] rounded-br-[9px] text-darkGreen font-inter "
+      className=" scale-[1.8]  bg-softBlue h-[231px] w-[186px] px-3 pt-[14px]  flex flex-col gap-2 rounded-t-[9px] rounded-br-[9px] text-darkGreen font-inter "
       onMouseLeave={() => handleClose()}
     >
       <div className="font-bold flex items-center gap-[5px]">
@@ -51,8 +52,8 @@ const CompanyCard = (props: CompanyCardProps) => {
       </div>
       <hr className="bg-[#87BFBF]/40 border-none min-h-[1px] w-full" />
       <div
-        className="text-[6px] flex flex-col gap-3 overflow-y-scroll "
-        style={{ scrollbarWidth: "thin" }}
+        className=" companyCard text-[6px] flex flex-col gap-3 overflow-y-scroll pb-4"
+        // style={{ scrollbarWidth: "none" }}
       >
         {details1 && (
           <div className="">

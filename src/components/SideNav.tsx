@@ -1,9 +1,9 @@
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
 import arrow from "../../public/assets/icons/arrow.svg";
 import arrowWhite from "../../public/assets/icons/arrow-white.svg";
-
+import { AppContext } from "@/store/contexts/appContext";
 const SideNav = ({
   variant = "dark",
   showInvestor = false,
@@ -11,11 +11,12 @@ const SideNav = ({
   variant?: "light" | "dark";
   showInvestor?: boolean;
 }) => {
+  const { showNav, updateShowNav } = useContext(AppContext);
   return (
     <div
-      className={`font-inter flex flex-col gap-4 ${
+      className={`z-50 font-inter flex flex-col gap-4 ${
         variant === "light"
-          ? "g-gradient-to-r from-[#005050]/90 to-[#005050]/40 sm:px-4"
+          ? " sm:px-4"
           : ""
       }`}
     >
@@ -41,17 +42,20 @@ const SideNav = ({
         } font-semibold text-[10px] `}
       >
         <div
-          className={`flex items-center gap-[6px] font-semibold text-xs ${
+          onClick={() => updateShowNav("whatWedDo")}
+          className={`cursor-pointer flex items-center gap-[6px] font-semibold text-xs ${
             variant === "dark" ? "text-darkGreen" : "text-white"
           }`}
         >
           <Image src={variant === "dark" ? arrow : arrowWhite} alt="arrow" />
           <h4>What We Do</h4>
         </div>
-        <div className="ml-4 flex flex-col gap-1 mt-1  text-[9px]">
-          <Link href="">Our Product</Link>
-          <Link href="">Pricing</Link>
-        </div>
+        {showNav.whatWedDo && (
+          <div className="ml-4 flex flex-col gap-1 mt-1  text-[9px]">
+            <Link href="">Our Product</Link>
+            <Link href="">Pricing</Link>
+          </div>
+        )}
       </div>
       <div
         className={` ${
@@ -59,7 +63,8 @@ const SideNav = ({
         } font-semibold text-[10px] `}
       >
         <div
-          className={`flex items-center gap-[6px] font-semibold text-xs ${
+          onClick={() => updateShowNav("whoWeAre")}
+          className={`cursor-pointer flex items-center gap-[6px] font-semibold text-xs ${
             variant === "dark" ? "text-darkGreen" : "text-white"
           }`}
         >
@@ -67,14 +72,16 @@ const SideNav = ({
 
           <h4>Who We Are</h4>
         </div>
-        <div className="ml-4 flex flex-col gap-1 mt-1  text-[9px]">
-          <Link href="">Leadership</Link>
-          <Link href="">Founder</Link>
-          <Link href="">Our People</Link>
-          <Link href="">Diversity</Link>
-          <Link href="">Core Principles</Link>
-          <Link href="">Community</Link>
-        </div>
+        {showNav.whoWeAre && (
+          <div className="ml-4 flex flex-col gap-1 mt-1  text-[9px]">
+            <Link href="">Leadership</Link>
+            <Link href="">Founder</Link>
+            <Link href="">Our People</Link>
+            <Link href="">Diversity</Link>
+            <Link href="">Core Principles</Link>
+            <Link href="">Community</Link>
+          </div>
+        )}
       </div>
       <div
         className={` ${
@@ -82,7 +89,8 @@ const SideNav = ({
         } font-semibold text-[10px] `}
       >
         <div
-          className={`flex items-center gap-[6px] font-semibold text-xs ${
+          onClick={() => updateShowNav("join")}
+          className={` cursor-pointer flex items-center gap-[6px] font-semibold text-xs ${
             variant === "dark" ? "text-darkGreen" : "text-white"
           }`}
         >
@@ -90,14 +98,16 @@ const SideNav = ({
 
           <h4>How to Join</h4>
         </div>
-        <div className="ml-4 flex flex-col gap-1 mt-1  text-[9px]">
-          <Link href="">Career Development</Link>
-          <Link href="">Choose Your Path</Link>
-          <Link href="">Interviewing</Link>
-          <Link href="">internships</Link>
-          <Link href="">Fellowship Program</Link>
-          <Link href="">Application FAQ</Link>
-        </div>
+        {showNav.join && (
+          <div className="ml-4 flex flex-col gap-1 mt-1  text-[9px]">
+            <Link href="">Career Development</Link>
+            <Link href="">Choose Your Path</Link>
+            <Link href="">Interviewing</Link>
+            <Link href="">internships</Link>
+            <Link href="">Fellowship Program</Link>
+            <Link href="">Application FAQ</Link>
+          </div>
+        )}
       </div>
       <button
         type="button"

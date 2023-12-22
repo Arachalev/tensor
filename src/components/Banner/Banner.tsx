@@ -36,21 +36,21 @@ export const images = [
     width: 51,
     w1: "min-w-[51px]",
     w2: "sm:min-w-[85px]",
-    w3: "xl:min-w-[120px]",
+    w3: "xl:min-w-[125px]",
   },
 ];
 // style={{ "--speed": `${speed}ms` }}
 const Banner = ({ speed = 5000 }: { speed: number }) => {
   return (
-    <div className="inner relative overflow-hidden w-[100vw] sm:w-[100% h-5 sm:h-[60px] ">
-      <div className="wrapper absolute w-full h-full flex items-center gap-8  ">
+    <div className="inner relative overflow-hidden w-[100vw] h-5 sm:h-[60px] ">
+      <div className="wrapper absolute h-full flex items-center">
         <section className="section">
           {images.map((image, id) => (
-            <div className="image" key={id}>
+            <div className="image" key={`${id}+${image.w1}`}>
               <Image
                 width={image.width}
                 height={8}
-                className={`img h-2 sm:h-[14px] xl:h-[20px]  ${image.w1} ${image.w2} ${image.w3} object-cover `}
+                className={`img h-2 sm:h-[14px] xl:h-[18px]  ${image.w1} ${image.w2} ${image.w3} object-cover `}
                 src={image.image}
                 alt={`${id}`}
               />
@@ -59,7 +59,7 @@ const Banner = ({ speed = 5000 }: { speed: number }) => {
         </section>
         <section className="section">
           {images.map((image, id) => (
-            <div className="image" key={id}>
+            <div className="image" key={`${id}+${image.w2}`}>
               <Image
                 width={image.width}
                 height={8}
@@ -72,7 +72,7 @@ const Banner = ({ speed = 5000 }: { speed: number }) => {
         </section>
         <section className="section">
           {images.map((image, id) => (
-            <div className="image w-full" key={id}>
+            <div className="image" key={`${id}+${image.w3}`}>
               <Image
                 width={image.width}
                 height={8}

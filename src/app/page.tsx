@@ -5,7 +5,11 @@ import dellImg from "../../public/assets/images/homePage/DELL.svg";
 import ciscoImg from "../../public/assets/images/homePage/CISCO.svg";
 import phillipsImg from "../../public/assets/images/homePage/PHILIPS.svg";
 import SideNav from "@/components/SideNav";
-import { companiesThreadData, mediumCompaniesThreadData, mobileCompaniesThreadData } from "@/store/staticData/companiesThreadData";
+import {
+  companiesThreadData,
+  mediumCompaniesThreadData,
+  mobileCompaniesThreadData,
+} from "@/store/staticData/companiesThreadData";
 import CompaniesThread from "@/components/CompaniesThread";
 import { useContext } from "react";
 import { AppContext } from "@/store/contexts/appContext";
@@ -13,11 +17,18 @@ import { AppContext } from "@/store/contexts/appContext";
 export default function Home() {
   const { deviceWidth } = useContext(AppContext);
   // sm:pr-4 xl:pr-[73px]
+
   return (
-    <main className="w-full ">
-      <div className="relative h-full flex bg-darkGreen font-inter pr-6  sm:pr-[60px] xl:pr-[73px] pt-7 pb-16 sm:pb-[73px] xl:pb-[200px] text-white w-full">
-        <div className="min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center relative text-fadedBlue">
+    <main className="w-full">
+      <div className="relative h-full  flex bg-darkGreen font-inter pl-[24px] sm:pl-[60px] xl:pl-[158px] pr-6 sm:pr-[60px] xl:pr-[73px] pt-7 pb-16 sm:pb-[73px] xl:pb-[200px] text-white w-full">
+        {/* <div className="min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center relative text-fadedBlue">
           <p className="absolute -left-6 sm:-left-14 underline font-serif text-base  sm:text-4xl xl:text-[44px] rotate-[90deg] scale-y-[-1] scale-x-[-1]">
+            TwoTensor
+          </p>
+        </div> */}
+
+        <div className="absolute -left-7 sm:-left-14 xl:-left-10 top-[10rem] xl:top-[16rem] min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center  ">
+          <p className=" underline font-serif text-base  sm:text-4xl xl:text-[44px] text-fadedBlue rotate-[90deg] scale-y-[-1] scale-x-[-1]">
             TwoTensor
           </p>
         </div>
@@ -55,7 +66,7 @@ export default function Home() {
               >
                 Complimentary Dataset
               </button>
-              <p className="   underline font-serif text-xs sm:text-base xl:text-xl text-softBlue">
+              <p className="underline font-serif text-xs sm:text-base xl:text-xl text-softBlue">
                 TwoTensor
               </p>
             </div>
@@ -64,17 +75,19 @@ export default function Home() {
         {/* 
         pr-6  sm:pr-[60px] xl:pr-[73px] 
         */}
-        <div className="absolute right-[40px] xl:right-[57px] hidden sm:block">
+        <div className="hidden sm:block absolute h-full sm:w-40 xl:w-52 right-0 top-0  bg-gradient-to-r from-[#005050]/90 to-[#005050]/40" />
+
+        <div className="absolute right-[40px] xl:right-[57px] hidden sm:block z-20">
           <SideNav variant="light" />
         </div>
       </div>
-      <div className="bg-[#F6FFFE]  flex justify-between   pr-6 sm:pr-[60px] xl:pr-[73px] py-14 pt-16 ">
-        <div className="min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center relative">
-          <p className="  absolute -left-4 underline font-serif text-[9px] sm:text-sm xl:text-lg text-darkGreen rotate-[90deg] scale-y-[-1] scale-x-[-1]">
+      <div className="bg-[#F6FFFE] relative flex justify-between border-4 pl-[24px] sm:pl-[60px] xl:pl-[158px] pr-6 sm:pr-[60px] xl:pr-[73px] py-14 pt-16 ">
+        <div className="absolute -left-4  xl:-left-14 top-[14rem] xl:top-[18rem] min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center  ">
+          <p className=" underline font-serif text-[9px] sm:text-sm xl:text-lg text-[#035F5F] rotate-[90deg] scale-y-[-1] scale-x-[-1]">
             TwoTensor
           </p>
         </div>
-        <div className=" flex flex-col gap-9 font-inter ">
+        <div className=" flex flex-col gap-9 font-inter sm:w-[440px] xl:w-[680px] ">
           <div className="flex flex-col gap-10 text-[15px] sm:text-xl xl:text-2xl font-semibold text-darkGreen">
             <h4 className="hidden xl:block font-medium text-xl">
               INVESTMENT INTENT DATA
