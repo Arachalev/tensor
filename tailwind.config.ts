@@ -20,6 +20,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         inter: ["Inter"],
+        sora:["Sora"]
       },
       colors: {
         darkGreen: "#005050",

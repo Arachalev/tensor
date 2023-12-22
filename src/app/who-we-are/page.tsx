@@ -165,7 +165,7 @@ const Page = () => {
           </p>
         </div>
 
-        <div className="pt-9 xl:pt-16 flex flex-col xl:flex-row sm:grid sm:grid-cols-2 xl:flex xl:justify-center xl:items-start xl:gap-7 sm:justify-items-center gap-7 sm:gap-x-5 sm:gap-y-20 items-center">
+        <div className="pt-9 xl:pt-16 flex flex-col xl:flex-row sm:grid sm:grid-cols-[305px_305px] xl:flex sm:justify-center sm:items-start xl:gap-7 sm:justify-items-center gap-7 sm:gap-x-5 sm:gap-y-20 items-center">
           {expertCardsData.map((item) => (
             <ExpertsCard
               key={item.name}

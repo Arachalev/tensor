@@ -17,8 +17,6 @@ img:last-of-type {
 
 } */
 
- 
-
 /* .wrapper {
   position: absolute;
   width: 100%;
@@ -38,6 +36,9 @@ img:last-of-type {
 @keyframes swipe {
   0% {
     transform: translate(0);
+  }
+  50% {
+    transform: translate(-50%);
   }
 
   100% {
