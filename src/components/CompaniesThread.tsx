@@ -57,7 +57,8 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      !showCompany.showModal &&
+      console.log("first")
+      showCompany.showModal &&
         setShowCompany({
           showModal: false,
           company: {
@@ -70,7 +71,7 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
     };
     document.addEventListener("scroll", handleScroll);
     return () => document.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [showCompany.showModal]);
 
   const handleModal = (
     name: string,
