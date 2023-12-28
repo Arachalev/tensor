@@ -81,7 +81,7 @@ export default function Home() {
           <SideNav variant="light" />
         </div>
       </div>
-      <div className="bg-[#F6FFFE] relative flex justify-between border-4 pl-[24px] sm:pl-[60px] xl:pl-[158px] pr-6 sm:pr-[60px] xl:pr-[73px] py-14 pt-16 ">
+      <div className="bg-[#F6FFFE] relative flex justify-between pl-[24px] sm:pl-[60px] xl:pl-[158px] pr-6 sm:pr-[60px] xl:pr-[73px] py-14 pt-16 xl:py-32 ">
         <div className="absolute -left-4  xl:-left-14 top-[14rem] xl:top-[18rem] min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center  ">
           <p className=" underline font-serif text-[9px] sm:text-sm xl:text-lg text-[#035F5F] rotate-[90deg] scale-y-[-1] scale-x-[-1]">
             TwoTensor
@@ -98,8 +98,10 @@ export default function Home() {
               products?
             </p>
             <p>
-              At TwoTensor we&apos;re doing the same thing, but for finance. We
-              analyse online hints that show us when a company might get
+              At TwoTensor we&apos;re doing the same thing, but for finance.
+            </p>
+            <p>
+              We analyse online hints that show us when a company might get
               investment or who might invest in them.
             </p>
             <p>

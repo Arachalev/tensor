@@ -26,7 +26,8 @@ const config: Config = {
         darkGreen: "#005050",
         softBlue: "#E3F8F5",
         fadedBlue: "#F6FFFE",
-        homeCircle:"#74DDD0"
+        homeCircle:"#74DDD0", 
+        teal:"#74DDD0"
       },
     },
   },
