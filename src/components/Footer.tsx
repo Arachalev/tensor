@@ -13,7 +13,7 @@ const Footer = () => {
   return (
     <footer className="w-screen bg-darkGreen text-softBlue px-10 sm:px-[77px] xl:pl-[229px] xl:pr-[153px] pt-16 sm:pt-[117px] xl:pt-[173px] pb-8 sm:pb-14 xl:pb-[120px] sm:pbfont-inter flex flex-col gap-10 sm:gap-x-[146px] xl:gap-x-[121px] sm:gap-y-[114px] xl:gap-y-12 sm:grid sm:grid-cols-2 xl:grid-cols-4">
       <div>
-        <h4 className="font-semibold underline mb-3 xl:text-2xl ">
+        <h4 className="font-semibold border-b-2 border-b-softBlue w-fit mb-3 xl:text-2xl ">
           Who We Are
         </h4>
 
@@ -41,7 +41,7 @@ const Footer = () => {
         </ul>
       </div>
       <div>
-        <h4 className="font-semibold underline mb-3 xl:text-2xl ">
+        <h4 className="font-semibold  border-b-2 border-b-softBlue w-fit mb-3 xl:text-2xl ">
           What We Do
         </h4>
 
@@ -55,7 +55,7 @@ const Footer = () => {
         </ul>
       </div>
       <div>
-        <h4 className="font-semibold underline mb-3 xl:text-2xl ">
+        <h4 className="font-semibold border-b-2 border-b-softBlue w-fit mb-3 xl:text-2xl ">
           How to Join
         </h4>
 
@@ -149,14 +149,14 @@ const Footer = () => {
         </ul>
       </div>
       <div className="text-[8px] sm:text-base ">
-        <Link href="" className="underline">
+        <Link href="" className=" border-b-2 border-b-softBlue ">
           Online Statement
         </Link>{" "}
         <br />
-        <Link href="" className="underline">
+        <Link href="" className=" border-b-2 border-b-softBlue ">
           Important Disclosures
         </Link>
-        <p className="text-[7px] no-underline ">
+        <p className="text-[7px] sm:text-sm no-underline whitespace-nowrap mt-1 ">
           COPYRIGHT 2023 TWOTENSOR . ALL RIGHTS RESERVED
         </p>
       </div>

@@ -13,6 +13,7 @@ import {
 import CompaniesThread from "@/components/CompaniesThread";
 import { useContext } from "react";
 import { AppContext } from "@/store/contexts/appContext";
+import Link from "next/link";
 
 export default function Home() {
   const { deviceWidth } = useContext(AppContext);
@@ -20,18 +21,21 @@ export default function Home() {
 
   return (
     <main className="w-full">
-      <div className="relative h-full  flex bg-darkGreen font-inter pl-[24px] sm:pl-[60px] xl:pl-[158px] pr-6 sm:pr-[60px] xl:pr-[73px] pt-7 pb-16 sm:pb-[73px] xl:pb-[200px] text-white w-full">
+      <div className="relative h-full min-h-[100vh]  flex bg-darkGreen font-inter pl-[24px] sm:pl-[60px] xl:pl-[158px] pr-6 sm:pr-[60px] xl:pr-[73px] pt-7 pb-16 sm:pb-[73px] xl:pb-[200px] text-white w-full">
         {/* <div className="min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center relative text-fadedBlue">
           <p className="absolute -left-6 sm:-left-14 underline font-serif text-base  sm:text-4xl xl:text-[44px] rotate-[90deg] scale-y-[-1] scale-x-[-1]">
             TwoTensor
           </p>
         </div> */}
 
-        <div className="absolute -left-7 sm:-left-14 xl:-left-10 top-[10rem] xl:top-[16rem] min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center  ">
+        <Link
+          href="/"
+          className="absolute -left-7 sm:-left-14 xl:-left-10 top-[10rem] xl:top-[16rem] min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center  "
+        >
           <p className=" underline font-serif text-base  sm:text-4xl xl:text-[44px] text-fadedBlue rotate-[90deg] scale-y-[-1] scale-x-[-1]">
             TwoTensor
           </p>
-        </div>
+        </Link>
         <div className="fle flex-col items-center sm:w-full ">
           {/* hero section */}
           <div className="w-full relative ">
@@ -53,7 +57,7 @@ export default function Home() {
             <h4 className="font-semibold text-xl sm:text-3xl xl:text-5xl">
               Investment Intent Signals for <br /> Smarter and Faster Deals.
             </h4>
-            <p className="text-[9px]  sm:text-sm xl:text-lg  font-medium mb-1  xl:mt-2 ">
+            <p className="text-[9px] sm:text-sm xl:text-lg mb-1  xl:mt-2 ">
               Cut waste from false leads and ill timed efforts using a
               searchable universe <br />
               of investment intent signals.
@@ -75,20 +79,23 @@ export default function Home() {
         {/* 
         pr-6  sm:pr-[60px] xl:pr-[73px] 
         */}
-        <div className="hidden sm:block absolute h-full sm:w-40 xl:w-52 right-0 top-0  bg-gradient-to-r from-[#005050]/90 to-[#005050]/40" />
+        <div className="hidden sm:block absolute h-full sm:w-40 xl:w-52 right-0 top-0  bg-gradient-to-r from-[#005050]/40 via-darkGreen/80 to-[#005050]/40" />
 
         <div className="absolute right-[40px] xl:right-[57px] hidden sm:block z-20">
-          <SideNav variant="light" />
+          <SideNav variant="light" showInvestor />
         </div>
       </div>
-      <div className="bg-[#F6FFFE] relative flex justify-between pl-[24px] sm:pl-[60px] xl:pl-[158px] pr-6 sm:pr-[60px] xl:pr-[73px] py-14 pt-16 xl:py-32 ">
-        <div className="absolute -left-4  xl:-left-14 top-[14rem] xl:top-[18rem] min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center  ">
+      <div className="bg-[#F6FFFE] xl:min-h-[100vh] relative flex justify-between pl-[24px] sm:pl-[60px] xl:pl-[158px] pr-6 sm:pr-[60px] xl:pr-[73px] py-14 pt-16 xl:py-32 ">
+        <Link
+          href="/"
+          className="absolute -left-4  xl:-left-14 top-[14rem] xl:top-[18rem] min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center  "
+        >
           <p className=" underline font-serif text-[9px] sm:text-sm xl:text-lg text-[#035F5F] rotate-[90deg] scale-y-[-1] scale-x-[-1]">
             TwoTensor
           </p>
-        </div>
+        </Link>
         <div className=" flex flex-col gap-9 font-inter sm:w-[440px] xl:w-[680px] ">
-          <div className="flex flex-col gap-10 text-[15px] sm:text-xl xl:text-2xl font-semibold text-darkGreen">
+          <div className="flex flex-col gap-10 text-[15px] sm:text-xl xl:text-2xl font-medium text-darkGreen">
             <h4 className="hidden xl:block font-medium text-xl">
               INVESTMENT INTENT DATA
             </h4>

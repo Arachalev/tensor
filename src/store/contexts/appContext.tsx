@@ -6,8 +6,8 @@ export const AppContext = createContext({
   deviceWidth: 1300,
   showNav: {
     whatWedDo: true,
-    whoWeAre: true,
-    join: true,
+    whoWeAre: false,
+    join: false,
   },
   updateShowNav: (item: "whatWedDo" | "whoWeAre" | "join") => {},
   updateDeviceWidth: (value: number) => {},
@@ -20,8 +20,8 @@ export const AppContextProvider = ({
 }) => {
   const [showNav, setShowNav] = useState({
     whatWedDo: true,
-    whoWeAre: true,
-    join: true,
+    whoWeAre: false,
+    join: false,
   });
 
   const [deviceWidth, setDeviceWidth] = useState(1300);

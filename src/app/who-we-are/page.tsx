@@ -12,11 +12,14 @@ const Page = () => {
   return (
     <div className="font-inter w-full relative">
       <section className=" px-6 sm:px-10 xl:px-28 py-8 sm:py-[85px] xl:py-28 bg-white text-darkGreen  ">
-        <div className="absolute -left-4 top-[20rem] xl:top-[70rem] min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center  ">
+        <Link
+          href="/"
+          className="absolute -left-4 top-[20rem] xl:top-[70rem] min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center  "
+        >
           <p className=" underline font-serif text-[9px] sm:text-sm xl:text-lg text-[#035F5F] rotate-[90deg] scale-y-[-1] scale-x-[-1]">
             TwoTensor
           </p>
-        </div>
+        </Link>
         <div className="sm:w-[480px] xl:w-[900px]">
           <h4 className="underline font-semibold text-xl sm:text-3xl xl:text-4xl mb-5 xl:mb-10">
             WHO WE ARE
@@ -109,8 +112,11 @@ const Page = () => {
         <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-5 xl:w-[1200px]">
           <div className="flex justify-between items-center ">
             <div className="flex items-center gap-2 sm:gap-3">
-              <p className="underline font-bold text-xl sm:text-4xl">5/5</p>
-              <p className="font-medium text-[9px] sm:text-base">
+              <p className=" border-b-2 sm:border-b-4 border-b-darkGreen  font-bold text-xl sm:text-4xl xl:text-[40px]">
+                5/5
+              </p>
+
+              <p className="font-medium text-[9px] sm:text-[15px] leading-[16px]">
                 Hold STEM <br /> Degrees
               </p>
             </div>
@@ -118,8 +124,10 @@ const Page = () => {
           </div>
           <div className="flex justify-between items-center sm:col-span-2 xl:col-span-1 ">
             <div className="flex items-center gap-2 sm:gap-3 ">
-              <p className="underline font-bold text-xl sm:text-4xl">2/5</p>
-              <p className="font-medium text-[9px] sm:text-base">
+              <p className=" border-b-2 sm:border-b-4 border-b-darkGreen font-bold text-xl sm:text-4xl xl:text-[40px]">
+                2/5
+              </p>
+              <p className="font-medium text-[9px]sm:text-[15px] leading-[16px]">
                 Hold Data <br /> Science Degrees
               </p>
             </div>
@@ -127,8 +135,10 @@ const Page = () => {
           </div>
           <div className="flex justify-between items-center ">
             <div className="flex items-center gap-2 sm:gap-3">
-              <p className="underline font-bold text-xl sm:text-4xl">8</p>
-              <p className="font-medium text-[9px] sm:text-base">
+              <p className=" border-b-2 sm:border-b-4 border-b-darkGreen  font-bold text-xl sm:text-4xl xl:text-[40px]">
+                8
+              </p>
+              <p className="font-medium text-[9px] sm:text-[15px] leading-[16px]">
                 {" "}
                 Languages spoken <br /> by our team
               </p>
@@ -137,8 +147,10 @@ const Page = () => {
           </div>
           <div className="flex justify-between items-center ">
             <div className="flex items-center gap-2 sm:gap-3">
-              <p className="underline font-bold text-xl sm:text-4xl">2/5</p>
-              <p className="font-medium text-[9px] sm:text-base">
+              <p className=" border-b-2 sm:border-b-4 border-b-darkGreen  font-bold text-xl sm:text-4xl xl:text-[40px]">
+                2/5
+              </p>
+              <p className="font-medium text-[9px] sm:text-[15px] leading-[16px]">
                 Published <br /> Researchers
               </p>
             </div>
@@ -146,8 +158,11 @@ const Page = () => {
           </div>
           <div className="flex justify-between items-center ">
             <div className="flex items-center gap-2 sm:gap-3">
-              <p className="underline font-bold text-xl sm:text-4xl"> 10</p>
-              <p className="font-medium text-[9px] sm:text-base">
+              <p className=" border-b-2 sm:border-b-4 border-b-darkGreen  font-bold text-xl sm:text-4xl xl:text-[40px]">
+                {" "}
+                10
+              </p>
+              <p className="font-medium text-[9px] sm:text-[15px] leading-[16px]">
                 Data <br /> Analysts
               </p>
             </div>
