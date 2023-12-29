@@ -21,7 +21,7 @@ const ApplicationFaqCard = (props: ApplicationFaqCardProps) => {
             setshowAnswer((state) => !state);
           }}
           src={showAnswer ? faqCloseIcon : faqOpenIcon}
-          className="sm:h-[30px] sm:w-[30px]"
+          className="sm:h-[30px] sm:w-[30px] cursor-pointer"
           alt="close/open icon"
         />
         <h4 className="font-semibold text-[10px] sm:text-base xl:text-2xl ">{question}</h4>

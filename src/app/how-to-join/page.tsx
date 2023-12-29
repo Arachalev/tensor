@@ -65,7 +65,7 @@ const Page = () => {
           <SideNav showInvestor={true} />
         </div>
       </section>
-      <section className="bg-darkGreen pt-7 sm:pt-20 pb-14 px-6 sm:px-10 xl:px-28">
+      <section className="xl:h-[100vh] bg-darkGreen pt-7 sm:pt-20 pb-14 px-6 sm:px-10 xl:px-28">
         <div className="flex flex-col gap-3 xl:grid xl:grid-cols-2 xl:gap-x-24 xl:gap-y-8 xl:w-[900px]">
           {jobsData.map((item, index) => (
             <JobPostCard
