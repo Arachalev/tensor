@@ -22,7 +22,7 @@ const SideNav = ({
       {showInvestor && (
         <Link
           href=""
-          className={`font-semibold text-xs text-[#8F9C8B]/70 mb-2 ml-4 `}
+          className={`font-semibold text-xs text-[#8F9C8B]/70 ml-4 `}
         >
           Investor Login
         </Link>
@@ -31,7 +31,7 @@ const SideNav = ({
         href=""
         className={`font-semibold text-xs ${
           variant === "dark" ? "text-darkGreen" : "text-[#74DDD0]"
-        } mb-2 ml-4 `}
+        }  ml-4 `}
       >
         Home
       </Link>

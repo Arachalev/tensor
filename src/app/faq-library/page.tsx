@@ -1,0 +1,118 @@
+"use client";
+import SideNav from "@/components/SideNav";
+import Link from "next/link";
+import React, { useState } from "react";
+import { faqButtonsData } from "@/store/staticData/faqButtonsData";
+import { faqData, faqResearchData } from "@/store/staticData/faqData";
+import FaqButtons from "@/components/FaqButtons";
+import plusIcon from "../../../public/assets/icons/plus.svg";
+import Image from "next/image";
+import LibraryCards, { libraryCardTypes } from "@/components/LibraryCards";
+
+const Page = () => {
+  const [activeFaq, setActiveFaq] = useState(["FAQ"]);
+  const [openAllFaq, setOpenAllFaq] = useState(false);
+
+  const updateActiveFaq = (name: string) => {
+    if (activeFaq.includes(name)) {
+      let tempData = activeFaq.filter((words) => words !== name);
+      setActiveFaq(tempData);
+    } else {
+      setActiveFaq((state) => [...state, name]);
+    }
+  };
+
+  const libraryData = activeFaq.includes("FAQ")
+    ? faqData
+    : activeFaq.includes("Research") ||
+      activeFaq.includes("Technology") ||
+      activeFaq.includes("Thought Leadership")
+    ? faqResearchData
+    : [];
+
+  return (
+    <div className="font-inter w-full relative">
+      <section className=" px-6 sm:px-10 xl:px-28 py-11 sm:pb-20 xl:pb-80 bg-darkGreen text-softBlue  ">
+        <Link
+          href="/"
+          className="absolute -left-4 top-[10rem] xl:top-[22rem] min-w-[10px] h-20 sm:min-w-[60px] xl:w-[100px] self-center  "
+        >
+          <p className=" underline font-serif text-[9px] sm:text-sm xl:text-lg text-softBlue rotate-[90deg] scale-y-[-1] scale-x-[-1]">
+            TwoTensor
+          </p>
+        </Link>
+
+        <div className=" sm:w-[505px] xl:w-[980px] ">
+          <div className="flex items-center sm:items-start gap-2 sm:gap-5 xl;gap-8 justify-between sm:justify-normal  mb-3 sm:mb-4">
+            <div className="bg-[#417871] h-2 sm:h-3 xl:h-6 w-[1px] ml-2 self-center" />
+            <div className="bg-homeCircle w-4 sm:w-6 xl:w-11 h-4 sm:h-6 xl:h-11 rounded-full" />
+            <div className="bg-softBlue w-4 sm:w-6 xl:w-11 h-4 sm:h-6 xl:h-11 rounded-full " />
+            <div className="bg-homeCircle w-4 sm:w-6 xl:w-11 h-4 sm:h-6 xl:h-11 rounded-full" />
+
+            <h4 className="font-sora text-sm sm:text-xl xl:text-4xl text-softBlue font-semibold px-1 xl:px-2 ">
+              Library
+            </h4>
+            <div className="bg-homeCircle w-4 sm:w-6 xl:w-11 h-4 sm:h-6 xl:h-11 rounded-full" />
+            <div className="bg-softBlue w-4 sm:w-6 xl:w-11 h-4 sm:h-6 xl:h-11 rounded-full " />
+            <div className="bg-[#417871] h-2 sm:h-3 xl:h-6 w-[1px] ml-2 self-center" />
+
+            <div className="bg-homeCircle w-4 sm:w-6 xl:w-11 h-4 sm:h-6 xl:h-11 rounded-full" />
+
+            <div className="bg-[#417871] h-2 sm:h-3 xl:h-6 w-[1px] ml-2 self-center" />
+            <div className="bg-homeCircle w-4 sm:w-6 xl:w-11 h-4 sm:h-6 xl:h-11 rounded-full " />
+          </div>
+          <div className="flex items-center gap-1 sm:gap-2 xl:gap-[10px] justify-center sm:justify-start mb-6 sm:mg-8">
+            {faqButtonsData.map((item, index) => (
+              <FaqButtons
+                key={`${item.name}-${index}`}
+                name={item.name}
+                bg={item.bg}
+                isActive={activeFaq.includes(item.name)}
+                onClick={() => {
+                  updateActiveFaq(item.name);
+                }}
+              />
+            ))}
+          </div>
+
+          <div>
+            <div
+              onClick={() => setOpenAllFaq((state) => !state)}
+              className="flex items-center gap-1 pb-2 xl:pb-5 border-b border-b-[#E3F8F5] mb-3 sm:mb-4"
+            >
+              <Image
+                src={plusIcon}
+                className="sm:w-[8px] xl:w-4"
+                alt="plus icon"
+              />
+              <p className="font-semibold text-[6.5px] sm:text-[9px] xl:text-lg">
+                Expand All
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 sm:gap-5 xl:gap-14 ">
+              {libraryData.map((item, index) => (
+                <LibraryCards
+                  key={`${item.title}==${index}`}
+                  title={item.title}
+                  content={item.content}
+                  type={item.type as libraryCardTypes[]}
+                  socials={item.socials}
+                  date={item.date}
+                  link={item.link}
+                  readTime={item.readTime}
+                  openFaq={openAllFaq}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="hidden md:block absolute top-[32px] right-[20px] xl:right-[72px]">
+          <SideNav variant="light" showInvestor={true} />
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Page;
