@@ -4,7 +4,7 @@ import React from "react";
 interface PricingModelCardsProps {
   title: string;
   category?: string;
-  billedSection: string;
+  // billedSection: string;
   details: string;
   packages: {
     icon: string;
@@ -13,8 +13,15 @@ interface PricingModelCardsProps {
 }
 
 const PricingModelCards = (props: PricingModelCardsProps) => {
-  const { title, billedSection, category, details, packages } = props;
+  const { title,  category, details, packages } = props;
 
+  let bg = "bg-[#FFFFFF]";
+
+  switch (title) {
+    case "Pay As You Go/Trial":
+    case "Growing Fund":
+      bg = "bg-[#F6FFFE]";
+  }
   //   const packageDetails = details
 
   return (
