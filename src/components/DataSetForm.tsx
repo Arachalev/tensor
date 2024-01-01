@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import { basename } from "path";
 import React, { useContext } from "react";
 import Select, { CSSObjectWithLabel } from "react-select";
 import { AppContext } from "@/store/contexts/appContext";
