@@ -20,7 +20,7 @@ const Page = () => {
             TwoTensor
           </p>
         </Link>
-        <div className="sm:w-[480px] xl:w-[900px]">
+        <div className="sm:w-[480px] xl:w-[900px]" id="leadership">
           <h4 className="underline font-semibold text-xl sm:text-3xl xl:text-4xl mb-5 xl:mb-10">
             WHO WE ARE
           </h4>
@@ -63,7 +63,7 @@ const Page = () => {
           </p>
         </div>
       </section>
-      <section className="bg-darkGreen text-softBlue px-6 sm:px-10 xl:px-28 pt-9 sm:pt-14 pb-11 sm:pb-32 xl:pt-40 ">
+      <section id="founder" className="bg-darkGreen text-softBlue px-6 sm:px-10 xl:px-28 pt-9 sm:pt-14 pb-11 sm:pb-32 xl:pt-40 ">
         <h4 className="underline text-[8px] sm:text-xl font-bold mb-7 xl:mb-12">
           Founder
         </h4>
@@ -92,7 +92,7 @@ const Page = () => {
             clients.
           </p>
         </div>
-        <div className="mt-14 sm:mt-20 xl:mt-24 font-medium text-sm sm:text-2xl leading-6 sm:leading-10 sm:w-[480px] xl:w-[900px]">
+        <div id="our-people" className="mt-14 sm:mt-20 xl:mt-24 font-medium text-sm sm:text-2xl leading-6 sm:leading-10 sm:w-[480px] xl:w-[900px]">
           <h4 className="underline text-[8px] sm:text-xl font-bold mb-4 sm:mb-8 xl:mb-10">
             Our People
           </h4>
@@ -105,7 +105,7 @@ const Page = () => {
           </p>
         </div>
       </section>
-      <section className="bg-white text-darkGreen px-6 sm:px-10 xl:px-28 pt-5 pb-10 sm:py-24">
+      <section   className="bg-white text-darkGreen px-6 sm:px-10 xl:px-28 pt-5 pb-10 sm:py-24">
         <h4 className="underline font-semibold text-[8px] sm:text-xl mb-3 sm:mb-10">
           Our Engineering Team
         </h4>
@@ -194,7 +194,7 @@ const Page = () => {
           ))}
         </div>
       </section>
-      <section
+      <section id="diversity"
         className={`px-6 sm:px-10 xl:px-28 pt-14 sm:py-24 xl:pt-28 pb-11  bg-white text-darkGreen text-sm sm:text-2xl 
       font-medium flex flex-col gap-6 sm:gap-10 leading-6 sm:leading-10`}
       >
@@ -224,7 +224,7 @@ const Page = () => {
           valued and can achieve their utmost potential.
         </p>
       </section>
-      <section
+      <section id="priciples"
         className={`px-6 sm:px-10 xl:px-28 pt-11 sm:pt-24 xl:pt-32 xl:pb-24 py-14 bg-darkGreen text-softBlue text-sm sm:text-2xl
        font-medium leading-6 sm:leading-10 flex flex-col gap-6 sm:gap-10 `}
       >
@@ -273,7 +273,7 @@ const Page = () => {
           approach has notably propelled our accomplishments over time.
         </p>
       </section>
-      <section className="px-6 sm:px-10 xl:px-28 pt-11 sm:py-32 xl:pt-36 pb-14 xl:pb-28 bg-white text-sm sm:text-2xl text-darkGreen font-medium leading-6 sm:leading-10">
+      <section id="community" className="px-6 sm:px-10 xl:px-28 pt-11 sm:py-32 xl:pt-36 pb-14 xl:pb-28 bg-white text-sm sm:text-2xl text-darkGreen font-medium leading-6 sm:leading-10">
         <div className="flex flex-col gap-8 sm:gap-16 xl:gap-20 sm:w-[480px] xl:w-[900px]">
           <h4 className="text-[8px] sm:text-xl font-semibold underline ">
             Community Impact

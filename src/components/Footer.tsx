@@ -9,7 +9,13 @@ import linkedinIcon from "../../public/assets/icons/footer/linkedin.svg";
 import mediumIcon from "../../public/assets/icons/footer/medium.svg";
 import xIcon from "../../public/assets/icons/footer/x.svg";
 
+// import { useRouter } from "next/navigation";
+
+
 const Footer = () => {
+  const date = new Date();
+  const year = date.getFullYear();
+  
   return (
     <footer className="w-screen bg-darkGreen text-softBlue px-10 sm:px-[77px] xl:pl-[229px] xl:pr-[153px] pt-16 sm:pt-[117px] xl:pt-[173px] pb-8 sm:pb-14 xl:pb-[120px] sm:pbfont-inter flex flex-col gap-10 sm:gap-x-[146px] xl:gap-x-[121px] sm:gap-y-[114px] xl:gap-y-12 sm:grid sm:grid-cols-2 xl:grid-cols-4">
       <div>
@@ -19,24 +25,24 @@ const Footer = () => {
 
         <ul className="flex flex-col gap-[6px] list-none text-sm sm:text-lg">
           <li>
-            <Link href="">Leadership</Link>
+            <Link href="/who-we-are#leadership">Leadership</Link>
           </li>
           <li>
-            <Link href="" className="">
+            <Link href="/who-we-are#founder" >
               Founder
             </Link>
           </li>
           <li>
-            <Link href="">Our People</Link>
+            <Link href="/who-we-are#our-people">Our People</Link>
           </li>
           <li>
-            <Link href="">Diversity</Link>
+            <Link href="/who-we-are#diversity">Diversity</Link>
           </li>
           <li>
-            <Link href="">Core Principles</Link>
+            <Link href="/who-we-are#principles">Core Principles</Link>
           </li>
           <li>
-            <Link href="">Community Impact</Link>
+            <Link href="/who-we-are#community">Community Impact</Link>
           </li>
         </ul>
       </div>
@@ -47,10 +53,10 @@ const Footer = () => {
 
         <ul className="flex flex-col gap-[6px] list-none text-sm sm:text-lg">
           <li>
-            <Link href="">Our Product</Link>
+            <Link href="/how-it-works">Our Product</Link>
           </li>
           <li>
-            <Link href="">Pricing</Link>
+            <Link href="/pricing-model">Pricing</Link>
           </li>
         </ul>
       </div>
@@ -61,35 +67,35 @@ const Footer = () => {
 
         <ul className="flex flex-col gap-[6px] list-none text-sm sm:text-lg">
           <li>
-            <Link href="">Career Development</Link>
+            <Link href="/how-to-join#career">Career Development</Link>
           </li>
           <li>
-            <Link href="">Choose Your Path</Link>
+            <Link href="/how-to-join#path">Choose Your Path</Link>
           </li>
           <li>
-            <Link href="">Interviewing</Link>
+            <Link href="/how-to-join#interview">Interviewing</Link>
           </li>
           <li>
-            <Link href="">Internships</Link>
+            <Link href="/how-to-join#internships">Internships</Link>
           </li>
           <li>
-            <Link href="">Fellowship Profram</Link>
+            <Link href="/how-to-join#fellowship">Fellowship Profram</Link>
           </li>
           <li>
-            <Link href="">Application FAQ</Link>
+            <Link href="/how-to-join#faq">Application FAQ</Link>
           </li>
         </ul>
       </div>
       <div className=" sm:col-span-1 ">
         <ul className="flex flex-col gap-[6px] list-none text-sm sm:text-lg">
           <li>
-            <Link href="">Library</Link>
+            <Link href="/faq-library">Library</Link>
           </li>
           <li>
-            <Link href="">Contact</Link>
+            <Link href="/faq-library">Contact</Link>
           </li>
           <li>
-            <Link href="">Complimentary Dataset</Link>
+            <Link href="/our-experts">Complimentary Dataset</Link>
           </li>
         </ul>
       </div>
@@ -157,7 +163,7 @@ const Footer = () => {
           Important Disclosures
         </Link>
         <p className="text-[7px] sm:text-sm no-underline whitespace-nowrap mt-1 ">
-          COPYRIGHT 2023 TWOTENSOR . ALL RIGHTS RESERVED
+          COPYRIGHT {year} TWOTENSOR . ALL RIGHTS RESERVED
         </p>
       </div>
     </footer>

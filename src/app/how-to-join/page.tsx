@@ -33,7 +33,7 @@ const Page = () => {
             life.
           </p>
         </div>
-        <div className="sm:w-[500px] xl:w-[900px]">
+        <div id="career" className="sm:w-[500px] xl:w-[900px]">
           <h4 className="underline font-semibold text-[8px] sm:text-lg xl:text-xl mb-5 sm:mb-7 xl:mb-10">
             Career Development
           </h4>
@@ -48,7 +48,7 @@ const Page = () => {
             learning.&quot;
           </p>
         </div>
-        <div className="mt-5 sm:w-[500px] xl:w-[900px]">
+        <div id="path" className="mt-5 sm:w-[500px] xl:w-[900px]">
           <h4 className="underline font-semibold text-[8px] sm:text-lg xl:text-xl mb-5 sm:mb-7 xl:mb-10">
             Choose Your Path
           </h4>
@@ -80,7 +80,7 @@ const Page = () => {
       </section>
       <section className="bg-white text-darkGreen pb-16 sm:py-20 pt-14  px-6 sm:px-10 xl:px-28 flex flex-col gap-10 sm:gap-20 xl:gap-32 ">
         <div className="font-medium  text-sm sm:text-2xl leading-6 sm:leading-10 sm:w-[500px] xl:w-[900px]">
-          <h4 className="underline font-semibold text-[8px] sm:text-lg xl:text-xl mb-2 sm:mb-10">
+          <h4 id="interview" className="underline font-semibold text-[8px] sm:text-lg xl:text-xl mb-2 sm:mb-10">
             Interviewing
           </h4>
           <p className="mb-6 sm:mb-10 ">
@@ -105,7 +105,7 @@ const Page = () => {
             vary based on the role.
           </p>
         </div>
-        <div className="font-medium text-sm sm:text-2xl leading-6 sm:leading-10 sm:w-[500px] xl:w-[900px] ">
+        <div id="internships" className="font-medium text-sm sm:text-2xl leading-6 sm:leading-10 sm:w-[500px] xl:w-[900px] ">
           <h4 className="underline font-semibold text-[8px] sm:text-lg xl:text-xl mb-2 sm:mb-10">
             Internships
           </h4>
@@ -118,7 +118,7 @@ const Page = () => {
             into the future of strategic business intelligence.
           </p>
         </div>
-        <div className="font-medium text-sm sm:text-2xl leading-6 sm:leading-10 sm:w-[500px] xl:w-[900px]">
+        <div id="fellowship" className="font-medium text-sm sm:text-2xl leading-6 sm:leading-10 sm:w-[500px] xl:w-[900px]">
           <h4 className="underline font-semibold text-[8px] sm:text-lg xl:text-xl mb-2 sm:mb-10">
             Fellowship Program
           </h4>
@@ -189,7 +189,7 @@ const Page = () => {
         </div>
       </section>
       <section className="text-darkGreen bg-white px-6 sm:px-10 xl:px-28 pt-11 sm:pt-28 pb-14 sm:pb-20 xl:pb-48">
-        <div>
+        <div id="faq">
           <p className="text-softBlue font-bold text-[12px] sm:text-lg mb-3 sm:mb-5">
             Application FAQ
           </p>

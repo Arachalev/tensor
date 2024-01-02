@@ -60,7 +60,7 @@ const ExpertsCard = (expertDetails: ExpertsCardProps) => {
         </h4>
         <div className="flex items-center gap-2">
           {social.map((item, index) => (
-            <Link href={item.link} key={item.name}>
+            <Link href={item.link} key={`${item.name}--1${index}`}>
               <Image src={item.img} alt={item.name} />
             </Link>
           ))}
@@ -68,18 +68,22 @@ const ExpertsCard = (expertDetails: ExpertsCardProps) => {
         <p className="text-darkGreen/70 font-medium text-xs">{title}</p>
         {/* <p>{details}</p> */}
         <div className="font-medium text-xs leading-6 ">
-          {detailsArr.map((item) => {
+          {detailsArr.map((item, index) => {
             let link;
             let text;
             links.forEach((linksItem) => {
               if (item === linksItem.text) {
                 link = (
-                  <Link className="underline" href={linksItem.link}>
+                  <Link key={item} className="underline" href={linksItem.link}>
                     {linksItem.text.trim()}{" "}
                   </Link>
                 );
               } else {
-                text = <p className="inline">{item.trim()} </p>;
+                text = (
+                  <p key={`${item}`} className="inline">
+                    {item.trim()}{" "}
+                  </p>
+                );
               }
             });
             if (link) {

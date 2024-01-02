@@ -51,8 +51,8 @@ const SideNav = ({
         </div>
         {showNav.whatWedDo && (
           <div className="ml-4 flex flex-col gap-1 mt-1  text-[9px]">
-            <Link href="">Our Product</Link>
-            <Link href="">Pricing</Link>
+            <Link href="/how-it-works">Our Product</Link>
+            <Link  href="/pricing-model">Pricing</Link>
           </div>
         )}
       </div>
@@ -73,12 +73,12 @@ const SideNav = ({
         </div>
         {showNav.whoWeAre && (
           <div className="ml-4 flex flex-col gap-1 mt-1  text-[9px]">
-            <Link href="">Leadership</Link>
-            <Link href="">Founder</Link>
-            <Link href="">Our People</Link>
-            <Link href="">Diversity</Link>
-            <Link href="">Core Principles</Link>
-            <Link href="">Community</Link>
+                       <Link href="/who-we-are#leadership">Leadership</Link>
+            <Link href="/who-we-are#founder">Founder</Link>
+            <Link href="/who-we-are#our-people">Our People</Link>
+            <Link href="/who-we-are#diversity">Diversity</Link>
+            <Link href="/who-we-are#principles">Core Principles</Link>
+            <Link href="/who-we-are#community">Community</Link>
           </div>
         )}
       </div>
@@ -99,12 +99,12 @@ const SideNav = ({
         </div>
         {showNav.join && (
           <div className="ml-4 flex flex-col gap-1 mt-1  text-[9px]">
-            <Link href="">Career Development</Link>
-            <Link href="">Choose Your Path</Link>
-            <Link href="">Interviewing</Link>
-            <Link href="">internships</Link>
-            <Link href="">Fellowship Program</Link>
-            <Link href="">Application FAQ</Link>
+             <Link  href="/how-to-join#career">Career Development</Link>
+            <Link  href="/how-to-join#path">Choose Your Path</Link>
+            <Link  href="/how-to-join#interview">Interviewing</Link>
+            <Link href="/how-to-join#internships">internships</Link>
+            <Link  href="/how-to-join#fellowship">Fellowship Program</Link>
+            <Link  href="/how-to-join#faq">Application FAQ</Link>
           </div>
         )}
       </div>
@@ -125,9 +125,9 @@ const SideNav = ({
           variant === "dark" ? "text-darkGreen/70" : "text-white"
         } font-semibold  text-xs ml-4 flex flex-col gap-1`}
       >
-        <Link href="">FAQ</Link>
-        <Link href="">Library</Link>
-        <Link href="">Contact</Link>
+  <Link href="/faq-library">FAQ</Link>
+        <Link href="/faq-library">Library</Link>
+        <Link href="/pricing-model">Contact</Link>
       </div>
     </div>
   );

@@ -18,9 +18,9 @@ const Page = () => {
         </div>
 
         <div className="max-w-[1200px] pt-9 pb-20 xl:pt-16 flex flex-col xl:flex-row sm:grid sm:grid-cols-[305px_305px] xl:flex sm:justify-center sm:items-start xl:gap-4 sm:justify-items-center gap-7 sm:gap-x-5 sm:gap-y-20 items-center">
-          {expertCardsData.map((item) => (
+          {expertCardsData.map((item, index) => (
             <ExpertsCard
-              key={item.name}
+              key={`${item.name}${index}`}
               profile={item.profile}
               name={item.name}
               social={item.social}

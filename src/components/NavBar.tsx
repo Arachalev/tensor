@@ -1,13 +1,16 @@
 "use client";
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "@/store/contexts/appContext";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { Banner } from "./Banner/Banner";
+import MobileNav from "@/components/MobileNav";
 
 const NavBar = () => {
+  const [showMobileNav, setShowMobileNav] = useState(false);
   const { deviceWidth, updateDeviceWidth } = useContext(AppContext);
+
   const path = usePathname();
   useEffect(() => {
     const handleSizeChange = () => {
@@ -16,6 +19,16 @@ const NavBar = () => {
     window.addEventListener("resize", handleSizeChange);
     return () => window.removeEventListener("resize", handleSizeChange);
   }, [updateDeviceWidth, path]);
+
+  // stop scrolling in body when menu is open
+  useEffect(() => {
+    let body = document.getElementsByTagName("body")[0];
+    if (showMobileNav) {
+      body.style.overflowY = "hidden";
+    } else {
+      body.style.overflowY = "auto";
+    }
+  }, [showMobileNav]);
 
   return (
     <nav className="bg-[#026969]  h-[52px] sm:h-[60px] ">
@@ -34,7 +47,9 @@ const NavBar = () => {
             />
           </div>
           <div className="font-serif ">
-            <h2 className=" text-[6.5px] sm:text-xs xl:text-sm">Looking Glass</h2>
+            <h2 className=" text-[6.5px] sm:text-xs xl:text-sm">
+              Looking Glass
+            </h2>
             <h4 className=" text-[4.15px] sm:text-[8px] xl:text-[10px]">
               by The Engineers at TwoTensor
             </h4>
@@ -46,7 +61,12 @@ const NavBar = () => {
             <h2 className="">TRUSTED / VALIDATED</h2>
             <h2 className=" whitespace-nowrap  ">BY WORLD LEADING FUNDS</h2>
           </div>
-          <div className=" flex flex-end sm:hidden ">
+          <div
+            onClick={() => {
+              setShowMobileNav((state) => !state);
+            }}
+            className=" flex flex-end sm:hidden "
+          >
             <Image
               src="/assets/icons/hamburger.svg"
               width={11}
@@ -57,12 +77,13 @@ const NavBar = () => {
           </div>
         </div>
         <div className="hidden sm:block ">
-          <Banner   speed={5000} />
+          <Banner speed={5000} />
         </div>
       </div>
       <div className="sm:hidden flex w-full">
-        <Banner   speed={5000} />
+        <Banner speed={5000} />
       </div>
+      {showMobileNav && <MobileNav closeNav={() => setShowMobileNav(false)} />}
     </nav>
   );
 };
