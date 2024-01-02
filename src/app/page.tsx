@@ -1,5 +1,5 @@
 "use client";
-import NavBar from "@/components/NavBar";
+
 import Image from "next/image";
 import dellImg from "../../public/assets/images/homePage/DELL.svg";
 import ciscoImg from "../../public/assets/images/homePage/CISCO.svg";
@@ -14,16 +14,16 @@ import CompaniesThread from "@/components/CompaniesThread";
 import { useContext } from "react";
 import { AppContext } from "@/store/contexts/appContext";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const { deviceWidth } = useContext(AppContext);
   // sm:pr-4 xl:pr-[73px]
+  const router = useRouter();
 
   return (
     <main className="w-full">
       <div className="relative h-full min-h-[100vh]  flex bg-darkGreen font-inter pl-[24px] sm:pl-[60px] xl:pl-[158px] pr-6 sm:pr-[60px] xl:pr-[73px] pt-7 pb-16 sm:pb-[73px] xl:pb-[200px] text-white w-full">
-       
-
         <Link
           href="/"
           className="absolute -left-7 sm:-left-14 xl:-left-10 top-[10rem] xl:top-[16rem] min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center  "
@@ -115,6 +115,7 @@ export default function Home() {
           </div>
           <button
             type="button"
+            onClick={() => router.push("/our-experts")}
             className={`bg-darkGreen sm:mt-[30px] xl:mt-[10px] w-[154px] sm:w-[250px] xl:w-[287px] h-9 sm:h-[58px] rounded-[26px] sm:rounded-[43px] xl:rounded-[50px]
            text-softBlue font-medium text-[10px] sm:text-base xl:text-xl whitespace-nowrap`}
           >
