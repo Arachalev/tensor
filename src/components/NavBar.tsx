@@ -65,7 +65,7 @@ const NavBar = () => {
             onClick={() => {
               setShowMobileNav((state) => !state);
             }}
-            className=" flex flex-end sm:hidden "
+            className=" flex flex-end sm:hidden pr-4 "
           >
             <Image
               src="/assets/icons/hamburger.svg"
