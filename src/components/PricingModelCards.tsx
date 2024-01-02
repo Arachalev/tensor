@@ -39,7 +39,7 @@ const PricingModelCards = (props: PricingModelCardsProps) => {
           {category && (
             <div className="w-fit sm:w-full  sm:order-3 ">
               <p
-                className={`font-semibold text-[5.8px] sm:text[8.5px] pt-[1px] text-softBlue bg-darkGreen px-[10px] sm:px-4  w-fit h-[13px] sm:h-5
+                className={`font-semibold text-[5.8px] sm:text-[8.5px] pt-[1px] text-softBlue bg-darkGreen px-[10px] sm:px-4  w-fit h-[13px] sm:h-5
                  rounded-[20px] sm:rounded-[30px] flex items-center justify-center  `}
               >
                 {category}
