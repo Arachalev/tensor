@@ -44,7 +44,7 @@ export default function Home() {
                   : mobileCompaniesThreadData.companies
               }
             />
-            <div className="absolute bottom-0 right-0 w-full h-20 bg-gradient-to-t from-[#005050]/90 to-[#005050]/40 hidden sm:block"></div>
+            <div className="absolute bottom-0 right-0 w-full h-20 bg-gradient-to-t from-[#005050]/90 to-[#005050]/40 hidden sm:block"/>
           </div>
           <div className="mt-4 pr-6 xl:-translate-y-14 w-full">
             <p className="font-medium text-[7px] sm:text-[10px] xl:text-sm mb-1">

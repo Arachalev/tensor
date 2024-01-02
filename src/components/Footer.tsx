@@ -1,6 +1,7 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import mailIcon from "../../public/assets/icons/footer/mail.svg";
 import arxicIcon from "../../public/assets/icons/footer/arxic.svg";
 import doiIcon from "../../public/assets/icons/footer/doi.svg";
@@ -8,16 +9,28 @@ import githubIcon from "../../public/assets/icons/footer/github.svg";
 import linkedinIcon from "../../public/assets/icons/footer/linkedin.svg";
 import mediumIcon from "../../public/assets/icons/footer/medium.svg";
 import xIcon from "../../public/assets/icons/footer/x.svg";
-
-// import { useRouter } from "next/navigation";
-
+import { usePathname } from "next/navigation";
 
 const Footer = () => {
+  const [bg, setBg] = useState("bg-darkGreen");
   const date = new Date();
   const year = date.getFullYear();
-  
+
+  const path = usePathname();
+
+  useEffect(() => {
+    if (path === "/") {
+      setBg(`bg-gradient-to-tr from-[#000202] to-[#025A5A] `);
+    } else {
+      setBg("bg-darkGreen");
+    }
+  }, [path]);
+
   return (
-    <footer className="w-screen bg-darkGreen text-softBlue px-10 sm:px-[77px] xl:pl-[229px] xl:pr-[153px] pt-16 sm:pt-[117px] xl:pt-[173px] pb-8 sm:pb-14 xl:pb-[120px] sm:pbfont-inter flex flex-col gap-10 sm:gap-x-[146px] xl:gap-x-[121px] sm:gap-y-[114px] xl:gap-y-12 sm:grid sm:grid-cols-2 xl:grid-cols-4">
+    <footer
+      className={`${bg} w-screen text-softBlue px-10 sm:px-[77px] xl:pl-[229px] xl:pr-[153px] pt-16 sm:pt-[117px] xl:pt-[173px] 
+    pb-8 sm:pb-14 xl:pb-[120px] sm:pbfont-inter flex flex-col gap-10 sm:gap-x-[146px] xl:gap-x-[121px] sm:gap-y-[114px] xl:gap-y-12 sm:grid sm:grid-cols-2 xl:grid-cols-4`}
+    >
       <div>
         <h4 className="font-semibold border-b-2 border-b-softBlue w-fit mb-3 xl:text-2xl ">
           Who We Are
@@ -28,9 +41,7 @@ const Footer = () => {
             <Link href="/who-we-are#leadership">Leadership</Link>
           </li>
           <li>
-            <Link href="/who-we-are#founder" >
-              Founder
-            </Link>
+            <Link href="/who-we-are#founder">Founder</Link>
           </li>
           <li>
             <Link href="/who-we-are#our-people">Our People</Link>

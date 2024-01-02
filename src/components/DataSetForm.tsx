@@ -93,7 +93,7 @@ const DataSetForm = () => {
                   // @ts-ignore
                   singleValue: (baseStyles, state) => ({
                     ...baseStyles,
-                    fontSize: deviceWidth > 640 ? 114 : 10,
+                    fontSize: deviceWidth > 640 ? 14 : 10,
                   }),
                 }}
               />
@@ -148,7 +148,7 @@ const DataSetForm = () => {
                   // @ts-ignore
                   singleValue: (baseStyles, state) => ({
                     ...baseStyles,
-                    fontSize: 10,
+                    fontSize: deviceWidth > 640 ? 14 : 10,
                   }),
                 }}
               />

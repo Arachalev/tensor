@@ -26,10 +26,9 @@ const PricingModelCards = (props: PricingModelCardsProps) => {
   const rawDetailsArr = details.split("!");
   const detailsArr = rawDetailsArr.map((item) => item.replace("\n", "").trim());
 
-  console.log(category);
   return (
     <div
-      className={`p-6 pb-9 sm:py-6 sm:px-10 xl:pl-11 xl:pr-[84px]  ${bg} flex flex-col xl:flex-row xl:justify-between xl:w-full gap-3 sm:gap-5 text-darkGreen font-inter`}
+      className={`p-6 pb-9 sm:py-6 sm:px-10 xl:pl-11 xl:pr-[84px]  ${bg} flex flex-col xl:flex-row xl:gap-8 xl:w-full gap-3 sm:gap-5 text-darkGreen font-inter`}
     >
       <div className="flex flex-col gap-3 sm:gap-7 xl:gap-4 ">
         <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-x-6">

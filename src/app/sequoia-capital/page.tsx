@@ -11,7 +11,7 @@ const Page = () => {
         <section className=" px-6 sm:px-10 xl:px-28 py-11 sm:pb-28 xl:pb-32 bg-white text-darkGreen  ">
           <Link
             href="/"
-            className="absolute -left-4 top-[10rem] xl:top-[10rem] min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center  "
+            className="absolute -left-4 top-[25rem] xl:top-[40rem] min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center  "
           >
             <p className=" underline font-serif text-[9px] sm:text-sm xl:text-lg text-darkGreen rotate-[90deg] scale-y-[-1] scale-x-[-1]">
               TwoTensor

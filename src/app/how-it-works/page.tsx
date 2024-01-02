@@ -27,7 +27,7 @@ const Page = () => {
               VIDEO GOES HERE
             </div>
           </div>
-          <div className="mt-5 xl:mt-10 sm:flex gap-6">
+          <div className="mt-5 xl:mt-10 sm:flex gap-6 xl:gap-14">
             <h4 className="font-bold xl:text-4xl leading-6 xl:leading-[60px] mb-4">
               AI Deployed to the Operational Edge
             </h4>
@@ -51,7 +51,7 @@ const Page = () => {
         </div>
       </section>
       <section className=" px-6 sm:px-10 xl:px-28 pt-7 sm:pt-24 pb-16 sm:pb-0 bg-fadedBlue sm:bg-darkGreen text-softBlue  ">
-        <div className="sm:bg-fadedBlue sm:px-11 xl:px-16 sm:pb-20 sm:pt-14 xl:pt-24 xl:flex xl:gap-20">
+        <div className="sm:bg-fadedBlue sm:px-11 xl:px-16 sm:pb-20 sm:pt-14 xl:pt-24 xl:flex xl:gap-20 2xl:justify-center">
           <div className="text-darkGreen/90 sm:w-[288px] flex flex-col gap-6 mb-16">
             <p className="text-[8px] sm:text-[10px] xl:text-xs ">
               LOOKING GLASS OS
@@ -71,7 +71,7 @@ const Page = () => {
             </button>
           </div>
 
-          <div className="bg-[#8CEDE1] text-darkGreen rounded-[10px] sm:flex sm:gap-6 sm:px-6 sm:pb-7 xl:w-full">
+          <div className="bg-[#8CEDE1] text-darkGreen rounded-[10px] sm:flex sm:gap-6 sm:px-6 sm:pb-7 xl:w-[750px]">
             <div className="h-[185px] px-3 py-6 flex flex-col  border-b-2 border-b-darkGreen sm:border-none">
               <p className="font-bold text-[12px] sm:text-[13px] xl:text-base mb-5">
                 GLASS OS

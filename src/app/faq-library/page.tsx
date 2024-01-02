@@ -42,24 +42,27 @@ const Page = () => {
           </p>
         </Link>
 
-        <div className=" sm:w-[505px] xl:w-[980px] ">
-          <div className="flex items-center sm:items-start gap-2 sm:gap-5 xl;gap-8 justify-between sm:justify-normal  mb-3 sm:mb-4">
+        <div className=" ">
+          <div className="flex items-center sm:items-start gap-2 sm:gap-6 xl:gap-9 justify-between sm:justify-normal  mb-3 sm:mb-4">
             <div className="bg-[#417871] h-2 sm:h-3 xl:h-6 w-[1px] ml-2 self-center" />
-            <div className="bg-homeCircle w-4 sm:w-6 xl:w-11 h-4 sm:h-6 xl:h-11 rounded-full" />
-            <div className="bg-softBlue w-4 sm:w-6 xl:w-11 h-4 sm:h-6 xl:h-11 rounded-full " />
-            <div className="bg-homeCircle w-4 sm:w-6 xl:w-11 h-4 sm:h-6 xl:h-11 rounded-full" />
+            <div className="bg-homeCircle w-4 sm:w-6 xl:min-w-[44px] h-4 sm:h-6 xl:min-h-[44px] rounded-full" />
+            <div className="bg-softBlue w-4 sm:w-6 xl:min-w-[44px] h-4 sm:h-6 xl:min-h-[44px] rounded-full " />
+            <div className="bg-homeCircle w-4 sm:w-6 xl:min-w-[44px] h-4 sm:h-6 xl:min-h-[44px] rounded-full" />
 
             <h4 className="font-sora text-sm sm:text-xl xl:text-4xl text-softBlue font-semibold px-1 xl:px-2 ">
               Library
             </h4>
-            <div className="bg-homeCircle w-4 sm:w-6 xl:w-11 h-4 sm:h-6 xl:h-11 rounded-full" />
-            <div className="bg-softBlue w-4 sm:w-6 xl:w-11 h-4 sm:h-6 xl:h-11 rounded-full " />
+            <div className="bg-homeCircle w-4 sm:w-6 xl:min-w-[44px] h-4 sm:h-6 xl:min-h-[44px] rounded-full" />
+            <div className="bg-softBlue w-4 sm:w-6 xl:min-w-[44px] h-4 sm:h-6 xl:min-h-[44px] rounded-full " />
             <div className="bg-[#417871] h-2 sm:h-3 xl:h-6 w-[1px] ml-2 self-center" />
 
-            <div className="bg-homeCircle w-4 sm:w-6 xl:w-11 h-4 sm:h-6 xl:h-11 rounded-full" />
+            <div className="bg-homeCircle w-4 sm:w-6 xl:min-w-[44px] h-4 sm:h-6 xl:min-h-[44px] rounded-full" />
+
+           <div className="bg-[#417871] h-2 sm:h-3 xl:h-6 w-[1px] ml-2 self-center hidden xl:block" />
+            <div className="bg-homeCircle w-4 sm:w-6 xl:min-w-[44px] h-4 sm:h-6 xl:min-h-[44px] rounded-full hidden xl:block" /> 
 
             <div className="bg-[#417871] h-2 sm:h-3 xl:h-6 w-[1px] ml-2 self-center" />
-            <div className="bg-homeCircle w-4 sm:w-6 xl:w-11 h-4 sm:h-6 xl:h-11 rounded-full " />
+            <div className="bg-homeCircle w-4 sm:w-6 xl:min-w-[44px] h-4 sm:h-6 xl:min-h-[44px] rounded-full " />
           </div>
           <div className="flex items-center gap-1 sm:gap-2 xl:gap-[10px] justify-center sm:justify-start mb-6 sm:mg-8">
             {faqButtonsData.map((item, index) => (
@@ -75,7 +78,7 @@ const Page = () => {
             ))}
           </div>
 
-          <div>
+          <div className=" sm:w-[505px] xl:w-[980px]">
             <div
               onClick={() => setOpenAllFaq((state) => !state)}
               className="flex items-center gap-1 pb-2 xl:pb-5 border-b border-b-[#E3F8F5] mb-3 sm:mb-4"

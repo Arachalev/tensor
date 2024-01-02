@@ -72,7 +72,7 @@ const LibraryCards = (props: LibraryCardsProps) => {
           <div className="flex items-center gap-1">
             {type.map((item, index) => (
               <p
-                className={`${bg[item]} text-[4.5px] text-white h-[10px] sm:h-4 xl:h-7
+                className={`${bg[item]} text-[4.5px] sm:text-[6.6px] xl:text-xs text-white h-[10px] sm:h-4 xl:h-7
                  px-1 sm:px-2 xl:px-3 flex items-center justify-center`}
                 key={`${item}-${index}`}
               >
