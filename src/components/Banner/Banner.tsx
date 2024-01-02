@@ -13,8 +13,8 @@ export const images = [
     image: gs,
     width: 54,
 
-    w1: 'min-w-[54px]',
-    w2: 'sm:min-w-[87px]',
+    w1: "min-w-[54px]",
+    w2: "sm:min-w-[87px]",
     w3: "xl:min-w-[130px]",
   },
   {
@@ -42,7 +42,9 @@ export const images = [
 // style={{ "--speed": `${speed}ms` }}
 const Banner = ({ speed = 5000 }: { speed: number }) => {
   return (
-    <div className="inner relative overflow-hidden w-[100vw] h-5 sm:h-[60px] ">
+    <div className="inner relative overflow-hidden w-full h-5 sm:h-[60px] ">
+      <div className="absolute h-full w-[50px] xl:w-[100px] z-50 left-0 top-0  bg-gradient-to-r from-[#026969] via-[#026969]/50 to-[#005050]/0 " />
+
       <div className="wrapper absolute h-full flex items-center">
         <section className="section">
           {images.map((image, id) => (

@@ -32,7 +32,7 @@ const NavBar = () => {
 
   return (
     <nav className="bg-[#026969]  h-[52px] sm:h-[60px] ">
-      <div className="h-8 sm:h-full items-end flex pr-4 ">
+      <div className="h-8 sm:h-full items-end flex ">
         <Link
           href="/"
           className="pl-[10px] w-[84px] sm:min-w-[164px] xl:min-w-[200px] h-full flex items-center justify-center gap-[2px] sm:gap-1 bg-[#E3F8F5] pb-1 sm:pb-0"
@@ -76,12 +76,15 @@ const NavBar = () => {
             />
           </div>
         </div>
-        <div className="hidden sm:block ">
+        <div className="hidden sm:block w-full relative">
           <Banner speed={5000} />
+          <div className="absolute h-full w-[50px] xl:w-[100px] z-50 right-0 top-0  bg-gradient-to-l from-[#026969] via-[#026969]/50 to-[#005050]/0 " />
         </div>
       </div>
-      <div className="sm:hidden flex w-full">
+      <div className="sm:hidden flex w-full relative">
         <Banner speed={5000} />
+        <div className="absolute h-full w-[50px] xl:w-[100px] z-50 right-0 top-0  bg-gradient-to-l from-[#026969] via-[#026969]/50 to-[#005050]/0 " />
+
       </div>
       {showMobileNav && <MobileNav closeNav={() => setShowMobileNav(false)} />}
     </nav>

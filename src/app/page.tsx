@@ -22,11 +22,7 @@ export default function Home() {
   return (
     <main className="w-full">
       <div className="relative h-full min-h-[100vh]  flex bg-darkGreen font-inter pl-[24px] sm:pl-[60px] xl:pl-[158px] pr-6 sm:pr-[60px] xl:pr-[73px] pt-7 pb-16 sm:pb-[73px] xl:pb-[200px] text-white w-full">
-        {/* <div className="min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center relative text-fadedBlue">
-          <p className="absolute -left-6 sm:-left-14 underline font-serif text-base  sm:text-4xl xl:text-[44px] rotate-[90deg] scale-y-[-1] scale-x-[-1]">
-            TwoTensor
-          </p>
-        </div> */}
+       
 
         <Link
           href="/"
