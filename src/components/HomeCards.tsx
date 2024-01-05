@@ -1,25 +1,32 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
+import Link from "next/link";
 import React from "react";
 
 interface HomeCardsProps {
   heading: string;
   content: string;
   link: string;
-  img: string;
+  img: StaticImageData;
 }
 
 const HomeCards = (props: HomeCardsProps) => {
   const { heading, content, link, img } = props;
 
   return (
-    <div className="h-20 w-10 font-inter flex flex-col gap-5 text-white px-6 py-5 ">
+    <Link
+      href={link}
+      target="_blank"
+      className=" font-inter w-[250px] h-[320px] flex flex-col gap-3 text-black bg-white px-6 py-5 "
+    >
       <div>
-        <h4>{heading}</h4>
+        <h4 className="font-semibold text-sm sm:text-base pb-1 border-b-2 border-b-black">
+          {heading}
+        </h4>
         <hr className="h-[2px] m-0 border-none " />
       </div>
-      <p>{content}</p>
-      <Image src={img} alt={heading} />
-    </div>
+      <p className="text-[9px] sm:text-xs font-bold">{content}</p>
+      <Image className="" src={img} alt={heading} />
+    </Link>
   );
 };
 

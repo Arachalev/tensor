@@ -63,13 +63,13 @@ const LibraryCards = (props: LibraryCardsProps) => {
   }
 
   return (
-    <div className="text-softBlue font-inter pb-3 sm:pb-6 xl:pb-8 border-b border-b-[#E3F8F5]">
+    <div className="text-softBlue font-inter pb-3 sm:pb-6 xl:pb-8 border-b-[2px] border-b-[#E3F8F5]/40">
       <div className="flex items-center justify-between mb-3 sm:mb-5 xl:mb-14">
         <div className="flex items-center gap-3 xl:gap-6 font-sora">
           <p className=" font-medium font-sora text-[5px] sm:text-[7px] xl:text-sm">
             {date}
           </p>
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 sm:gap-2">
             {type.map((item, index) => (
               <p
                 className={`${bg[item]} text-[4.5px] sm:text-[6.6px] xl:text-xs text-white h-[10px] sm:h-4 xl:h-7
@@ -102,12 +102,12 @@ const LibraryCards = (props: LibraryCardsProps) => {
           )}
         </div>
       </div>
-      <div className="flex gap-3">
+      <div className="flex gap-3 xl:gap-6 ">
         <div className="min-w-[12px] sm:min-w-[20px] xl:min-w-[35px]">
           {showFaq ? (
             <div
               onClick={() => setShowFaq(false)}
-              className="min-w-[12px] sm:min-w-[16px] xl:min-w-[30px] h-[2px] bg-softBlue mt-2 sm:mt-4 xl:mt-6 cursor-pointer"
+              className="min-w-[12px] sm:min-w-[16px] xl:min-w-[24px] h-[3px] bg-softBlue mt-2 sm:mt-4 xl:mt-6 cursor-pointer"
             />
           ) : (
             <Image
@@ -130,7 +130,7 @@ const LibraryCards = (props: LibraryCardsProps) => {
           {link && (
             <div className="mt-2 sm:mt-4 xl:mt-8 flex items-center gap-1 sm;gap-2 xl:gap-3">
               <Link
-                className=" font-serif font-bold text-[9px] sm:text-base xl:text-3xl text-white border-b border-b-softBlue"
+                className=" font-serif font-bold text-[9px] sm:text-base xl:text-[28px] text-white border-b-[3px] border-b-softBlue"
                 href={link}
               >
                 Read All

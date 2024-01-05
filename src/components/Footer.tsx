@@ -19,7 +19,7 @@ const Footer = () => {
   const path = usePathname();
   // bg-[#000202]
   useEffect(() => {
-    if (path === "/" || path === "/how-it-works") {
+    if (path === "/" || path === "/how-it-works" || path === "/faq-library") {
       setBg(``);
     } else {
       setBg("bg-darkGreen");

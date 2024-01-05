@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
- 
+
 import homeTensor from "../../public/assets/images/homePage/homeTensor.svg";
 import SideNav from "@/components/SideNav";
 import {
@@ -13,21 +13,24 @@ import CompaniesThread from "@/components/CompaniesThread";
 import { useContext, useEffect } from "react";
 import { AppContext } from "@/store/contexts/appContext";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+ 
 import { Banner } from "@/components/Banner/Banner";
+import { homePageData } from "@/store/staticData/homePageCardsData";
+import HomeCards from "@/components/HomeCards";
 
 export default function Home() {
   const { deviceWidth } = useContext(AppContext);
   // sm:pr-4 xl:pr-[73px]
-  const router = useRouter();
+  
 
   //  pr-6 sm:pr-[60px] xl:pr-[73px]
 
   useEffect(() => {
     const body = document.getElementsByTagName("body")[0];
 
-    body.style.backgroundImage = "linear-gradient(to top right, #000202, #025A5A )";
-  }, [router]);
+    body.style.backgroundImage =
+      "linear-gradient(to top right, #000202, #000202, #025A5A )";
+  }, []);
 
   // bg-gradient-to-tr from-[#000202] to-[#025A5A]
   return (
@@ -88,19 +91,30 @@ export default function Home() {
           <SideNav variant="light" showInvestor />
         </div> */}
       </section>
-      <section className="bg-[#F6FFFE] xl:w-[1123px] xl:min-h-[100vh] relative flex justify-between px-[24px] sm:px-[60px] xl:px-[142px] py-14 pt-16 xl:py-32 ">
-        <div className=" font-inter sm:w-[440px] xl:w-[680px] ">
+      <section className=" xl:min-h-[100vh] relative flex justify-between   py-14 pt-16 xl:py-32 ">
+        <div className="bg-[#F6FFFE] max-w-fit font-inter px-[24px] sm:px-[60px] xl:px-[142px] pt-6 pb-24">
+          <p className="text-xs mb-2">TWOTENSOR</p>
           <div className="flex flex-col gap-10 text-[15px]  text-darkGreen">
             <h4 className="block font-bold text-sm xl:text-lg">
               We amplify impact by delivering our research in practical,
               actionable formats.
             </h4>
 
-            <div></div>
+            <div className="flex flex-col md:flex-row items-center gap-4 bg-softBlue p-6 w-fit ">
+              {homePageData.map((item, index) => (
+                <HomeCards
+                  key={`${(item.heading, index)}`}
+                  heading={item.heading}
+                  content={item.content}
+                  link={item.link}
+                  img={item.img}
+                />
+              ))}
+            </div>
 
             <p className="sm:text-xl xl:text-2xl">
               Intellectual curiosity and lifelong learning, are fundamental in
-              achieving extraordinary repeat success.
+              achieving <br/> extraordinary repeat success.
             </p>
           </div>
         </div>

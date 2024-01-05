@@ -7,9 +7,11 @@ import Link from "next/link";
 import { Banner } from "./Banner/Banner";
 import MobileNav from "@/components/MobileNav";
 import SideNav from "./SideNav";
+import LoadingScreen from "./LoadingScreen";
 
 const NavBar = () => {
   const [showMobileNav, setShowMobileNav] = useState(false);
+  const [firstLoad, setFirstLoad] = useState(true);
   const { deviceWidth, updateDeviceWidth } = useContext(AppContext);
 
   const path = usePathname();
@@ -20,6 +22,15 @@ const NavBar = () => {
     window.addEventListener("resize", handleSizeChange);
     return () => window.removeEventListener("resize", handleSizeChange);
   }, [updateDeviceWidth, path]);
+
+  useEffect(() => {
+    // setFirstLoad(true);
+    const firstLoadTimer = setTimeout(() => {
+      setFirstLoad(false);
+    }, 4000);
+
+    return () => clearTimeout(firstLoadTimer);
+  }, []);
 
   // stop scrolling in body when menu is open
   useEffect(() => {
@@ -33,6 +44,7 @@ const NavBar = () => {
 
   return (
     <nav className="bg-[#026969]  h-[52px] sm:h-[60px] ">
+      {firstLoad && <LoadingScreen />}
       <div className="h-8 sm:h-full items-end flex ">
         <Link
           href="/"
@@ -85,11 +97,10 @@ const NavBar = () => {
       <div className="sm:hidden flex w-full relative">
         <Banner speed={5000} />
         <div className="absolute h-full w-[50px] xl:w-[100px] z-50 right-0 top-0  bg-gradient-to-l from-[#026969] via-[#026969]/50 to-[#005050]/0 " />
-
       </div>
       {showMobileNav && <MobileNav closeNav={() => setShowMobileNav(false)} />}
-      <div className="hidden sm:block fixed top-36 right-6 sm:right-10 xl:right-11 z-[10000]">
-        <SideNav   showInvestor/>
+      <div className="hidden sm:block fixed top-36 right-6 sm:right-10 xl:right-11 z-[1000]">
+        <SideNav showInvestor />
       </div>
     </nav>
   );

@@ -1,7 +1,7 @@
 "use client";
- 
+
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { faqButtonsData } from "@/store/staticData/faqButtonsData";
 import { faqData, faqResearchData } from "@/store/staticData/faqData";
 import FaqButtons from "@/components/FaqButtons";
@@ -30,12 +30,19 @@ const Page = () => {
     ? faqResearchData
     : [];
 
+  useEffect(() => {
+    const body = document.getElementsByTagName("body")[0];
+
+    body.style.backgroundImage =
+      "linear-gradient(to top right, #000202,  #000202, #025A5A )";
+  }, []);
+
   return (
     <div className="font-inter w-full relative">
-      <section className=" px-6 sm:px-10 xl:px-28 py-11 sm:pb-20 xl:pb-80 bg-darkGreen text-softBlue  ">
+      <section className=" px-6 sm:px-10 xl:px-28 py-11 sm:pb-20 xl:pb-80 text-softBlue  ">
         <Link
           href="/"
-          className="absolute -left-4 top-[10rem] xl:top-[22rem] min-w-[10px] h-20 sm:min-w-[60px] xl:w-[100px] self-center  "
+          className="absolute -left-4 top-[20rem] xl:top-[40rem] min-w-[10px] h-20 sm:min-w-[60px] xl:w-[100px] self-center  "
         >
           <p className=" underline font-serif text-[9px] sm:text-sm xl:text-lg text-softBlue rotate-[90deg] scale-y-[-1] scale-x-[-1]">
             TwoTensor
@@ -58,8 +65,8 @@ const Page = () => {
 
             <div className="bg-homeCircle w-4 sm:w-6 xl:min-w-[44px] h-4 sm:h-6 xl:min-h-[44px] rounded-full" />
 
-           <div className="bg-[#417871] h-2 sm:h-3 xl:h-6 w-[1px] ml-2 self-center hidden xl:block" />
-            <div className="bg-homeCircle w-4 sm:w-6 xl:min-w-[44px] h-4 sm:h-6 xl:min-h-[44px] rounded-full hidden xl:block" /> 
+            <div className="bg-[#417871] h-2 sm:h-3 xl:h-6 w-[1px] ml-2 self-center hidden xl:block" />
+            <div className="bg-homeCircle w-4 sm:w-6 xl:min-w-[44px] h-4 sm:h-6 xl:min-h-[44px] rounded-full hidden xl:block" />
 
             <div className="bg-[#417871] h-2 sm:h-3 xl:h-6 w-[1px] ml-2 self-center" />
             <div className="bg-homeCircle w-4 sm:w-6 xl:min-w-[44px] h-4 sm:h-6 xl:min-h-[44px] rounded-full " />
@@ -81,7 +88,7 @@ const Page = () => {
           <div className=" sm:w-[505px] xl:w-[980px]">
             <div
               onClick={() => setOpenAllFaq((state) => !state)}
-              className="flex items-center gap-1 pb-2 xl:pb-5 border-b border-b-[#E3F8F5] mb-3 sm:mb-4"
+              className="flex items-center gap-1 pb-2 xl:pb-5  border-b-[#E3F8F5]/30 border-b-[2px] mb-3 sm:mb-4 xl:mb-6"
             >
               <Image
                 src={plusIcon}
@@ -109,8 +116,6 @@ const Page = () => {
             </div>
           </div>
         </div>
-
-    
       </section>
     </div>
   );

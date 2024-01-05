@@ -16,18 +16,20 @@ const config: Config = {
         "Times",
         "serif",
       ],
+      // plantagenet: ["Sora"],
     },
     extend: {
       fontFamily: {
         inter: ["Inter"],
-        sora:["Sora"]
+        sora: ["Sora"],
+        plantagenet: ["Plantagenet"],
       },
       colors: {
         darkGreen: "#005050",
         softBlue: "#E3F8F5",
         fadedBlue: "#F6FFFE",
-        homeCircle:"#74DDD0", 
-        teal:"#74DDD0"
+        homeCircle: "#74DDD0",
+        teal: "#74DDD0",
       },
     },
   },
