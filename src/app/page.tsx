@@ -13,7 +13,7 @@ import CompaniesThread from "@/components/CompaniesThread";
 import { useContext, useEffect } from "react";
 import { AppContext } from "@/store/contexts/appContext";
 import Link from "next/link";
- 
+
 import { Banner } from "@/components/Banner/Banner";
 import { homePageData } from "@/store/staticData/homePageCardsData";
 import HomeCards from "@/components/HomeCards";
@@ -21,7 +21,6 @@ import HomeCards from "@/components/HomeCards";
 export default function Home() {
   const { deviceWidth } = useContext(AppContext);
   // sm:pr-4 xl:pr-[73px]
-  
 
   //  pr-6 sm:pr-[60px] xl:pr-[73px]
 
@@ -36,22 +35,22 @@ export default function Home() {
   return (
     <main className="w-full   ">
       <section className="relative h-full min-h-[100vh]  flex font-inter px-6 sm:px-10 xl:px-28 pt-7 sm:pt-14 xl:pt-20 pb-16 sm:pb-[73px] xl:pb-[200px] text-white w-full">
-        {/* <Link
+        <Link
           href="/"
-          className="absolute -left-7 sm:-left-14 xl:-left-10 top-[10rem] xl:top-[16rem] min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center  "
+          className="hidden xl:block absolute left-2 xl:left-10 top-7 sm:top-14 xl:top-20  min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center  "
         >
-          <p className=" underline font-serif text-base  sm:text-4xl xl:text-[44px] text-fadedBlue rotate-[90deg] scale-y-[-1] scale-x-[-1]">
+          {/* <p className=" underline font-serif text-base  sm:text-4xl xl:text-[44px] text-fadedBlue rotate-[90deg] scale-y-[-1] scale-x-[-1]">
             TwoTensor
-          </p>
-        </Link> */}
-        <div className="flex flex-col  gap-14 sm:gap-28 items-center justify-between sm:w-full ">
+          </p> */}
+          <Image
+            src={homeTensor}
+            alt="two tensor"
+            className= "max-h-[332px] sm:min-h-[435px]"
+          />
+        </Link>
+        <div className="flex flex-col  gap-14 sm:gap-28 items-center justify-between w-full ">
           {/* hero section */}
-          <div className="w-full relative flex items-center gap-11 ">
-            <Image
-              src={homeTensor}
-              alt="two tensor"
-              className="min-h-[321px] sm:min-h-[435px]"
-            />
+          <div className="w-full relative flex items-center gap-6 xl:gap-11 ">
             <div className="w-full">
               <CompaniesThread
                 companies={
@@ -114,7 +113,7 @@ export default function Home() {
 
             <p className="sm:text-xl xl:text-2xl">
               Intellectual curiosity and lifelong learning, are fundamental in
-              achieving <br/> extraordinary repeat success.
+              achieving <br /> extraordinary repeat success.
             </p>
           </div>
         </div>

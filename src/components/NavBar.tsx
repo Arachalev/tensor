@@ -43,7 +43,7 @@ const NavBar = () => {
   }, [showMobileNav]);
 
   return (
-    <nav className="bg-[#026969]  h-[52px] sm:h-[60px] ">
+    <nav className="bg-[#026969] w-screen  h-[52px] sm:h-[60px] ">
       {firstLoad && <LoadingScreen />}
       <div className="h-8 sm:h-full items-end flex ">
         <Link

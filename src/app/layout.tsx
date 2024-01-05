@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <AppContextProvider>
-        <body>
+        <body className="overflow-x-clip">
           <NavBar />
           {children}
           <Footer />
