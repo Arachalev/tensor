@@ -1,17 +1,25 @@
-import SideNav from "@/components/SideNav";
+"use client";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import coreArrowIcon from "../../../public/assets/icons/coreArrow.svg";
 import targetIcon from "../../../public/assets/icons/target.svg";
 import stockIcon from "../../../public/assets/icons/stock.svg";
 import shakeIcon from "../../../public/assets/icons/shake.svg";
 import searchIcon from "../../../public/assets/icons/search.svg";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const Page = () => {
+  const router = useRouter();
+  useEffect(() => {
+    const body = document.getElementsByTagName("body")[0];
+
+    body.style.backgroundImage =
+      "linear-gradient(to top right, #000202, #025A5A )";
+  }, [router]);
   return (
     <div className="font-inter w-full relative">
-      <section className=" px-6 sm:px-10 xl:px-28 py-11 bg-darkGreen text-softBlue  ">
+      <section className="min-h-[100vh] px-6 sm:px-10 xl:px-28 py-11  text-softBlue  ">
         <Link
           href="/"
           className="absolute -left-4 top-[10rem] xl:top-[22rem] min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center  "
@@ -45,13 +53,9 @@ const Page = () => {
             </div>
           </div>
         </div>
-
-        <div className="hidden md:block absolute top-[32px] right-[20px] xl:right-[72px]">
-          <SideNav variant="light" showInvestor={true} />
-        </div>
       </section>
-      <section className=" px-6 sm:px-10 xl:px-28 pt-7 sm:pt-24 pb-16 sm:pb-0 bg-fadedBlue sm:bg-darkGreen text-softBlue  ">
-        <div className="sm:bg-fadedBlue sm:px-11 xl:px-16 sm:pb-20 sm:pt-14 xl:pt-24 xl:flex xl:gap-20 2xl:justify-center">
+      <section className="min-h-[100vh] pr-6 sm:pr-10 xl:pr-28 pt-7 sm:pt-24 pb-16 sm:pb-0  text-softBlue flex items-center ">
+        <div className="sm:bg-fadedBlue pl-6 sm:pl-10 xl:pl-28 sm:px-11 xl:px-16 sm:pb-20 sm:pt-14 xl:pt-24 xl:flex xl:gap-20 2xl:justify-center w-fit">
           <div className="text-darkGreen/90 sm:w-[288px] flex flex-col gap-6 mb-16">
             <p className="text-[8px] sm:text-[10px] xl:text-xs ">
               LOOKING GLASS OS

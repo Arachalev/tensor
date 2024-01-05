@@ -1,5 +1,5 @@
 "use client";
-import SideNav from "@/components/SideNav";
+ 
 import Link from "next/link";
 import React, { useState } from "react";
 import { faqButtonsData } from "@/store/staticData/faqButtonsData";
@@ -110,9 +110,7 @@ const Page = () => {
           </div>
         </div>
 
-        <div className="hidden md:block absolute top-[32px] right-[20px] xl:right-[72px]">
-          <SideNav variant="light" showInvestor={true} />
-        </div>
+    
       </section>
     </div>
   );

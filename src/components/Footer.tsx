@@ -17,10 +17,10 @@ const Footer = () => {
   const year = date.getFullYear();
 
   const path = usePathname();
-
+  // bg-[#000202]
   useEffect(() => {
-    if (path === "/") {
-      setBg(`bg-gradient-to-tr from-[#000202] to-[#025A5A] `);
+    if (path === "/" || path === "/how-it-works") {
+      setBg(``);
     } else {
       setBg("bg-darkGreen");
     }
@@ -28,7 +28,7 @@ const Footer = () => {
 
   return (
     <footer
-      className={`${bg} w-screen text-softBlue px-10 sm:px-[77px] xl:pl-[229px] xl:pr-[153px] pt-16 sm:pt-[117px] xl:pt-[173px] 
+      className={`${bg} w-screen text-softBlue px-6 sm:px-10 xl:pl-28 pt-16 sm:pt-[117px] xl:pt-[173px] 
     pb-8 sm:pb-14 xl:pb-[120px] sm:pbfont-inter flex flex-col gap-10 sm:gap-x-[146px] xl:gap-x-[121px] sm:gap-y-[114px] xl:gap-y-12 sm:grid sm:grid-cols-2 xl:grid-cols-4`}
     >
       <div>
@@ -36,7 +36,7 @@ const Footer = () => {
           Who We Are
         </h4>
 
-        <ul className="flex flex-col gap-[6px] list-none text-sm sm:text-lg">
+        <ul className="flex flex-col gap-[6px] list-none text-sm sm:text-base">
           <li>
             <Link href="/who-we-are#leadership">Leadership</Link>
           </li>
@@ -62,7 +62,7 @@ const Footer = () => {
           What We Do
         </h4>
 
-        <ul className="flex flex-col gap-[6px] list-none text-sm sm:text-lg">
+        <ul className="flex flex-col gap-[6px] list-none text-sm sm:text-base">
           <li>
             <Link href="/how-it-works">Our Product</Link>
           </li>
@@ -76,7 +76,7 @@ const Footer = () => {
           How to Join
         </h4>
 
-        <ul className="flex flex-col gap-[6px] list-none text-sm sm:text-lg">
+        <ul className="flex flex-col gap-[6px] list-none text-sm sm:text-base">
           <li>
             <Link href="/how-to-join#career">Career Development</Link>
           </li>
@@ -98,7 +98,7 @@ const Footer = () => {
         </ul>
       </div>
       <div className=" sm:col-span-1 ">
-        <ul className="flex flex-col gap-[6px] list-none text-sm sm:text-lg">
+        <ul className="flex flex-col gap-[6px] list-none text-sm sm:text-base">
           <li>
             <Link href="/faq-library">Library</Link>
           </li>
@@ -174,7 +174,7 @@ const Footer = () => {
           Important Disclosures
         </Link>
         <p className="text-[7px] sm:text-sm no-underline whitespace-nowrap mt-1 ">
-          COPYRIGHT {year} TWOTENSOR . ALL RIGHTS RESERVED
+          COPYRIGHT &copy; {year} TWOTENSOR . ALL RIGHTS RESERVED
         </p>
       </div>
     </footer>

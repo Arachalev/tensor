@@ -6,7 +6,7 @@ import community2 from "../../../public/assets/images/who-we-are/community2.png"
 import community1 from "../../../public/assets/images/who-we-are/community1.png";
 import founder from "../../../public/assets/images/who-we-are/founder.png";
 import Link from "next/link";
-import SideNav from "@/components/SideNav";
+ 
 
 const Page = () => {
   return (
@@ -42,9 +42,7 @@ const Page = () => {
             and our spirit undying.
           </p>
         </div>
-        <div className="hidden sm:block absolute top-[32px] right-[20px] xl:right-[72px]">
-          <SideNav showInvestor={true} />
-        </div>
+         
       </section>
       <section className=" px-6 sm:px-10 xl:px-28 py-11 xl:py-28 text-darkGreen bg-fadedBlue">
         <h4 className="underline text-[8px] sm:text-xl font-bold mb-3 sm:mb-5  ">

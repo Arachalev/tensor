@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Banner } from "./Banner/Banner";
 import MobileNav from "@/components/MobileNav";
+import SideNav from "./SideNav";
 
 const NavBar = () => {
   const [showMobileNav, setShowMobileNav] = useState(false);
@@ -87,6 +88,9 @@ const NavBar = () => {
 
       </div>
       {showMobileNav && <MobileNav closeNav={() => setShowMobileNav(false)} />}
+      <div className="hidden sm:block fixed top-36 right-6 sm:right-10 xl:right-11 z-[10000]">
+        <SideNav   showInvestor/>
+      </div>
     </nav>
   );
 };

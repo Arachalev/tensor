@@ -95,15 +95,15 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
   };
 
   return (
-    <div className="flex items-center justify-between  ">
+    <div className="flex items-center justify-between gap-6  ">
       {companies.map((item, index) => (
-        <div key={index} className="flex flex-col items-center gap-[3px]">
+        <div key={index} className="flex flex-col items-center gap-1">
           {item.comp1 ? (
             <div
               className={`${
                 item.comp1.img
                   ? ""
-                  : "bg-homeCircle w-8 sm:w-[43px] h-8 sm:h-[43px] rounded-full "
+                  : "bg-homeCircle w-8 sm:min-w-[43px] h-8 sm:min-h-[43px] rounded-full "
               }`}
             >
               {item.comp1.img && (

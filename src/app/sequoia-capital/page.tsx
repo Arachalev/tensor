@@ -1,4 +1,4 @@
-import SideNav from "@/components/SideNav";
+ 
 import Link from "next/link";
 import React from "react";
 import sequoiaCapitalImg from "../../../public/assets/images/sequoia-capital.svg";
@@ -77,9 +77,7 @@ const Page = () => {
             </div>
           </div>
 
-          <div className="hidden sm:block absolute top-[32px] right-[20px] xl:right-[72px]">
-            <SideNav showInvestor={true} />
-          </div>
+           
         </section>
       </div>
     </div>
