@@ -49,9 +49,7 @@ const Banner = ({
 }) => {
   return (
     <div className="inner relative overflow-hidden w-full h-5 sm:h-[60px] ">
-      {variant === "nav" && (
-        <div className="absolute h-full w-[50px] xl:w-[100px] z-50 left-0 top-0  bg-gradient-to-r from-[#026969] via-[#026969]/50 to-[#005050]/0 " />
-      )}
+      <div className="absolute h-full w-[50px] xl:w-[100px] z-50 left-0 top-0  bg-gradient-to-r from-[#000202] to-[#005050]/0 " />
 
       <div className="wrapper absolute h-full flex items-center">
         <section className="section">

@@ -28,7 +28,7 @@ const Footer = () => {
 
   return (
     <footer
-      className={`${bg} w-screen text-softBlue px-6 sm:px-10 xl:pl-28 pt-16 sm:pt-[117px] xl:pt-[173px] 
+      className={`${bg} min-h-[100vh] w-screen  2xl:w-[1400px]  text-softBlue px-6 sm:px-10 xl:pl-28 pt-16 sm:pt-[117px] xl:pt-[173px] 
     pb-8 sm:pb-14 xl:pb-[120px] sm:pbfont-inter flex flex-col gap-10 sm:gap-x-[146px] xl:gap-x-[121px] sm:gap-y-[114px] xl:gap-y-12 sm:grid sm:grid-cols-2 xl:grid-cols-4`}
     >
       <div>
@@ -90,7 +90,7 @@ const Footer = () => {
             <Link href="/how-to-join#internships">Internships</Link>
           </li>
           <li>
-            <Link href="/how-to-join#fellowship">Fellowship Profram</Link>
+            <Link href="/how-to-join#fellowship">Fellowship Program</Link>
           </li>
           <li>
             <Link href="/how-to-join#faq">Application FAQ</Link>

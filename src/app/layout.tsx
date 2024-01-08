@@ -1,4 +1,3 @@
-
 import type { Metadata } from "next";
 // import { Inter } from "next/font/google";
 import "./globals.css";
@@ -25,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <AppContextProvider>
-        <body className="overflow-x-clip">
+        <body className="overflow-x-clip 2xl:flex 2xl:items-center 2xl:flex-col">
           <NavBar />
           {children}
           <Footer />

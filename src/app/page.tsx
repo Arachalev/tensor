@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 
-import homeTensor from "../../public/assets/images/homePage/homeTensor.svg";
 import SideNav from "@/components/SideNav";
 import {
   companiesThreadData,
@@ -28,26 +27,13 @@ export default function Home() {
     const body = document.getElementsByTagName("body")[0];
 
     body.style.backgroundImage =
-      "linear-gradient(to top right, #000202, #000202, #025A5A )";
+      "linear-gradient(to top right, #000202, #000202, #000202, #025A5A )";
   }, []);
 
   // bg-gradient-to-tr from-[#000202] to-[#025A5A]
   return (
-    <main className="w-full   ">
+    <main className="w-full 2xl:w-[1400px]   ">
       <section className="relative h-full min-h-[100vh]  flex font-inter px-6 sm:px-10 xl:px-28 pt-7 sm:pt-14 xl:pt-20 pb-16 sm:pb-[73px] xl:pb-[200px] text-white w-full">
-        <Link
-          href="/"
-          className="hidden xl:block absolute left-2 xl:left-10 top-7 sm:top-14 xl:top-20  min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center  "
-        >
-          {/* <p className=" underline font-serif text-base  sm:text-4xl xl:text-[44px] text-fadedBlue rotate-[90deg] scale-y-[-1] scale-x-[-1]">
-            TwoTensor
-          </p> */}
-          <Image
-            src={homeTensor}
-            alt="two tensor"
-            className= "max-h-[332px] sm:min-h-[435px]"
-          />
-        </Link>
         <div className="flex flex-col  gap-14 sm:gap-28 items-center justify-between w-full ">
           {/* hero section */}
           <div className="w-full relative flex items-center gap-6 xl:gap-11 ">
@@ -76,7 +62,9 @@ export default function Home() {
               searchable universe <br />
               of investment intent signals.
             </p>
-            <div className="flex items-end justify-between mt-8 xl:mt-11 ">
+            <div className="flex items-end justify-between mt-8 xl:mt-11 relative ">
+              <div className="absolute h-full w-[50px] xl:w-[100px] z-50 right-0 top-0  bg-gradient-to-l from-[#011616]/20 to-[#000202]/0" />
+
               <Banner variant="home" speed={0} />
             </div>
           </div>
@@ -84,37 +72,50 @@ export default function Home() {
         {/* 
         pr-6  sm:pr-[60px] xl:pr-[73px] 
         */}
-        <div className="hidden sm:block absolute h-[435px] sm:w-40 xl:w-52 right-0 top-0  bg-gradient-to-r from-[#005050]/0 via-darkGreen/80 to-[#005050]/40" />
+        {/* <div className="hidden sm:block absolute h-[435px] sm:w-40 xl:w-52 right-0 top-20  bg-gradient-to-r from-[#005050]/0 via-darkGreen/80 to-[#005050]/40" /> */}
 
         {/* <div className="absolute right-[40px] xl:right-[57px] hidden sm:block z-20">
           <SideNav variant="light" showInvestor />
         </div> */}
       </section>
-      <section className=" xl:min-h-[100vh] relative flex justify-between   py-14 pt-16 xl:py-32 ">
-        <div className="bg-[#F6FFFE] max-w-fit font-inter px-[24px] sm:px-[60px] xl:px-[142px] pt-6 pb-24">
-          <p className="text-xs mb-2">TWOTENSOR</p>
-          <div className="flex flex-col gap-10 text-[15px]  text-darkGreen">
-            <h4 className="block font-bold text-sm xl:text-lg">
-              We amplify impact by delivering our research in practical,
-              actionable formats.
-            </h4>
-
-            <div className="flex flex-col md:flex-row items-center gap-4 bg-softBlue p-6 w-fit ">
-              {homePageData.map((item, index) => (
-                <HomeCards
-                  key={`${(item.heading, index)}`}
-                  heading={item.heading}
-                  content={item.content}
-                  link={item.link}
-                  img={item.img}
-                />
-              ))}
+      <section className="min-h-[100vh] relative flex justify-between   py-14 pt-16 xl:py-32 ">
+        <div className=" max-w-full font-inter px-[24px] sm:px-[60px] xl:px-[142px] pt-6 pb-24">
+          <div className="flex flex-col items-center justify-center gap-10 ">
+            <div className="w-full flex flex-col gap-4  sm:gap-14 pb-4 border-b-2 border-b-[#6A8682]">
+              <div className="w-full flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-10 xl:gap-20 ">
+                {homePageData.map((item, index) => (
+                  <HomeCards
+                    key={`${(item.heading, index)}`}
+                    heading={item.heading}
+                    content={item.content}
+                    link={item.link}
+                    img={item.img}
+                  />
+                ))}
+              </div>
+              <p className="text-xs text-white self-end">TWOTENSOR</p>
             </div>
 
-            <p className="sm:text-xl xl:text-2xl">
-              Intellectual curiosity and lifelong learning, are fundamental in
-              achieving <br /> extraordinary repeat success.
-            </p>
+            <div className="flex flex-col gap-10  text-[#E3F8F5]">
+              <div className="mt-5 xl:mt-10 sm:flex gap-6 xl:gap-14">
+                <h4 className="font-bold xl:text-4xl leading-6 xl:leading-[60px] mb-4">
+                  Amplify impact by delivering our research in practical.
+                </h4>
+                <div className="text-[9px] xl:text-base xl:w-1/2 font-medium flex flex-col gap-4 xl:gap-6">
+                  <p>
+                    Artificial intelligence and machine learning models built in
+                    labs typically fail in an evolving operational context - but
+                    that’s where the stakes are highest.
+                  </p>
+                  <p>
+                    Gotham’s built-in feedback loops train and refine models
+                    that augment human analysis and decision making during
+                    operations. In turn, operator actions improve these models
+                    over time.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
