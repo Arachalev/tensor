@@ -32,11 +32,11 @@ export default function Home() {
 
   // bg-gradient-to-tr from-[#000202] to-[#025A5A]
   return (
-    <main className="w-full 2xl:w-[1400px]   ">
-      <section className="relative h-full min-h-[100vh]  flex font-inter px-6 sm:px-10 xl:px-28 pt-14 xl:pt-20 pb-16 sm:pb-[73px] xl:pb-[200px] text-white w-full">
+    <main className="w-full flex flex-col items-center ">
+      <section className="relative h-full min-h-[100vh]  flex font-inter px-6 sm:px-10 2xl:px-28 pt-14 xl:pt-20 pb-16 sm:pb-[73px] xl:pb-[200px] text-white w-full ">
         <div className="flex flex-col  gap-14 sm:gap-28 items-center justify-between w-full ">
           {/* hero section */}
-          <div className="w-full relative flex items-center gap-6 xl:gap-11 ">
+          <div className="w-full relative flex items-center border-4">
             <div className="w-full">
               <CompaniesThread
                 companies={
@@ -50,7 +50,7 @@ export default function Home() {
             </div>
             {/* <div className="absolute bottom-0 right-0 w-full h-20 bg-gradient-to-t from-[#005050]/90 to-[#005050]/40 hidden sm:block" /> */}
           </div>
-          <div className="mt-4 pr-6 w-full">
+          <div className="mt-4 pr-6 w-full  2xl:w-[1400px] ">
             <p className="font-medium text-[7px] sm:text-[10px] xl:text-sm mb-1">
               INVESTMENT INTENT DATA
             </p>
@@ -62,7 +62,7 @@ export default function Home() {
               searchable universe <br />
               of investment intent signals.
             </p>
-            <div className="flex items-end justify-between mt-8 xl:mt-11 relative  ">
+            <div className="flex items-end justify-between mt-8 xl:mt-11 relative 2xl:w-[1400px] 2xl:fixed 2xl:bottom-10  ">
               <div className="absolute h-full w-[50px] xl:w-[100px] z-50 right-0 top-0  bg-transparent" />
               <Banner variant="home" speed={0} />
             </div>
@@ -77,7 +77,7 @@ export default function Home() {
           <SideNav variant="light" showInvestor />
         </div> */}
       </section>
-      <section className="min-h-[100vh] relative flex justify-between   py-14 pt-16 xl:py-32 ">
+      <section className="min-h-[100vh] relative flex justify-between   py-14 pt-16 xl:py-32  2xl:w-[1400px] ">
         <div className=" max-w-full font-inter px-[24px] sm:px-[60px] xl:px-[142px] pt-6 pb-24">
           <div className="flex flex-col items-center justify-center gap-10 ">
             <div className="w-full flex flex-col gap-4  sm:gap-14 pb-4 border-b-2 border-b-[#6A8682]">

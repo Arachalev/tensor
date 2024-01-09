@@ -68,7 +68,7 @@ const NavBar = () => {
 
   return (
     <nav
-      className={`z-[1000] ${bg} w-screen h-[52px] sm:h-[0px] fixed top-0 2xl:flex 2xl:items-center 2xl:justify-center`}
+      className={`z-[50] ${bg} w-screen h-[52px] sm:h-[0px] fixed top-0 2xl:flex 2xl:items-center 2xl:justify-center`}
     >
       {/* {firstLoad && <LoadingScreen />} */}
       <div className="h-full items-center  sm:h-full w-full 2xl:w-[1400px] flex relative ">
@@ -98,7 +98,7 @@ const NavBar = () => {
           </div>
         )}
         {showSideNav && (
-          <div className="hidden sm:block absolute top-20 right-6 sm:right-10 xl:right-11 z-[1000]">
+          <div className="hidden sm:block absolute top-20 right-6 sm:right-10 xl:right-11 z-[500]">
             <SideNav showInvestor />
           </div>
         )}

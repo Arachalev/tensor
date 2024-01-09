@@ -150,6 +150,37 @@ export const companiesThreadData: CompaniesThreadProps = {
         leadDays: 0,
       },
     },
+    // FILLER THREAD -------------------------------------------------------------------------------------------
+    {
+      comp1: {
+        img: "",
+        name: "",
+        deals: 0,
+        value: "",
+        leadDays: 0,
+      },
+      comp2: {
+        img: "",
+        name: "",
+        deals: 0,
+        value: "",
+        leadDays: 0,
+      },
+      comp4: {
+        img: "",
+        name: "",
+        deals: 0,
+        value: "",
+        leadDays: 0,
+      },
+      comp5: {
+        img: "",
+        name: "",
+        deals: 0,
+        value: "",
+        leadDays: 0,
+      },
+    },
     // second thread ----------------------------------------------------------------------------------
     {
       comp3: {
@@ -309,6 +340,38 @@ export const companiesThreadData: CompaniesThreadProps = {
         leadDays: 0,
       },
     },
+        // FILLER THREAD -------------------------------------------------------------------------------------------
+        {
+          comp1: {
+            img: "",
+            name: "",
+            deals: 0,
+            value: "",
+            leadDays: 0,
+          },
+          comp2: {
+            img: "",
+            name: "",
+            deals: 0,
+            value: "",
+            leadDays: 0,
+          },
+          comp3: {
+            img: "",
+            name: "",
+            deals: 0,
+            value: "",
+            leadDays: 0,
+          },
+         
+          comp6: {
+            img: "",
+            name: "",
+            deals: 0,
+            value: "",
+            leadDays: 0,
+          },
+        },
     // third thread ---------------------------------------------------------------------------------
     {
       comp1: { img: "", name: "", deals: 0, value: "", leadDays: 0 },
@@ -402,6 +465,37 @@ export const companiesThreadData: CompaniesThreadProps = {
         },
       },
     },
+        // FILLER THREAD -------------------------------------------------------------------------------------------
+        {
+          comp2: {
+            img: "",
+            name: "",
+            deals: 0,
+            value: "",
+            leadDays: 0,
+          },
+          comp3: {
+            img: "",
+            name: "",
+            deals: 0,
+            value: "",
+            leadDays: 0,
+          },
+          comp4: {
+            img: "",
+            name: "",
+            deals: 0,
+            value: "",
+            leadDays: 0,
+          },
+          comp5: {
+            img: "",
+            name: "",
+            deals: 0,
+            value: "",
+            leadDays: 0,
+          },
+        },
     // fourth thread ----------------------------------------------------------------------------------
     {
       comp1: {
@@ -450,6 +544,31 @@ export const companiesThreadData: CompaniesThreadProps = {
       comp3: { img: "", name: "", deals: 0, value: "", leadDays: 0 },
       comp6: { img: "", name: "", deals: 0, value: "", leadDays: 0 },
     },
+        // FILLER THREAD -------------------------------------------------------------------------------------------
+        {
+          comp2: {
+            img: "",
+            name: "",
+            deals: 0,
+            value: "",
+            leadDays: 0,
+          },
+         
+          comp4: {
+            img: "",
+            name: "",
+            deals: 0,
+            value: "",
+            leadDays: 0,
+          },
+          comp5: {
+            img: "",
+            name: "",
+            deals: 0,
+            value: "",
+            leadDays: 0,
+          },
+        },
     // fifth thread ----------------------------------------------------------------------------
 
     {
@@ -578,6 +697,38 @@ export const companiesThreadData: CompaniesThreadProps = {
       },
     },
 
+        // FILLER THREAD -------------------------------------------------------------------------------------------
+        {
+          comp1: {
+            img: "",
+            name: "",
+            deals: 0,
+            value: "",
+            leadDays: 0,
+          },
+          comp3: {
+            img: "",
+            name: "",
+            deals: 0,
+            value: "",
+            leadDays: 0,
+          },
+          comp4: {
+            img: "",
+            name: "",
+            deals: 0,
+            value: "",
+            leadDays: 0,
+          },
+          comp6:{
+            img: "",
+            name: "",
+            deals: 0,
+            value: "",
+            leadDays: 0,
+          },
+        },
+
     // 6th thread -----------------------------------------------------------------------
 
     {
@@ -679,6 +830,38 @@ export const companiesThreadData: CompaniesThreadProps = {
 
       comp6: { img: "", name: "", deals: 0, value: "", leadDays: 0 },
     },
+
+        // FILLER THREAD -------------------------------------------------------------------------------------------
+        {
+          comp2: {
+            img: "",
+            name: "",
+            deals: 0,
+            value: "",
+            leadDays: 0,
+          },
+          comp3: {
+            img: "",
+            name: "",
+            deals: 0,
+            value: "",
+            leadDays: 0,
+          },
+          comp4: {
+            img: "",
+            name: "",
+            deals: 0,
+            value: "",
+            leadDays: 0,
+          },
+          comp5: {
+            img: "",
+            name: "",
+            deals: 0,
+            value: "",
+            leadDays: 0,
+          },
+        },
     // 7th thread -------------------------------------------------------
 
     {
@@ -939,6 +1122,31 @@ export const companiesThreadData: CompaniesThreadProps = {
       },
       comp6: { img: "", name: "", deals: 0, value: "", leadDays: 0 },
     },
+        // FILLER THREAD -------------------------------------------------------------------------------------------
+        {
+          comp1: {
+            img: "",
+            name: "",
+            deals: 0,
+            value: "",
+            leadDays: 0,
+          },
+          
+          comp4: {
+            img: "",
+            name: "",
+            deals: 0,
+            value: "",
+            leadDays: 0,
+          },
+          comp5: {
+            img: "",
+            name: "",
+            deals: 0,
+            value: "",
+            leadDays: 0,
+          },
+        },
     // 9th thread ----------------------------------------------------------------------------------
     {
       comp1: { img: "", name: "", deals: 0, value: "", leadDays: 0 },
@@ -3607,7 +3815,7 @@ export const mobileCompaniesThreadData: CompaniesThreadProps = {
           ],
         },
       },
-      
+
       comp5: {
         img: next,
         name: "Nextgear Ventures",
@@ -4220,7 +4428,7 @@ export const mobileCompaniesThreadData: CompaniesThreadProps = {
           co_investors: ["Gravity Capital", "1984 Ventures"],
         },
       },
-     
+
       comp4: {
         img: speed,
         name: "Lightspeed Venture Partners",
@@ -4370,7 +4578,5 @@ export const mobileCompaniesThreadData: CompaniesThreadProps = {
       },
       comp6: { img: "", name: "", deals: 0, value: "", leadDays: 0 },
     },
-    
-  
   ],
 };

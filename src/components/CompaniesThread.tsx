@@ -95,15 +95,15 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
   };
 
   return (
-    <div className="flex items-center justify-between gap-6  ">
+    <div className="flex items-center justify-between gap-2  ">
       {companies.map((item, index) => (
-        <div key={index} className="flex flex-col items-center gap-1">
+        <div key={index} className="flex flex-col items-center gap-2">
           {item.comp1 ? (
             <div
               className={`${
                 item.comp1.img
                   ? ""
-                  : "bg-homeCircle min-w-[32px] sm:min-w-[43px]  min-h-[32px] sm:min-h-[43px] rounded-full "
+                  : "bg-[#D1FFF8] min-w-[32px] sm:min-w-[43px]  min-h-[32px] sm:min-h-[43px] 2xl:min-h-[55px] 2xl:min-w-[55px] rounded-full "
               }`}
             >
               {item.comp1.img && (
@@ -139,7 +139,7 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
                     width={30}
                     height={30}
                     // onClick={() => handleModal(item.comp1?.name!, "comp1")}
-                    className="w-8 sm:w-[43px] h-8 sm:h-[43px] rounded-full cursor-pointer"
+                    className="w-8 sm:w-[43px] h-8 sm:h-[43px]  2xl:min-h-[55px] 2xl:min-w-[55px] rounded-full cursor-pointer"
                     src={item.comp1.img}
                     alt={item.comp1.name}
                   />
@@ -162,7 +162,7 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
                       showCompany.showModal &&
                       item.comp1.name === showCompany.company.name &&
                       "w-screen h-screen"
-                    }  sm:w-auto   sm:h-auto flex justify-center  pt-20 sm:pt-0 sm:absolute sm:top-28 sm:left-28 z-[60]`}
+                    }  sm:w-auto sm:h-auto flex justify-center  pt-20 sm:pt-0 sm:absolute sm:top-28 sm:left-28 z-[60]`}
                   >
                     {showCompany.showModal &&
                       item.comp1.name === showCompany.company.name && (
@@ -201,17 +201,17 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
               )}
             </div>
           ) : (
-            <div className="h-[32px] sm:h-[43px] w-[30px] flex items-center justify-center ">
-              <span className="min-h-[16px]  sm:min-h-[24px] w-[1px] bg-[#417871]" />
+            <div className="h-[32px] sm:h-[43px] w-[30px] 2xl:min-h-[55px] 2xl:min-w-[55px] flex items-center justify-center ">
+              <span className="h-full w-[1px] bg-[#417871]" />
             </div>
           )}
-          <span className="h-4  sm:min-h-[24px]  w-[1px] bg-[#417871]" />
+          <span className="h-[32px] sm:h-[43px] 2xl:min-h-[55px] w-[1px] bg-[#417871]" />
           {item.comp2 ? (
             <div
               className={`${
                 item.comp2.img
                   ? ""
-                  : "bg-homeCircle  min-w-[32px] sm:w-[43px]  min-h-[32px] sm:h-[43px] rounded-full"
+                  : "bg-[#D1FFF8]  min-w-[32px] sm:w-[43px]  min-h-[32px] sm:h-[43px] 2xl:min-h-[55px] 2xl:min-w-[55px] rounded-full"
               }`}
             >
               {item.comp2.img && (
@@ -234,7 +234,7 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
                     width={30}
                     height={30}
                     onClick={() => handleModal(item.comp2?.name!, "comp2")}
-                    className="w-8 sm:w-[43px] h-8 sm:h-[43px] rounded-full cursor-pointer"
+                    className="w-8 sm:w-[43px] h-8 sm:h-[43px] 2xl:min-h-[55px] 2xl:min-w-[55px] rounded-full cursor-pointer"
                     src={item.comp2.img}
                     alt={item.comp2.name}
                   />
@@ -296,17 +296,17 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
               )}
             </div>
           ) : (
-            <div className="h-[32px] sm:h-[43px] w-[30px] flex items-center justify-center ">
-              <span className="min-h-[16px]  sm:min-h-[24px] min-w-[1px] bg-[#417871]" />
+            <div className="h-[32px] sm:h-[43px] w-[30px] 2xl:min-h-[55px] 2xl:min-w-[55px] flex items-center justify-center ">
+              <span className="h-full sm:min-h-[24px] min-w-[1px] bg-[#417871]" />
             </div>
           )}
-          <span className="h-4  sm:min-h-[24px]  w-[1px] bg-[#417871]" />
+          <span className="h-[32px] sm:h-[43px] 2xl:min-h-[55px] w-[1px] bg-[#417871]" />
           {item.comp3 ? (
             <div
               className={`${
                 item.comp3.img
                   ? ""
-                  : "bg-homeCircle  min-w-[32px] sm:w-[43px]  min-h-[32px] sm:h-[43px] rounded-full"
+                  : "bg-[#D1FFF8]  min-w-[32px] sm:w-[43px] min-h-[32px] sm:h-[43px] 2xl:min-h-[55px] 2xl:min-w-[55px] rounded-full"
               }`}
             >
               {item.comp3.img && (
@@ -329,7 +329,7 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
                     width={30}
                     height={30}
                     onClick={() => handleModal(item.comp3?.name!, "comp3")}
-                    className="w-8 sm:w-[43px] h-8 sm:h-[43px] rounded-full cursor-pointer"
+                    className="w-8 sm:w-[43px] h-8 sm:h-[43px] 2xl:min-h-[55px] 2xl:min-w-[55px] rounded-full cursor-pointer"
                     src={item.comp3.img}
                     alt={item.comp3.name}
                   />
@@ -391,17 +391,17 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
               )}
             </div>
           ) : (
-            <div className="h-[32px] sm:h-[43px] w-[30px] flex items-center justify-center ">
-              <span className="min-h-[16px]  sm:min-h-[24px] min-w-[1px] bg-[#417871]" />
+            <div className="h-[32px] sm:h-[43px] w-[30px] 2xl:min-h-[55px] 2xl:min-w-[55px] flex items-center justify-center ">
+              <span className="h-full min-w-[1px] bg-[#417871]" />
             </div>
           )}
-          <span className="h-4 w-[1px]  sm:min-h-[24px]  bg-[#417871]" />
+          <span className="h-[32px] sm:h-[43px] 2xl:min-h-[55px]  w-[1px] bg-[#417871]" />
           {item.comp4 ? (
             <div
               className={`${
                 item.comp4.img
                   ? ""
-                  : "bg-homeCircle  min-w-[32px] sm:w-[43px]  min-h-[32px] sm:h-[43px] rounded-full"
+                  : "bg-[#D1FFF8]  min-w-[32px] sm:w-[43px]  min-h-[32px] sm:h-[43px] 2xl:min-h-[55px] 2xl:min-w-[55px] rounded-full"
               }`}
             >
               {item.comp4.img && (
@@ -424,7 +424,7 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
                     width={30}
                     height={30}
                     onClick={() => handleModal(item.comp4?.name!, "comp4")}
-                    className="w-8 sm:w-[43px] h-8 sm:h-[43px] rounded-full cursor-pointer"
+                    className="w-8 sm:w-[43px] h-8 sm:h-[43px] 2xl:min-h-[55px] 2xl:min-w-[55px] rounded-full cursor-pointer"
                     src={item.comp4.img}
                     alt={item.comp4.name}
                   />
@@ -447,7 +447,7 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
                       showCompany.showModal &&
                       item.comp4.name === showCompany.company.name &&
                       "w-screen h-screen"
-                    }  sm:w-auto   sm:h-auto flex justify-center  pt-20 sm:pt-0 sm:absolute sm:top-28 sm:left-28 z-50`}
+                    }  sm:w-auto sm:h-auto flex justify-center  pt-20 sm:pt-0 sm:absolute sm:top-28 sm:left-28 z-50`}
                   >
                     {showCompany.showModal &&
                       item.comp4.name === showCompany.company.name && (
@@ -486,18 +486,18 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
               )}
             </div>
           ) : (
-            <div className="h-[32px] sm:h-[43px] w-[30px] flex items-center justify-center ">
-              <span className="min-h-[16px]  sm:min-h-[24px] min-w-[1px] bg-[#417871]" />
+            <div className="h-[32px] sm:h-[43px] w-[30px] 2xl:min-h-[55px] 2xl:min-w-[55px] flex items-center justify-center ">
+              <span className="h-full min-w-[1px] bg-[#417871]" />
             </div>
           )
           }
-          <span className="h-4 w-[1px]  sm:min-h-[24px]  bg-[#417871]" />
+          <span className="h-[32px] sm:h-[43px] 2xl:min-h-[55px] w-[1px] bg-[#417871]" />
           {item.comp5 ? (
             <div
               className={`${
                 item.comp5.img
                   ? ""
-                  : "bg-homeCircle  min-w-[32px] sm:w-[43px]  min-h-[32px] sm:h-[43px] rounded-full"
+                  : "bg-[#D1FFF8]  min-w-[32px] sm:w-[43px]  min-h-[32px] sm:h-[43px] 2xl:min-h-[55px] 2xl:min-w-[55px] rounded-full"
               }`}
             >
               {item.comp5.img && (
@@ -520,7 +520,7 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
                     width={30}
                     height={30}
                     onClick={() => handleModal(item.comp5?.name!, "comp5")}
-                    className="w-8 sm:w-[43px] h-8 sm:h-[43px] rounded-full cursor-pointer"
+                    className="w-8 sm:w-[43px] h-8 sm:h-[43px] 2xl:min-h-[55px] 2xl:min-w-[55px] rounded-full cursor-pointer"
                     src={item.comp5.img}
                     alt={item.comp5.name}
                   />
@@ -582,17 +582,17 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
               )}
             </div>
           ) : (
-            <div className="h-[32px] sm:h-[43px] w-[30px] flex items-center justify-center ">
-              <span className="min-h-[16px]  sm:min-h-[24px] min-w-[1px] bg-[#417871]" />
+            <div className="h-[32px] sm:h-[43px] w-[30px] 2xl:min-h-[55px] 2xl:min-w-[55px] flex items-center justify-center ">
+              <span className="h-full min-w-[1px] bg-[#417871]" />
             </div>
           )}
-          <span className="h-4  sm:min-h-[24px]  w-[1px] bg-[#417871]" />
+          <span className="h-[32px] sm:h-[43px] 2xl:min-h-[55px]  w-[1px] bg-[#417871]" />
           {item.comp6 ? (
             <div
               className={`${
                 item.comp6.img
                   ? ""
-                  : "bg-homeCircle  min-w-[32px] sm:w-[43px] min-h-[32px] sm:h-[43px] rounded-full"
+                  : "bg-[#D1FFF8]  min-w-[32px] sm:w-[43px] min-h-[32px] sm:h-[43px] 2xl:min-h-[55px] 2xl:min-w-[55px] rounded-full"
               }`}
             >
               {item.comp6.img && (
@@ -615,7 +615,7 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
                     width={30}
                     height={30}
                     onClick={() => handleModal(item.comp6?.name!, "comp6")}
-                    className="w-8 sm:w-[43px] h-8 sm:h-[43px] rounded-full cursor-pointer"
+                    className="w-8 sm:w-[43px] h-8 sm:h-[43px] 2xl:min-h-[55px] 2xl:min-w-[55px] rounded-full cursor-pointer"
                     src={item.comp6.img}
                     alt={item.comp6.name}
                   />
@@ -677,11 +677,11 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
               )}
             </div>
           ) : (
-            <div className="h-[32px] sm:h-[43px] w-[30px] flex items-center justify-center ">
-              <span className="min-h-[16px]  sm:min-h-[24px] min-w-[1px] bg-[#417871]" />
+            <div className="h-[32px] sm:h-[43px] w-[30px] 2xl:min-h-[55px] 2xl:min-w-[55px] flex items-center justify-center ">
+              <span className="h-full min-w-[1px] bg-[#417871]" />
             </div>
           )}
-          <span className="h-4  sm:min-h-[24px]  w-[1px] bg-[#417871]" />
+          {/* <span className="h-[32px] sm:h-[43px] 2xl:min-h-[55px] w-[1px] bg-[#417871]" /> */}
         </div>
       ))}
     </div>

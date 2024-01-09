@@ -31,7 +31,7 @@ const SideNav = ({ showInvestor = true }: { showInvestor?: boolean }) => {
   return (
     <div id="sideNav">
       {!hideLogin && (
-        <Link href="" className={`font-semibold text-[13px] text-white ml-4`}>
+        <Link href="" className={`font-semibold text-[13px] text-[#74DDD0] ml-4`}>
           User Login
         </Link>
       )}
@@ -196,7 +196,7 @@ const SideNav = ({ showInvestor = true }: { showInvestor?: boolean }) => {
           className={`  text-darkGreen hover:text-[#74DDD0]  ${
             variant === "dark"
               ? "bg-inherit border-darkGreen border-[2px] "
-              : "bg-[#E2FFFB] hover:bg-inherit border-darkGreen border-[2px] "
+              : "bg-[#E2FFFB] hover:bg-inherit hover:border-darkGreen hover:border-[2px] "
           }    w-[94px]  h-7 rounded-[3px]  
           font-medium text-[9px]  whitespace-nowrap`}
         >

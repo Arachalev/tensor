@@ -12,14 +12,14 @@ const Page = () => {
   return (
     <div className="font-inter w-full 2xl:w-[1400px] relative  ">
       <section className=" px-6 sm:px-10 xl:px-28 pb-8 sm:pb-[85px] xl:pb-28 pt-14 xl:pt-20  bg-white text-darkGreen flex flex-col gap-10 sm:gap-28 ">
-        <Link
+        {/* <Link
           href="/"
           className="absolute -left-4 top-[20rem] xl:top-[40rem] min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center  "
         >
           <p className=" underline font-serif text-[9px] sm:text-sm xl:text-lg text-[#035F5F] rotate-[90deg] scale-y-[-1] scale-x-[-1]">
             TwoTensor
           </p>
-        </Link>
+        </Link> */}
         <div className="sm:w-[500px] xl:w-[900px]">
           <h4 className="underline font-semibold text-xl sm:text-3xl xl:text-4xl mb-5 xl:mb-10">
             HOW TO JOIN

@@ -30,7 +30,7 @@ const CompanyCard = (props: CompanyCardProps) => {
 
   return (
     <div
-      className=" scale-[1.8]  bg-softBlue h-[231px] w-[186px] px-3 pt-[14px]  flex flex-col gap-2 rounded-[9px]  text-darkGreen font-inter "
+      className=" scale-[1.8]  bg-softBlue h-[231px] w-[186px] px-3 pt-[14px]  flex flex-col gap-2 rounded-[9px]  text-darkGreen font-inter"
       onMouseLeave={() => handleClose()}
     >
       <div className="font-bold flex items-start gap-[5px]">
