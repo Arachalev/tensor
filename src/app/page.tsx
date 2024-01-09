@@ -36,7 +36,7 @@ export default function Home() {
       <section className="relative h-full min-h-[100vh]  flex font-inter px-6 sm:px-10 2xl:px-28 pt-14 xl:pt-20 pb-16 sm:pb-[73px] xl:pb-[200px] text-white w-full ">
         <div className="flex flex-col  gap-14 sm:gap-28 items-center justify-between w-full ">
           {/* hero section */}
-          <div className="w-full relative flex items-center border-4">
+          <div className="w-full relative flex items-center">
             <div className="w-full">
               <CompaniesThread
                 companies={
