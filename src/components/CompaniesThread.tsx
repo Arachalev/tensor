@@ -95,7 +95,7 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
   };
 
   return (
-    <div className="flex items-center justify-between gap-6  ">
+    <div className="flex items-start justify-between gap-6  ">
       {companies.map((item, index) => (
         <div key={index} className="flex flex-col items-center gap-1">
           {item.comp1 ? (
@@ -103,7 +103,7 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
               className={`${
                 item.comp1.img
                   ? ""
-                  : "bg-homeCircle w-8 sm:min-w-[43px] h-8 sm:min-h-[43px] rounded-full "
+                  : "bg-homeCircle min-w-[32px] sm:min-w-[43px]  min-h-[32px] sm:min-h-[43px] rounded-full "
               }`}
             >
               {item.comp1.img && (
@@ -201,8 +201,8 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
               )}
             </div>
           ) : (
-            <div className="h-[16px] sm:h-[43px] w-[30px] flex items-center justify-center ">
-              <span className="min-h-[16px]  sm:min-h-[24px] min-w-[1px] bg-[#417871]" />
+            <div className="h-[32px] sm:h-[43px] w-[30px] flex items-center justify-center ">
+              <span className="min-h-[16px]  sm:min-h-[24px] w-[1px] bg-[#417871]" />
             </div>
           )}
           <span className="h-4  sm:min-h-[24px]  w-[1px] bg-[#417871]" />
@@ -211,7 +211,7 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
               className={`${
                 item.comp2.img
                   ? ""
-                  : "bg-homeCircle w-8 sm:w-[43px] h-8 sm:h-[43px] rounded-full"
+                  : "bg-homeCircle  min-w-[32px] sm:w-[43px]  min-h-[32px] sm:h-[43px] rounded-full"
               }`}
             >
               {item.comp2.img && (
@@ -296,7 +296,7 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
               )}
             </div>
           ) : (
-            <div className="h-[16px] sm:h-[43px] w-[30px] flex items-center justify-center ">
+            <div className="h-[32px] sm:h-[43px] w-[30px] flex items-center justify-center ">
               <span className="min-h-[16px]  sm:min-h-[24px] min-w-[1px] bg-[#417871]" />
             </div>
           )}
@@ -306,7 +306,7 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
               className={`${
                 item.comp3.img
                   ? ""
-                  : "bg-homeCircle w-8 sm:w-[43px] h-8 sm:h-[43px] rounded-full"
+                  : "bg-homeCircle  min-w-[32px] sm:w-[43px]  min-h-[32px] sm:h-[43px] rounded-full"
               }`}
             >
               {item.comp3.img && (
@@ -391,7 +391,7 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
               )}
             </div>
           ) : (
-            <div className="h-[16px] sm:h-[43px] w-[30px] flex items-center justify-center ">
+            <div className="h-[32px] sm:h-[43px] w-[30px] flex items-center justify-center ">
               <span className="min-h-[16px]  sm:min-h-[24px] min-w-[1px] bg-[#417871]" />
             </div>
           )}
@@ -401,7 +401,7 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
               className={`${
                 item.comp4.img
                   ? ""
-                  : "bg-homeCircle w-8 sm:w-[43px] h-8 sm:h-[43px] rounded-full"
+                  : "bg-homeCircle  min-w-[32px] sm:w-[43px]  min-h-[32px] sm:h-[43px] rounded-full"
               }`}
             >
               {item.comp4.img && (
@@ -486,17 +486,18 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
               )}
             </div>
           ) : (
-            <div className="h-[16px] sm:h-[43px] w-[30px] flex items-center justify-center ">
+            <div className="h-[32px] sm:h-[43px] w-[30px] flex items-center justify-center ">
               <span className="min-h-[16px]  sm:min-h-[24px] min-w-[1px] bg-[#417871]" />
             </div>
-          )}
+          )
+          }
           <span className="h-4 w-[1px]  sm:min-h-[24px]  bg-[#417871]" />
           {item.comp5 ? (
             <div
               className={`${
                 item.comp5.img
                   ? ""
-                  : "bg-homeCircle w-8 sm:w-[43px] h-8 sm:h-[43px] rounded-full"
+                  : "bg-homeCircle  min-w-[32px] sm:w-[43px]  min-h-[32px] sm:h-[43px] rounded-full"
               }`}
             >
               {item.comp5.img && (
@@ -581,7 +582,7 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
               )}
             </div>
           ) : (
-            <div className="h-[16px] sm:h-[43px] w-[30px] flex items-center justify-center ">
+            <div className="h-[32px] sm:h-[43px] w-[30px] flex items-center justify-center ">
               <span className="min-h-[16px]  sm:min-h-[24px] min-w-[1px] bg-[#417871]" />
             </div>
           )}
@@ -591,7 +592,7 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
               className={`${
                 item.comp6.img
                   ? ""
-                  : "bg-homeCircle w-8 sm:w-[43px] h-8 sm:h-[43px] rounded-full"
+                  : "bg-homeCircle  min-w-[32px] sm:w-[43px] min-h-[32px] sm:h-[43px] rounded-full"
               }`}
             >
               {item.comp6.img && (
@@ -676,7 +677,7 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
               )}
             </div>
           ) : (
-            <div className="h-[16px] sm:h-[43px] w-[30px] flex items-center justify-center ">
+            <div className="h-[32px] sm:h-[43px] w-[30px] flex items-center justify-center ">
               <span className="min-h-[16px]  sm:min-h-[24px] min-w-[1px] bg-[#417871]" />
             </div>
           )}

@@ -18,7 +18,7 @@ const SideNav = ({ closeNav }: { closeNav: () => void }) => {
           onClick={() => {
             closeNav();
           }}
-          className=" flex flex-end sm:hidden pr-4 "
+          className=""
         >
           <Image
             src="/assets/icons/hamburger.svg"
