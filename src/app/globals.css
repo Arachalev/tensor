@@ -10,6 +10,10 @@
   src: url("../../public/assets/fonts/Plantagenet.ttf");
 }
 
+@font-face {
+  font-family: Avenir, Inter;
+  src: url("../../public/assets/fonts/avenir_ff/AvenirLTStd-Black.otf");
+}
 * {
   box-sizing: border-box;
   margin: 0%;

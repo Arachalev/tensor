@@ -38,8 +38,8 @@ const Page = () => {
   }, []);
 
   return (
-    <div className="font-inter w-full relative">
-      <section className=" px-6 sm:px-10 xl:px-28 py-11 sm:pb-20 xl:pb-80 text-softBlue  ">
+    <div className="font-inter w-full 2xl:w-[1400px] relative">
+      <section className=" px-6 sm:px-10 xl:px-28 pb-11 sm:pb-20 xl:pb-80 text-softBlue  ">
         <Link
           href="/"
           className="absolute -left-4 top-[20rem] xl:top-[40rem] min-w-[10px] h-20 sm:min-w-[60px] xl:w-[100px] self-center  "

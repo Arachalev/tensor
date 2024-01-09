@@ -7,6 +7,8 @@ import gs from "../../../public/assets/images/banner/banner1.svg";
 import novellis from "../../../public/assets/images/banner/banner2.svg";
 import comfortDelgro from "../../../public/assets/images/banner/banner3.svg";
 import borusan from "../../../public/assets/images/banner/banner4.svg";
+import cervin from "../../../public/assets/images/banner/banner5.svg";
+import mobility from "../../../public/assets/images/banner/banner6.svg";
 
 export const images = [
   {
@@ -37,6 +39,20 @@ export const images = [
     w1: "min-w-[51px]",
     w2: "sm:min-w-[85px]",
     w3: "xl:min-w-[125px]",
+  },
+  {
+    image: cervin,
+    width: 30,
+    w1: "min-w-[30px]",
+    w2: "sm:min-w-[30px]",
+    w3: "xl:min-w-[50px]",
+  },
+  {
+    image: mobility,
+    width: 60,
+    w1: "min-w-[61px]",
+    w2: "sm:min-w-[75px]",
+    w3: "xl:min-w-[92px]",
   },
 ];
 // style={{ "--speed": `${speed}ms` }}

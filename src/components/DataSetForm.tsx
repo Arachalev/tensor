@@ -12,7 +12,7 @@ const DataSetForm = () => {
     { value: "vanilla", label: "Vanilla" },
   ];
   return (
-    <div className="pt-14 sm:pt-16 xl:pt-14 pb-20 sm:pb-32 px-8 sm:px-11 font-inter bg-white text-darkGreen flex flex-col gap-10 sm:gap-20 sm:w-[523px] xl:w-[406px]">
+    <div className="h-full pt-14 sm:pt-16 xl:pt-14 pb-20 sm:pb-32 px-8 sm:px-11 font-inter bg-white text-darkGreen flex flex-col gap-10 sm:gap-20 sm:w-[523px] xl:w-[406px]">
       <div className="">
         <h2 className="text-2xl sm:text-[40px] xl:text-[28px] font-bold mb-2">
           Free Dataset

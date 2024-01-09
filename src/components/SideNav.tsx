@@ -36,7 +36,7 @@ const SideNav = ({ showInvestor = true }: { showInvestor?: boolean }) => {
         </Link>
       )}
       <div
-        className={`z-50 font-inter bg-darkGreen py-4 rounded-xl flex flex-col mt-5 gap-4 w-[147px] ${
+        className={`z-50 font-inter bg-[#012525] py-4 rounded-[4px] flex flex-col mt-5 gap-4 w-[147px] ${
           variant === "light" ? " sm:px-4" : ""
         }`}
       >

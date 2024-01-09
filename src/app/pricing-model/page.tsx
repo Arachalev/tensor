@@ -4,7 +4,7 @@ import { pricingModelData } from "@/store/staticData/pricingModelData";
 import PricingModelCards from "@/components/PricingModelCards";
 const Page = () => {
   return (
-    <div className="font-inter flex flex-col xl:flex-row w-full relative">
+    <div className="font-inter flex flex-col xl:flex-row w-full relative 2xl:w-[1400px]">
       <div className="bg-[#F6FFFE] sm:pt-10 xl:order-2 xl:w-full">
         {pricingModelData.map((item, index) => (
           <PricingModelCards

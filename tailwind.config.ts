@@ -20,9 +20,10 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        inter: ["Inter"],
-        sora: ["Sora"],
-        plantagenet: ["Plantagenet"],
+        // inter: ["Inter"],
+        // sora: ["Sora"],
+        // plantagenet: ["Plantagenet"],
+        avenir: ['var(--font-avenir)'],
       },
       colors: {
         darkGreen: "#005050",

@@ -6,17 +6,17 @@ import Image from "next/image";
 
 const Page = () => {
   return (
-    <div className="font-inter w-full relative">
+    <div className="font-inter w-full relative 2xl:w-[1400px]">
       <div className="xl:bg-[#F6FFFE] xl:pl-[96px] xl:pt-[60px] xl:pr-[56px]">
         <section className=" px-6 sm:px-10 xl:px-28 py-11 sm:pb-28 xl:pb-32 bg-white text-darkGreen  ">
-          <Link
+          {/* <Link
             href="/"
             className="absolute -left-4 top-[25rem] xl:top-[40rem] min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center  "
           >
             <p className=" underline font-serif text-[9px] sm:text-sm xl:text-lg text-darkGreen rotate-[90deg] scale-y-[-1] scale-x-[-1]">
               TwoTensor
             </p>
-          </Link>
+          </Link> */}
           <div>
             <div className="mb-5 sm:mb-14">
               <div className="mb-6 sm:mb-10 sm:flex gap-2 xl:gap-20">

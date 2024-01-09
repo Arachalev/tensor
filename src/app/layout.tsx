@@ -1,10 +1,20 @@
 import type { Metadata } from "next";
-// import { Inter } from "next/font/google";
+import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { AppContextProvider } from "@/store/contexts/appContext";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 // import { usePathname } from "next/navigation";
+
+const avenir = localFont({
+  src: [
+    {
+      path: "../../public/assets/fonts/avenir_ff/AvenirLTStd-Black.otf",
+    },
+  ],
+  variable: "--font-avenir",
+});
 
 // const inter = Inter({ subsets: ["latin"] });
 // className={inter.className}
@@ -24,7 +34,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <AppContextProvider>
-        <body className="overflow-x-clip 2xl:flex 2xl:items-center 2xl:flex-col">
+        <body
+          className={`overflow-x-clip 2xl:flex 2xl:items-center 2xl:flex-col  bg-darkGreen font-avenir ${avenir.variable}`}
+        >
           <NavBar />
           {children}
           <Footer />

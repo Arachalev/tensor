@@ -8,11 +8,12 @@ import { Banner } from "./Banner/Banner";
 import MobileNav from "@/components/MobileNav";
 import SideNav from "./SideNav";
 import LoadingScreen from "./LoadingScreen";
-import homeTensor from "../../public/assets/images/homePage/homeTensor.svg";
+import homeTensor from "../../public/assets/images/tensor.png";
 
 const NavBar = () => {
   const [showMobileNav, setShowMobileNav] = useState(false);
   const [firstLoad, setFirstLoad] = useState(true);
+  const [showMenu, setShowMenu] = useState(true);
 
   const { deviceWidth, updateDeviceWidth } = useContext(AppContext);
 
@@ -35,6 +36,19 @@ const NavBar = () => {
     return () => clearTimeout(firstLoadTimer);
   }, []);
 
+  useEffect(() => {
+    const updateLogin = () => {
+      if (window.scrollY == 0) {
+        setShowMenu(true);
+      } else {
+        setShowMenu(false);
+      }
+    };
+
+    window.addEventListener("scroll", updateLogin);
+    return () => window.removeEventListener("scroll", updateLogin);
+  }, []);
+
   // stop scrolling in body when menu is open
   useEffect(() => {
     let body = document.getElementsByTagName("body")[0];
@@ -48,42 +62,46 @@ const NavBar = () => {
   const bg =
     path === "/" || path === "/how-it-works" || path === "/faq-library"
       ? ""
-      : "bg-[#026969]";
+      : "bg-[#026969] sm:bg-inherit";
+
+  const showSideNav = path !== "/our-experts" && path !== "/pricing-model";
 
   return (
-    <nav className={`z-[1000] ${bg} w-screen h-[52px] sm:h-[60px] fixed top-0 2xl:flex 2xl:items-center 2xl:justify-center`}>
+    <nav
+      className={`z-[1000] ${bg} w-screen h-[52px] sm:h-[0px] fixed top-0 2xl:flex 2xl:items-center 2xl:justify-center`}
+    >
       {/* {firstLoad && <LoadingScreen />} */}
-      <div className="h-8 sm:h-full w-full  2xl:w-[1400px]  items-end  flex relative ">
+      <div className="h-8 sm:h-full w-full 2xl:w-[1400px] flex relative ">
         <Link
           href="/"
-          className="z-[50] fixed left-2 xl:left-10 top-7 sm:top-14 xl:top-20  min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center  "
+          className="z-[50] fixed -left-10 top-32 sm:top-48 xl:top-80 w-[80px] h-20 sm:min-w-[60px] xl:w-[158px] self-center rotate-[-90deg] "
         >
-          <Image
-            src={homeTensor}
-            alt="two tensor"
-            className="max-h-[332px] sm:min-h-[435px]"
-          />
+          <Image src={homeTensor} alt="two tensor" className="w-20" />
         </Link>
 
-        <div className="flex justify-between sm:items-center  pb-1 sm:pb-0 w-full sm:w-fit sm:h-full sm:mr-8">
-          <div
-            onClick={() => {
-              setShowMobileNav((state) => !state);
-            }}
-            className=" flex flex-end sm:hidden pr-4 "
-          >
-            <Image
-              src="/assets/icons/hamburger.svg"
-              width={11}
-              height={9}
-              alt="menu"
-              className="cursor-pointer"
-            />
+        {showMenu && (
+          <div className="flex items-end flex-col self-end  pb-1 sm:pb-0 w-full sm:w-fit sm:h-full sm:mr-8">
+            <div
+              onClick={() => {
+                setShowMobileNav((state) => !state);
+              }}
+              className=" flex flex-end sm:hidden pr-4 "
+            >
+              <Image
+                src="/assets/icons/hamburger.svg"
+                width={11}
+                height={9}
+                alt="menu"
+                className="cursor-pointer"
+              />
+            </div>
           </div>
-        </div>
-        <div className="hidden sm:block absolute top-20 right-6 sm:right-10 xl:right-11 z-[1000]">
-          <SideNav showInvestor />
-        </div>
+        )}
+        {showSideNav && (
+          <div className="hidden sm:block absolute top-20 right-6 sm:right-10 xl:right-11 z-[1000]">
+            <SideNav showInvestor />
+          </div>
+        )}
       </div>
 
       {showMobileNav && <MobileNav closeNav={() => setShowMobileNav(false)} />}

@@ -33,7 +33,7 @@ export default function Home() {
   // bg-gradient-to-tr from-[#000202] to-[#025A5A]
   return (
     <main className="w-full 2xl:w-[1400px]   ">
-      <section className="relative h-full min-h-[100vh]  flex font-inter px-6 sm:px-10 xl:px-28 pt-7 sm:pt-14 xl:pt-20 pb-16 sm:pb-[73px] xl:pb-[200px] text-white w-full">
+      <section className="relative h-full min-h-[100vh]  flex font-inter px-6 sm:px-10 xl:px-28  pt-7 sm:pt-14 xl:pt-20 pb-16 sm:pb-[73px] xl:pb-[200px] text-white w-full">
         <div className="flex flex-col  gap-14 sm:gap-28 items-center justify-between w-full ">
           {/* hero section */}
           <div className="w-full relative flex items-center gap-6 xl:gap-11 ">
@@ -62,9 +62,8 @@ export default function Home() {
               searchable universe <br />
               of investment intent signals.
             </p>
-            <div className="flex items-end justify-between mt-8 xl:mt-11 relative ">
-              <div className="absolute h-full w-[50px] xl:w-[100px] z-50 right-0 top-0  bg-gradient-to-l from-[#011616]/20 to-[#000202]/0" />
-
+            <div className="flex items-end justify-between mt-8 xl:mt-11 relative  ">
+              <div className="absolute h-full w-[50px] xl:w-[100px] z-50 right-0 top-0  bg-transparent" />
               <Banner variant="home" speed={0} />
             </div>
           </div>

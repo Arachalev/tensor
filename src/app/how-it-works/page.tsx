@@ -7,27 +7,25 @@ import stockIcon from "../../../public/assets/icons/stock.svg";
 import shakeIcon from "../../../public/assets/icons/shake.svg";
 import searchIcon from "../../../public/assets/icons/search.svg";
 import Image from "next/image";
- 
 
 const Page = () => {
- 
   useEffect(() => {
     const body = document.getElementsByTagName("body")[0];
 
     body.style.backgroundImage =
-      "linear-gradient(to top right, #000202, #000202, #025A5A )";
+      "linear-gradient(to top right, #000202, #000202, #000202, #025A5A )";
   }, []);
   return (
-    <div className="font-inter w-full relative">
-      <section className="min-h-[100vh] px-6 sm:px-10 xl:px-28 py-11  text-softBlue  ">
-        <Link
+    <div className="font-inter w-full 2xl:w-[1400px] relative ">
+      <section className="min-h-[100vh] px-6 sm:px-10 xl:px-28 pb-11  text-softBlue  ">
+        {/* <Link
           href="/"
           className="absolute -left-4 top-[10rem] xl:top-[22rem] min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center  "
         >
           <p className="font-plantagenet tracking-[5px] text-[9px] sm:text-sm xl:text-lg text-softBlue rotate-[90deg] scale-y-[-1] scale-x-[-1]">
             [2]TENSOR
           </p>
-        </Link>
+        </Link> */}
 
         <div className="sm:w-[545px] lg:w-full">
           <div className=" w-full  flex items-center justify-center border-b-2 border-b-[#6A8682]  pb-4 xl:pb-8  ">

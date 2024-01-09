@@ -10,16 +10,16 @@ import Link from "next/link";
 
 const Page = () => {
   return (
-    <div className="font-inter w-full relative">
+    <div className="font-inter w-full relative 2xl:w-[1400px]">
       <section className=" px-6 sm:px-10 xl:px-28 py-8 sm:py-[85px] xl:py-28 bg-white text-darkGreen  ">
-        <Link
+        {/* <Link
           href="/"
           className="absolute -left-4 top-[20rem] xl:top-[70rem] min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center  "
         >
           <p className=" underline font-serif text-[9px] sm:text-sm xl:text-lg text-[#035F5F] rotate-[90deg] scale-y-[-1] scale-x-[-1]">
             TwoTensor
           </p>
-        </Link>
+        </Link> */}
         <div className="sm:w-[480px] xl:w-[900px]" id="leadership">
           <h4 className="underline font-semibold text-xl sm:text-3xl xl:text-4xl mb-5 xl:mb-10">
             WHO WE ARE
