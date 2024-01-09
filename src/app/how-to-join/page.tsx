@@ -11,7 +11,7 @@ import ApplicationFaqCard from "@/components/ApplicationFaqCard";
 const Page = () => {
   return (
     <div className="font-inter w-full 2xl:w-[1400px] relative  ">
-      <section className=" px-6 sm:px-10 xl:px-28 pb-8 sm:pb-[85px] xl:pb-28 pt-7 sm:pt-14 xl:pt-20  bg-white text-darkGreen flex flex-col gap-10 sm:gap-28 ">
+      <section className=" px-6 sm:px-10 xl:px-28 pb-8 sm:pb-[85px] xl:pb-28 pt-14 xl:pt-20  bg-white text-darkGreen flex flex-col gap-10 sm:gap-28 ">
         <Link
           href="/"
           className="absolute -left-4 top-[20rem] xl:top-[40rem] min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center  "

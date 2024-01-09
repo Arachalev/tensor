@@ -11,7 +11,7 @@ import Link from "next/link";
 const Page = () => {
   return (
     <div className="font-inter w-full relative 2xl:w-[1400px]">
-      <section className=" px-6 sm:px-10 xl:px-28 py-8 sm:py-[85px] xl:py-28 bg-white text-darkGreen  ">
+      <section className=" px-6 sm:px-10 xl:px-28 py-14 sm:py-[85px] xl:py-28 bg-white text-darkGreen  ">
         {/* <Link
           href="/"
           className="absolute -left-4 top-[20rem] xl:top-[70rem] min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center  "

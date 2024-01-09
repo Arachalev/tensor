@@ -6,7 +6,7 @@ import React from "react";
 const Page = () => {
   return (
     <div className="flex flex-col xl:flex-row  2xl:w-[1400px]">
-      <section className="w-full xl:min-h-[100vh] flex flex-col items-center px-6 sm:px-10 xl:px-11   pt-7 sm:pt-14 xl:pt-20 pb-11 sm:pb-24 bg-fadedBlue text-darkGreen xl:order-2">
+      <section className="w-full xl:min-h-[100vh] flex flex-col items-center px-6 sm:px-10 xl:px-11 pt-14 xl:pt-20 pb-11 sm:pb-24 bg-fadedBlue text-darkGreen xl:order-2">
         <div className="text-center flex flex-col gap-2 sm:gap-3 items-center">
           <h4 className="text-[7px] sm:text-sm">OUR EXPERTS</h4>
           <h2 className="text-2xl sm:text-4xl font-bold  ">Meet TwoTensor</h2>

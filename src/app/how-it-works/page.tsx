@@ -17,7 +17,7 @@ const Page = () => {
   }, []);
   return (
     <div className="font-inter w-full 2xl:w-[1400px] relative ">
-      <section className="min-h-[100vh] px-6 sm:px-10 xl:px-28 pb-11  text-softBlue  ">
+      <section className="min-h-[100vh] px-6 sm:px-10 xl:px-28 py-14  text-softBlue  ">
         {/* <Link
           href="/"
           className="absolute -left-4 top-[10rem] xl:top-[22rem] min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center  "
