@@ -64,7 +64,7 @@ export default function Home() {
               of investment intent signals.
             </p>
             <div className="flex items-center gap-20 mt-8 xl:mt-11 relative    ">
-              <div className="absolute h-full w-[50px] xl:w-[100px]  right-0 top-0  bg-gradient-to-l from-[#022525] to-[#022525]/0 " />
+              <div className="absolute h-full w-[50px] xl:w-[100px]  right-0 top-0  bg-gradient-to-l from-[#022525] to-[#022525]/0 z-20" />
               <h4 className="text-[#E2FFFB] font-semibold text-[6px] sm:text-xs xl:text-[15px] whitespace-nowrap">
                 TRUSTED / VALIDATED <br />
                 BY WORLD LEADING FUNDS
