@@ -107,19 +107,30 @@ const LibraryCards = (props: LibraryCardsProps) => {
           {showFaq ? (
             <div
               onClick={() => setShowFaq(false)}
-              className="min-w-[12px] sm:min-w-[16px] xl:min-w-[24px] h-[3px] bg-softBlue mt-2 sm:mt-4 xl:mt-6 cursor-pointer"
-            />
+              className="w-full h-full   cursor-pointer "
+            >
+              <div className="min-w-[12px] sm:min-w-[16px] xl:max-w-[24px] h-[3px] bg-softBlue mt-2 sm:mt-4 xl:mt-6 " />
+            </div>
           ) : (
-            <Image
+            <div
               onClick={() => setShowFaq(true)}
-              className="cursor-pointer w-3 sm:w-4 xl:w-8 h-fit mt-2 sm:mt-3 "
-              src={plusIcon}
-              alt="plusicon"
-            />
+              className="w-full h-full cursor-pointer"
+            >
+              <Image
+                className=" w-3 sm:w-4 xl:w-6 h-fit mt-2 sm:mt-3"
+                src={plusIcon}
+                alt="plusicon"
+              />
+            </div>
           )}
         </div>
         <div className="pr-2 sm:pr-8">
-          <h4 className="font-bold text-[10px] sm:text-lg xl:text-3xl leading-4 sm:leading-8 xl:leading-[55px] mb-3 sm:mb-5 xl:mb-9">
+          <h4
+            onClick={() => {
+              setShowFaq(true);
+            }}
+            className="font-bold text-[10px] sm:text-lg xl:text-3xl leading-4 sm:leading-8 xl:leading-[55px] mb-3 sm:mb-5 xl:mb-9 cursor-pointer"
+          >
             {title}
           </h4>
           {showFaq && (

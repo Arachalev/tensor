@@ -26,15 +26,14 @@ export default function Home() {
   useEffect(() => {
     const body = document.getElementsByTagName("body")[0];
 
-    body.style.backgroundImage =
-      "linear-gradient(to top right, #000202, #000202, #000202, #025A5A )";
+    body.style.backgroundColor = "#022525";
   }, []);
 
   // bg-gradient-to-tr from-[#000202] to-[#025A5A]
   return (
     <main className="w-full flex flex-col items-center ">
       <section className="relative h-full min-h-[100vh]  flex font-inter px-6 sm:px-10 2xl:px-28 pt-14 xl:pt-20 pb-16 sm:pb-[73px] xl:pb-[200px] text-white w-full ">
-        <div className="flex flex-col  gap-14 sm:gap-28 items-center justify-between w-full ">
+        <div className="flex flex-col  gap-14 sm:gap-28 items-cente justify-between w-full ">
           {/* hero section */}
           <div className="w-full relative flex items-center">
             <div className="w-full">
@@ -48,9 +47,11 @@ export default function Home() {
                 }
               />
             </div>
+            <div className="absolute bottom-0 right-0 h-full w-56  bg-gradient-to-l from-[#022525] to-[#022525]/0 " />
+
             {/* <div className="absolute bottom-0 right-0 w-full h-20 bg-gradient-to-t from-[#005050]/90 to-[#005050]/40 hidden sm:block" /> */}
           </div>
-          <div className="mt-4 pr-6 w-full  2xl:w-[1400px] ">
+          <div className="mt-4 pr-6 w-full  2xl:w-[1400px]">
             <p className="font-medium text-[7px] sm:text-[10px] xl:text-sm mb-1">
               INVESTMENT INTENT DATA
             </p>
@@ -62,8 +63,12 @@ export default function Home() {
               searchable universe <br />
               of investment intent signals.
             </p>
-            <div className="flex items-end justify-between mt-8 xl:mt-11 relative 2xl:w-[1400px] 2xl:fixed 2xl:bottom-10  ">
-              <div className="absolute h-full w-[50px] xl:w-[100px] z-50 right-0 top-0  bg-transparent" />
+            <div className="flex items-center gap-20 mt-8 xl:mt-11 relative    ">
+              <div className="absolute h-full w-[50px] xl:w-[100px]  right-0 top-0  bg-gradient-to-l from-[#022525] to-[#022525]/0 " />
+              <h4 className="text-[#E2FFFB] font-semibold text-[6px] sm:text-xs xl:text-[15px] whitespace-nowrap">
+                TRUSTED / VALIDATED <br />
+                BY WORLD LEADING FUNDS
+              </h4>
               <Banner variant="home" speed={0} />
             </div>
           </div>
@@ -80,7 +85,7 @@ export default function Home() {
       <section className="min-h-[100vh] relative flex justify-between   py-14 pt-16 xl:py-32  2xl:w-[1400px] ">
         <div className=" max-w-full font-inter px-[24px] sm:px-[60px] xl:px-[142px] pt-6 pb-24">
           <div className="flex flex-col items-center justify-center gap-10 ">
-            <div className="w-full flex flex-col gap-4  sm:gap-14 pb-4 border-b-2 border-b-[#6A8682]">
+            <div className="w-full flex flex-col gap-4  sm:gap-14 pb-4 border-b-2 border-b-[#417871]">
               <div className="w-full flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-10 xl:gap-20 ">
                 {homePageData.map((item, index) => (
                   <HomeCards
@@ -98,19 +103,18 @@ export default function Home() {
             <div className="flex flex-col gap-10  text-[#E3F8F5]">
               <div className="mt-5 xl:mt-10 sm:flex gap-6 xl:gap-14">
                 <h4 className="font-bold xl:text-4xl leading-6 xl:leading-[60px] mb-4">
-                  Amplify impact by delivering our research in practical.
+                  Outside the 100-mile preference radius of your target
+                  geography?
                 </h4>
                 <div className="text-[9px] xl:text-base xl:w-1/2 font-medium flex flex-col gap-4 xl:gap-6">
                   <p>
-                    Artificial intelligence and machine learning models built in
-                    labs typically fail in an evolving operational context - but
-                    that’s where the stakes are highest.
+                    Your local competitors have a 126% to 144% higher chance of
+                    closing a deal than you, Hochberg et al, Journal of Finance.
                   </p>
                   <p>
-                    Gotham’s built-in feedback loops train and refine models
-                    that augment human analysis and decision making during
-                    operations. In turn, operator actions improve these models
-                    over time.
+                    <span className="underline">Investment Intent signals</span>
+                    : a live, deal-by-deal dataset for timing investors&apos;
+                    moves when you can&apos;t be there.
                   </p>
                 </div>
               </div>

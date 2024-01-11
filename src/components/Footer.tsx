@@ -26,15 +26,61 @@ const Footer = () => {
     }
   }, [path]);
 
-  return (
+  const hideFooter = path === "/pricing-model" || path === "/our-experts";
+
+  return !hideFooter ? (
     <footer
       className={`${bg} min-h-[100vh] w-screen  2xl:w-[1400px]  text-softBlue px-6 sm:px-10 xl:pl-28 pt-16 sm:pt-[117px] xl:pt-[173px] 
-    pb-8 sm:pb-14 xl:pb-[120px] sm:pbfont-inter flex flex-col gap-10 sm:gap-x-[146px] xl:gap-x-[121px] sm:gap-y-[114px] xl:gap-y-12 sm:grid sm:grid-cols-2 xl:grid-cols-4`}
+    pb-8 sm:pb-14 xl:pb-[120px] sm:pbfont-inter flex flex-col gap-10 sm:gap-x-[146px] xl:gap-x-[121px] sm:gap-y-[110px] 
+     sm:grid sm:grid-cols-2 xl:grid-cols-3  xl:grid-rows-2`}
     >
-      <div>
-        <h4 className="font-semibold border-b-2 border-b-softBlue w-fit mb-3 xl:text-2xl ">
-          Who We Are
+      <div className="">
+        <h4 className="font-semibold border-b-2 border-b-[#417871] w-[300px] mb-3 xl:text-2xl ">
+          Most Visited
         </h4>
+
+        <ul className="flex flex-col gap-[6px] list-none text-sm sm:text-base">
+          <li>
+            <Link href="">2023 In Numbers</Link>
+          </li>
+          <li>
+            <Link href="">Intent Data One Pager</Link>
+          </li>
+          <li>
+            <Link href="">Product Demo</Link>
+          </li>
+          <li>
+            <Link href="">FAQ</Link>
+          </li>
+          <li>
+            <Link href="">Research</Link>
+          </li>
+        </ul>
+      </div>
+      <div className=" xl:col-span-3">
+        <h4 className="font-semibold border-b-2 border-b-[#417871] w-fit xl:w-[300px] mb-3 xl:text-2xl ">
+          Stress Testing
+        </h4>
+
+        <ul className="flex flex-col gap-[6px] list-none text-sm sm:text-base">
+          <li>
+            <Link href="">Comfort Del Gro</Link>
+          </li>
+          <li>
+            <Link href="">GS Futures</Link>
+          </li>
+          <li>
+            <Link href="">Mobility Fund</Link>
+          </li>
+          <li>
+            <Link href="">Cervin</Link>
+          </li>
+        </ul>
+      </div>
+      <div className="">
+        <Link href= "/who-we-are" className="font-semibold border-b-2 border-b-[#417871] w-fit xl:w-[300px] mb-3 xl:text-2xl">
+          Who We Are
+        </Link>
 
         <ul className="flex flex-col gap-[6px] list-none text-sm sm:text-base">
           <li>
@@ -57,8 +103,8 @@ const Footer = () => {
           </li>
         </ul>
       </div>
-      <div>
-        <h4 className="font-semibold  border-b-2 border-b-softBlue w-fit mb-3 xl:text-2xl ">
+      {/* <div>
+        <h4 className="font-semibold  border-b-2 border-b-[#417871] w-fit xl:w-[300px] mb-3 xl:text-2xl  ">
           What We Do
         </h4>
 
@@ -70,11 +116,11 @@ const Footer = () => {
             <Link href="/pricing-model">Pricing</Link>
           </li>
         </ul>
-      </div>
+      </div> */}
       <div>
-        <h4 className="font-semibold border-b-2 border-b-softBlue w-fit mb-3 xl:text-2xl ">
+        <Link href="/how-to-join" className="font-semibold border-b-2 border-b-[#417871] w-fit xl:w-[300px] mb-3 xl:text-2xl ">
           How to Join
-        </h4>
+        </Link>
 
         <ul className="flex flex-col gap-[6px] list-none text-sm sm:text-base">
           <li>
@@ -87,29 +133,22 @@ const Footer = () => {
             <Link href="/how-to-join#interview">Interviewing</Link>
           </li>
           <li>
-            <Link href="/how-to-join#internships">Internships</Link>
-          </li>
-          <li>
-            <Link href="/how-to-join#fellowship">Fellowship Program</Link>
-          </li>
-          <li>
             <Link href="/how-to-join#faq">Application FAQ</Link>
           </li>
         </ul>
       </div>
-      <div className=" sm:col-span-1 ">
+      <div>
+        <h4 className="font-semibold border-b-2 border-b-[#417871] w-fit xl:w-[300px] mb-3 xl:text-2xl ">
+          Performance Review
+        </h4>
+
         <ul className="flex flex-col gap-[6px] list-none text-sm sm:text-base">
           <li>
-            <Link href="/faq-library">Library</Link>
-          </li>
-          <li>
-            <Link href="/faq-library">Contact</Link>
-          </li>
-          <li>
-            <Link href="/our-experts">Complimentary Dataset</Link>
+            <Link href="">2023 Verified Results</Link>
           </li>
         </ul>
       </div>
+
       <div className=" sm:col-span-2 xl:col-span-4 ">
         <ul className="flex items-center gap-3 w-full">
           <li className="bg-[#74DDD0] w-6 sm:w-9 h-6 sm:h-9 rounded-full flex items-center justify-center ">
@@ -178,6 +217,8 @@ const Footer = () => {
         </p>
       </div>
     </footer>
+  ) : (
+    <div></div>
   );
 };
 

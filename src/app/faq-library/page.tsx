@@ -18,7 +18,7 @@ const Page = () => {
       let tempData = activeFaq.filter((words) => words !== name);
       setActiveFaq(tempData);
     } else {
-      setActiveFaq((state) => [...state, name]);
+      setActiveFaq([ name]);
     }
   };
 
@@ -39,15 +39,15 @@ const Page = () => {
 
   return (
     <div className="font-inter w-full 2xl:w-[1400px] relative">
-      <section className=" px-6 sm:px-10 xl:px-28 py-14 sm:pb-20 xl:pb-80 text-softBlue  ">
-        <Link
+      <section className=" px-6 sm:px-10 xl:px-28 py-14 sm:py-20 xl:pt-40 xl:pb-80 text-softBlue  ">
+        {/* <Link
           href="/"
           className="absolute -left-4 top-[20rem] xl:top-[40rem] min-w-[10px] h-20 sm:min-w-[60px] xl:w-[100px] self-center  "
         >
           <p className=" underline font-serif text-[9px] sm:text-sm xl:text-lg text-softBlue rotate-[90deg] scale-y-[-1] scale-x-[-1]">
             TwoTensor
           </p>
-        </Link>
+        </Link> */}
 
         <div className=" ">
           <div className="flex items-center sm:items-start gap-2 sm:gap-6 xl:gap-9 justify-between sm:justify-normal  mb-3 sm:mb-4">
@@ -88,13 +88,14 @@ const Page = () => {
           <div className=" sm:w-[505px] xl:w-[980px]">
             <div
               onClick={() => setOpenAllFaq((state) => !state)}
-              className="flex items-center gap-1 pb-2 xl:pb-5  border-b-[#E3F8F5]/30 border-b-[2px] mb-3 sm:mb-4 xl:mb-6"
+              className="flex items-center gap-1 pb-2 xl:pb-5  border-b-[#E3F8F5]/30 border-b-[2px] mb-3 sm:mb-4 xl:mb-6 cursor-pointer"
             >
               <Image
                 src={plusIcon}
                 className="sm:w-[8px] xl:w-4"
                 alt="plus icon"
               />
+
               <p className="font-semibold text-[6.5px] sm:text-[9px] xl:text-lg">
                 Expand All
               </p>

@@ -7,6 +7,9 @@ import stockIcon from "../../../public/assets/icons/stock.svg";
 import shakeIcon from "../../../public/assets/icons/shake.svg";
 import searchIcon from "../../../public/assets/icons/search.svg";
 import Image from "next/image";
+import dellImage from "../../../public/assets/images/homePage/DELL.svg";
+import phillipsImage from "../../../public/assets/images/homePage/PHILIPS.svg";
+import ciscoImage from "../../../public/assets/images/homePage/CISCO.svg";
 
 const Page = () => {
   useEffect(() => {
@@ -17,7 +20,7 @@ const Page = () => {
   }, []);
   return (
     <div className="font-inter w-full 2xl:w-[1400px] relative ">
-      <section className="min-h-[100vh] px-6 sm:px-10 xl:px-28 py-14  text-softBlue  ">
+      <section className="min-h-[100vh] px-6 sm:px-10 xl:px-28 py-14 sm:pt-20 xl:pt-40 text-softBlue  ">
         {/* <Link
           href="/"
           className="absolute -left-4 top-[10rem] xl:top-[22rem] min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center  "
@@ -52,45 +55,39 @@ const Page = () => {
           </div>
         </div>
       </section>
-      <section className="min-h-[100vh] pr-6 sm:pr-10 xl:pr-28 pt-7 sm:pt-24 pb-16 sm:pb-0  text-softBlue flex items-center ">
-        <div className="sm:bg-fadedBlue pl-6 sm:pl-10 xl:pl-28 sm:px-11 xl:px-16 sm:pb-20 sm:pt-14 xl:pt-24 xl:flex xl:gap-20 2xl:justify-center w-fit">
-          <div className="text-darkGreen/90 sm:w-[288px] flex flex-col gap-6 mb-16">
-            <p className="text-[8px] sm:text-[10px] xl:text-xs ">
-              LOOKING GLASS OS
-            </p>
+      <section className="min-h-[100vh] bg-fadedBlue sm:bg-inherit  px-6 sm:px-10 xl:px-28 pt-7 sm:pt-24 pb-16 sm:pb-0  text-softBlue flex items-center ">
+        <div className="sm:bg-fadedBlue sm:px-11 xl:px-16 sm:pb-20 sm:pt-14 xl:pt-24 xl:flex xl:gap-20 2xl:justify-center w-fit">
+          <div className="text-darkGreen/90 sm:w-[288px] flex flex-col gap-6 justify-between mb-16 xl:mb-0 xl:py-8 ">
             <h4 className="font-bold text-2xl sm:text-3xl xl:text-[34px] leading-8 xl:leading-10 whitespace-nowrap  ">
               THE TWOTENSOR <br className="hidden xl:block" /> ONTOLOGY
             </h4>
-            <p className="font-semibold sm:text-lg xl:text-xl whitespace-nowrap">
-              Harness insights with precision <br /> and depth.
+            <p className=" sm:text-lg xl:text-xl">
+              TwoTensor like the B2B strategies of DELL, Cisco, and Phillips,
+              uses intent data in private markets to predict deals, validated by
+              giants like Sequoia Capital, Andreessen Horowitz in over 400
+              deals.
             </p>
-            <button
-              type="button"
-              className={`bg-darkGreen sm:mt-[10px] xl:mt-[10px] w-[187px] sm:w-[219px] xl:w-[259px] h-9 sm:h-[43px] xl:h-[52px] rounded-[32px] sm:rounded-[38px] xl:rounded-[45px]
-           text-softBlue font-medium text-[13px] sm:text-base xl:text-lg whitespace-nowrap`}
-            >
-              Complimentary Dataset
-            </button>
+            <div className="flex items-center gap-6">
+              <Image src={dellImage} alt="dell" className="xl:w-10" />
+              <Image src={phillipsImage} alt="phiilps" className="xl:w-8" />
+              <Image src={ciscoImage} alt="cisco" className="xl:w-12" />
+            </div>
           </div>
 
-          <div className="bg-[#8CEDE1] text-darkGreen rounded-[10px] sm:flex sm:gap-6 sm:px-6 sm:pb-7 xl:w-[750px]">
-            <div className="h-[185px] px-3 py-6 flex flex-col  border-b-2 border-b-darkGreen sm:border-none">
-              <p className="font-bold text-[12px] sm:text-[13px] xl:text-base mb-5">
-                GLASS OS
-              </p>{" "}
-              <div className="bg-darkGreen/70 h-[1.5px] w-[103px] mb-5" />{" "}
+          <div className="bg-[#8CEDE1] text-darkGreen rounded-[10px] sm:px-6 pt-6 sm:pb-7 xl:w-[750px]">
+            <div className="  flex  items-center gap-2  border-b-2 border-b-darkGreen sm:border-none mb-2">
               <h4 className="font-bold text-lg sm:text-xl xl:text-2xl leading-6 xl:leading-8">
                 ONTOLOGY
               </h4>{" "}
               <div className="flex items-center gap-2">
-                <h4 className="font-bold text-lg sm:text-xl border-b-2 border-b-darkGreen">
+                <h4 className="font-bold text-lg sm:text-xl xl:text-2xl leading-6 xl:leading-8 border-b-2 border-b-darkGreen">
                   CORE
                 </h4>
                 <Image src={coreArrowIcon} alt="arrow" />
               </div>
             </div>
 
-            <div className="flex flex-col text-darkGreen/90 w-full sm:mt-[64px]">
+            <div className="flex flex-col text-darkGreen/90 w-full ">
               <div className="h-[185px] sm:h-[81px] xl:h-[90px] flex px-1 xl:px-3 py-5  gap-5 border-y-2 border-y-darkGreen">
                 <Image
                   src={searchIcon}

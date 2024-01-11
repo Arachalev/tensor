@@ -1,6 +1,5 @@
- 
-import React from "react";
-import Link from "next/link";
+"use client";
+import React, { useEffect } from "react";
 import {
   jobsData,
   applicationFaqData,
@@ -9,9 +8,14 @@ import JobPostCard from "@/components/JobPostCard";
 import ApplicationFaqCard from "@/components/ApplicationFaqCard";
 
 const Page = () => {
+  useEffect(() => {
+    const body = document.getElementsByTagName("body")[0];
+
+    body.style.backgroundColor = "#005050";
+  }, []);
   return (
     <div className="font-inter w-full 2xl:w-[1400px] relative  ">
-      <section className=" px-6 sm:px-10 xl:px-28 pb-8 sm:pb-[85px] xl:pb-28 pt-14 xl:pt-20  bg-white text-darkGreen flex flex-col gap-10 sm:gap-28 ">
+      <section className=" px-6 sm:px-10 xl:px-28 pb-8 sm:pb-[85px] xl:pb-28 pt-14 sm:pt-20 xl:pt-40  bg-white text-darkGreen flex flex-col gap-10 sm:gap-28 ">
         {/* <Link
           href="/"
           className="absolute -left-4 top-[20rem] xl:top-[40rem] min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center  "
@@ -60,8 +64,6 @@ const Page = () => {
             Viewing 10 of 32 jobs
           </p>
         </div>
-
-       
       </section>
       <section className="xl:h-[100vh] bg-darkGreen pt-7 sm:pt-20 pb-14 px-6 sm:px-10 xl:px-28">
         <div className="flex flex-col gap-3 xl:grid xl:grid-cols-2 xl:gap-x-24 xl:gap-y-8 xl:w-[900px]">
@@ -78,7 +80,10 @@ const Page = () => {
       </section>
       <section className="bg-white text-darkGreen pb-16 sm:py-20 pt-14  px-6 sm:px-10 xl:px-28 flex flex-col gap-10 sm:gap-20 xl:gap-32 ">
         <div className="font-medium  text-sm sm:text-2xl leading-6 sm:leading-10 sm:w-[500px] xl:w-[900px]">
-          <h4 id="interview" className="underline font-semibold text-[8px] sm:text-lg xl:text-xl mb-2 sm:mb-10">
+          <h4
+            id="interview"
+            className="underline font-semibold text-[8px] sm:text-lg xl:text-xl mb-2 sm:mb-10"
+          >
             Interviewing
           </h4>
           <p className="mb-6 sm:mb-10 ">
@@ -103,7 +108,10 @@ const Page = () => {
             vary based on the role.
           </p>
         </div>
-        <div id="internships" className="font-medium text-sm sm:text-2xl leading-6 sm:leading-10 sm:w-[500px] xl:w-[900px] ">
+        <div
+          id="internships"
+          className="font-medium text-sm sm:text-2xl leading-6 sm:leading-10 sm:w-[500px] xl:w-[900px] "
+        >
           <h4 className="underline font-semibold text-[8px] sm:text-lg xl:text-xl mb-2 sm:mb-10">
             Internships
           </h4>
@@ -116,7 +124,10 @@ const Page = () => {
             into the future of strategic business intelligence.
           </p>
         </div>
-        <div id="fellowship" className="font-medium text-sm sm:text-2xl leading-6 sm:leading-10 sm:w-[500px] xl:w-[900px]">
+        <div
+          id="fellowship"
+          className="font-medium text-sm sm:text-2xl leading-6 sm:leading-10 sm:w-[500px] xl:w-[900px]"
+        >
           <h4 className="underline font-semibold text-[8px] sm:text-lg xl:text-xl mb-2 sm:mb-10">
             Fellowship Program
           </h4>

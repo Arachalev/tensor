@@ -9,39 +9,39 @@ import { useRouter } from "next/navigation";
 
 const SideNav = ({ showInvestor = true }: { showInvestor?: boolean }) => {
   const [variant, setVariant] = useState("light");
-  const [hideLogin, setHideLogin] = useState(false);
+  // const [hideLogin, setHideLogin] = useState(false);
 
   const { showNav, updateShowNav } = useContext(AppContext);
 
   const router = useRouter();
 
-  useEffect(() => {
-    const updateLogin = () => {
-      if (window.scrollY == 0) {
-        setHideLogin(false);
-      } else {
-        setHideLogin(true);
-      }
-    };
+  // useEffect(() => {
+  //   const updateLogin = () => {
+  //     if (window.scrollY == 0) {
+  //       setHideLogin(false);
+  //     } else {
+  //       setHideLogin(true);
+  //     }
+  //   };
 
-    window.addEventListener("scroll", updateLogin);
-    return () => window.removeEventListener("scroll", updateLogin);
-  }, []);
+  //   window.addEventListener("scroll", updateLogin);
+  //   return () => window.removeEventListener("scroll", updateLogin);
+  // }, []);
 
   return (
     <div id="sideNav">
-      {!hideLogin && (
+      {/* {!hideLogin && (
         <Link href="" className={`font-semibold text-[13px] text-[#74DDD0] ml-4`}>
           User Login
         </Link>
-      )}
+      )} */}
       <div
-        className={`z-50 font-inter bg-[#012525] py-4 rounded-[4px] flex flex-col mt-5 gap-4 w-[147px] ${
+        className={`z-50 font-inter bg-[#012525]/80 py-4 rounded-[4px] flex flex-col mt-5 gap-4 w-[147px] ${
           variant === "light" ? " sm:px-4" : ""
         }`}
       >
         <Link
-          href=""
+          href="/"
           className={`font-semibold text-[13px] hover:text-white ${
             variant === "dark" ? "text-darkGreen" : "text-[#74DDD0]"
           }  ml-4 `}

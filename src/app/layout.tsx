@@ -10,7 +10,16 @@ import Footer from "@/components/Footer";
 const avenir = localFont({
   src: [
     {
+      path: "../../public/assets/fonts/avenir_ff/AvenirLTStd-Roman.otf",
+      weight:"600"
+    },
+    {
       path: "../../public/assets/fonts/avenir_ff/AvenirLTStd-Black.otf",
+      weight:"700"
+    },
+    {
+      path: "../../public/assets/fonts/avenir_ff/AvenirLTStd-Book.otf",
+      weight:"400"
     },
   ],
   variable: "--font-avenir",

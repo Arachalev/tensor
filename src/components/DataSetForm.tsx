@@ -3,16 +3,33 @@ import Link from "next/link";
 import React, { useContext } from "react";
 import Select, { CSSObjectWithLabel } from "react-select";
 import { AppContext } from "@/store/contexts/appContext";
+import Image from "next/image";
+import plusIcon from "../../public/assets/icons/close.svg";
+import { useRouter } from "next/navigation";
 
 const DataSetForm = () => {
   const { deviceWidth } = useContext(AppContext);
+
+  const router = useRouter();
+
   const options = [
-    { value: "chocolate", label: "Chocolate" },
-    { value: "strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "Vanilla" },
+    { value: "chocolate", label: "Linkedin" },
+    { value: "strawberry", label: "Twitter" },
+    { value: "vanilla", label: "Colleague" },
   ];
   return (
-    <div className="h-full pt-14 sm:pt-16 xl:pt-14 pb-20 sm:pb-32 px-8 sm:px-11 font-inter bg-white text-darkGreen flex flex-col gap-10 sm:gap-20 sm:w-[523px] xl:w-[406px]">
+    <div className="h-full relative pt-14 sm:pt-16 xl:pt-14 pb-20 sm:pb-32 px-8 sm:px-11 font-inter bg-white text-darkGreen flex flex-col gap-10 sm:gap-20 sm:w-[523px] xl:w-[406px]">
+      <div
+        onClick={() => router.push("/")}
+        className="self-end absolute top-2 right-8 sm:right-11 cursor-pointer"
+      >
+        <Image
+          className=" w-3 sm:w-4 xl:w-6 h-fit mt-2 sm:mt-3"
+          src={plusIcon}
+          alt="plusicon"
+        />
+      </div>
+
       <div className="">
         <h2 className="text-2xl sm:text-[40px] xl:text-[28px] font-bold mb-2">
           Free Dataset

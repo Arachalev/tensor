@@ -1,17 +1,23 @@
+"use client";
+
 import ExpertsCard from "@/components/ExpertsCard";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import { expertCardsData } from "@/store/staticData/expertsCardsData";
 import community2 from "../../../public/assets/images/who-we-are/community2.png";
 import community1 from "../../../public/assets/images/who-we-are/community1.png";
 import founder from "../../../public/assets/images/who-we-are/founder.png";
 import Link from "next/link";
- 
 
 const Page = () => {
+  useEffect(() => {
+    const body = document.getElementsByTagName("body")[0];
+
+    body.style.backgroundColor = "#ffffff";
+  }, []);
   return (
     <div className="font-inter w-full relative 2xl:w-[1400px]">
-      <section className=" px-6 sm:px-10 xl:px-28 py-14 sm:py-[85px] xl:py-28 bg-white text-darkGreen  ">
+      <section className=" px-6 sm:px-10 xl:px-28 py-14 sm:pt-20 xl:pt-40 sm:py-[85px] xl:py-28 bg-white text-darkGreen  ">
         {/* <Link
           href="/"
           className="absolute -left-4 top-[20rem] xl:top-[70rem] min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center  "
@@ -21,7 +27,7 @@ const Page = () => {
           </p>
         </Link> */}
         <div className="sm:w-[480px] xl:w-[900px]" id="leadership">
-          <h4 className="underline font-semibold text-xl sm:text-3xl xl:text-4xl mb-5 xl:mb-10">
+          <h4 className="border-b-darkGreen border-b-2 w-fit pb-1 font-semibold text-xl sm:text-3xl xl:text-4xl mb-5 xl:mb-10">
             WHO WE ARE
           </h4>
           <p className="font-medium text-sm sm:text-2xl leading-6 sm:leading-10">
@@ -42,10 +48,9 @@ const Page = () => {
             and our spirit undying.
           </p>
         </div>
-         
       </section>
       <section className=" px-6 sm:px-10 xl:px-28 py-11 xl:py-28 text-darkGreen bg-fadedBlue">
-        <h4 className="underline text-[8px] sm:text-xl font-bold mb-3 sm:mb-5  ">
+        <h4 className="border-b-darkGreen border-b-2 w-fit text-[8px] sm:text-xl font-bold mb-3 sm:mb-5  ">
           Research
         </h4>
         <div className="text-sm sm:text-2xl font-medium leading-6 sm:leading-10 sm:w-[480px] xl:w-[900px]">
@@ -61,8 +66,11 @@ const Page = () => {
           </p>
         </div>
       </section>
-      <section id="founder" className="bg-darkGreen text-softBlue px-6 sm:px-10 xl:px-28 pt-9 sm:pt-14 pb-11 sm:pb-32 xl:pt-40 ">
-        <h4 className="underline text-[8px] sm:text-xl font-bold mb-7 xl:mb-12">
+      <section
+        id="founder"
+        className="bg-darkGreen text-softBlue px-6 sm:px-10 xl:px-28 pt-9 sm:pt-14 pb-11 sm:pb-32 xl:pt-40 "
+      >
+        <h4 className="border-b-softBlue border-b-2 w-fit text-[8px] sm:text-xl font-bold mb-7 xl:mb-12">
           Founder
         </h4>
         <Image src={founder} className="xl:w-[485px]" alt="image of founder" />
@@ -90,8 +98,11 @@ const Page = () => {
             clients.
           </p>
         </div>
-        <div id="our-people" className="mt-14 sm:mt-20 xl:mt-24 font-medium text-sm sm:text-2xl leading-6 sm:leading-10 sm:w-[480px] xl:w-[900px]">
-          <h4 className="underline text-[8px] sm:text-xl font-bold mb-4 sm:mb-8 xl:mb-10">
+        <div
+          id="our-people"
+          className="mt-14 sm:mt-20 xl:mt-24 font-medium text-sm sm:text-2xl leading-6 sm:leading-10 sm:w-[480px] xl:w-[900px]"
+        >
+          <h4 className="border-b-softBlue border-b-2 w-fit text-[8px] sm:text-xl font-bold mb-4 sm:mb-8 xl:mb-10">
             Our People
           </h4>
           <p className="">
@@ -103,8 +114,8 @@ const Page = () => {
           </p>
         </div>
       </section>
-      <section   className="bg-white text-darkGreen px-6 sm:px-10 xl:px-28 pt-5 pb-10 sm:py-24">
-        <h4 className="underline font-semibold text-[8px] sm:text-xl mb-3 sm:mb-10">
+      <section className="bg-white text-darkGreen px-6 sm:px-10 xl:px-28 pt-5 pb-10 sm:py-24">
+        <h4 className="border-b-darkGreen border-b-2 w-fit font-semibold text-[8px] sm:text-xl mb-3 sm:mb-10">
           Our Engineering Team
         </h4>
         <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-5 xl:w-[1200px]">
@@ -192,11 +203,12 @@ const Page = () => {
           ))}
         </div>
       </section>
-      <section id="diversity"
+      <section
+        id="diversity"
         className={`px-6 sm:px-10 xl:px-28 pt-14 sm:py-24 xl:pt-28 pb-11  bg-white text-darkGreen text-sm sm:text-2xl 
       font-medium flex flex-col gap-6 sm:gap-10 leading-6 sm:leading-10`}
       >
-        <h4 className="font-semibold text-[8px] sm:text-xl underline">
+        <h4 className="font-semibold text-[8px] sm:text-xl border-b-darkGreen border-b-2 w-fit">
           Diversity
         </h4>
         <p className=" sm:w-[480px] xl:w-[900px]">
@@ -222,11 +234,12 @@ const Page = () => {
           valued and can achieve their utmost potential.
         </p>
       </section>
-      <section id="priciples"
+      <section
+        id="priciples"
         className={`px-6 sm:px-10 xl:px-28 pt-11 sm:pt-24 xl:pt-32 xl:pb-24 py-14 bg-darkGreen text-softBlue text-sm sm:text-2xl
        font-medium leading-6 sm:leading-10 flex flex-col gap-6 sm:gap-10 `}
       >
-        <h4 className="underline text-[8px] sm:text-xl font-semibold">
+        <h4 className="border-b-softBlue border-b-2 w-fit text-[8px] sm:text-xl font-semibold">
           Core Principles
         </h4>
         <p className="sm:w-[480px] xl:w-[900px]">
@@ -271,9 +284,12 @@ const Page = () => {
           approach has notably propelled our accomplishments over time.
         </p>
       </section>
-      <section id="community" className="px-6 sm:px-10 xl:px-28 pt-11 sm:py-32 xl:pt-36 pb-14 xl:pb-28 bg-white text-sm sm:text-2xl text-darkGreen font-medium leading-6 sm:leading-10">
+      <section
+        id="community"
+        className="px-6 sm:px-10 xl:px-28 pt-11 sm:py-32 xl:pt-36 pb-14 xl:pb-28 bg-white text-sm sm:text-2xl text-darkGreen font-medium leading-6 sm:leading-10"
+      >
         <div className="flex flex-col gap-8 sm:gap-16 xl:gap-20 sm:w-[480px] xl:w-[900px]">
-          <h4 className="text-[8px] sm:text-xl font-semibold underline ">
+          <h4 className="text-[8px] sm:text-xl font-semibold border-b-darkGreen border-b-2 w-fit ">
             Community Impact
           </h4>
           <Image

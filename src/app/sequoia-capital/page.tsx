@@ -8,7 +8,7 @@ const Page = () => {
   return (
     <div className="font-inter w-full relative 2xl:w-[1400px]">
       <div className="xl:bg-[#F6FFFE] xl:pl-[96px] xl:pt-[60px] xl:pr-[56px]">
-        <section className=" px-6 sm:px-10 xl:px-28 py-14 sm:pb-28 xl:pb-32 bg-white text-darkGreen  ">
+        <section className=" px-6 sm:px-10 xl:px-28 py-14 sm:pt-20 sm:pb-28 xl:pb-32 bg-white text-darkGreen  ">
           {/* <Link
             href="/"
             className="absolute -left-4 top-[25rem] xl:top-[40rem] min-w-[24px] h-20 sm:min-w-[60px] xl:w-[158px] self-center  "

@@ -8,7 +8,7 @@ import { Banner } from "./Banner/Banner";
 import MobileNav from "@/components/MobileNav";
 import SideNav from "./SideNav";
 import LoadingScreen from "./LoadingScreen";
-import homeTensor from "../../public/assets/images/tensor.png";
+import homeTensor from "../../public/assets/images/tensor.svg";
 
 const NavBar = () => {
   const [showMobileNav, setShowMobileNav] = useState(false);
@@ -70,15 +70,25 @@ const NavBar = () => {
     <nav
       className={`z-[50] ${bg} w-screen h-[52px] sm:h-[0px] fixed top-0 2xl:flex 2xl:items-center 2xl:justify-center`}
     >
-      {/* {firstLoad && <LoadingScreen />} */}
+      {firstLoad && <LoadingScreen />}
       <div className="h-full items-center  sm:h-full w-full 2xl:w-[1400px] flex relative ">
-        <Link
-          href="/"
-          className="z-[50] fixed sm:-left-10 top-32 sm:top-48 xl:top-80 w-[80px] h-20 sm:min-w-[60px] xl:w-[158px] self-center rotate-[-90deg] "
-        >
-          <Image src={homeTensor} alt="two tensor" className="w-20" />
-        </Link>
+        {showSideNav && (
+          <div className="fixed top-4 left-1">
+            <Link href="" className={`font-semibold text-xs text-[#D1FFF8]`}>
+              User Login
+            </Link>
+            <span className="block w-[16px] min-h-[2px] bg-[#417871]" />
+          </div>
+        )}
 
+        {showSideNav && (
+          <Link
+            href="/"
+            className="z-[50] fixed left-0 top-[40vh] w-[80px] h-20 sm:min-w-[60px] xl:w-[158px] self-center rotat-[-90deg] "
+          >
+            <Image src={homeTensor} alt="two tensor" className="" />
+          </Link>
+        )}
         {showMenu && (
           <div className="flex items-end flex-col self-end  pb-3 sm:pb-0 w-full sm:w-fit sm:h-full sm:mr-8">
             <div

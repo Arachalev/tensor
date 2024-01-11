@@ -30,7 +30,7 @@
   display: flex;
   gap: 2rem;
   /* align-items: center; */
-  animation: swipe 6000ms linear infinite backwards;
+  animation: swipe 24000ms linear infinite backwards;
 }
 
 @keyframes swipe {
