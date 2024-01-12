@@ -9,7 +9,7 @@ import MobileNav from "@/components/MobileNav";
 import SideNav from "./SideNav";
 import LoadingScreen from "./LoadingScreen";
 // import HomeTensor from "../../public/assets/images/Tensor.tsx";
-import Tensor from "../../public/assets/images/tensor";
+import Tensor from "./Tensor";
 
 const NavBar = () => {
   const [showMobileNav, setShowMobileNav] = useState(false);
