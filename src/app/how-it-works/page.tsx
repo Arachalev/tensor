@@ -15,8 +15,7 @@ const Page = () => {
   useEffect(() => {
     const body = document.getElementsByTagName("body")[0];
 
-    body.style.backgroundImage =
-      "linear-gradient(to top right, #000202, #000202, #000202, #025A5A )";
+    body.style.backgroundColor = "#022525";
   }, []);
   return (
     <div className="font-inter w-full 2xl:w-[1400px] relative ">

@@ -18,7 +18,7 @@ const Page = () => {
       let tempData = activeFaq.filter((words) => words !== name);
       setActiveFaq(tempData);
     } else {
-      setActiveFaq([ name]);
+      setActiveFaq([name]);
     }
   };
 
@@ -33,8 +33,7 @@ const Page = () => {
   useEffect(() => {
     const body = document.getElementsByTagName("body")[0];
 
-    body.style.backgroundImage =
-      "linear-gradient(to top right, #000202,  #000202, #025A5A )";
+    body.style.backgroundColor = "#022525";
   }, []);
 
   return (

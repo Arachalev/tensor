@@ -31,7 +31,7 @@ export default function Home() {
 
   // bg-gradient-to-tr from-[#000202] to-[#025A5A]
   return (
-    <main className="w-full flex flex-col items-center ">
+    <main className="w-full flex flex-col items-center max-w-[2000px]">
       <section className="relative h-full min-h-[100vh]  flex font-inter px-6 sm:px-10 2xl:px-28 pt-14 xl:pt-20 pb-16 sm:pb-[73px] xl:pb-[200px] text-white w-full ">
         <div className="flex flex-col  gap-14 sm:gap-28 items-cente justify-between w-full ">
           {/* hero section */}
@@ -47,7 +47,7 @@ export default function Home() {
                 }
               />
             </div>
-            <div className="absolute bottom-0 right-0 h-full w-56  bg-gradient-to-l from-[#022525] to-[#022525]/0 " />
+            <div className="absolute bottom-0 right-0 h-full w-56  bg-gradient-to-l from-[#022525]/40 via-[#022525]/50 to-[#022525]/0 " />
 
             {/* <div className="absolute bottom-0 right-0 w-full h-20 bg-gradient-to-t from-[#005050]/90 to-[#005050]/40 hidden sm:block" /> */}
           </div>
@@ -63,7 +63,7 @@ export default function Home() {
               searchable universe <br />
               of investment intent signals.
             </p>
-            <div className="flex items-center gap-20 mt-8 xl:mt-11 relative    ">
+            <div className="flex items-center gap-20 mt-8 xl:mt-11 relative">
               <div className="absolute h-full w-[50px] xl:w-[100px]  right-0 top-0  bg-gradient-to-l from-[#022525] to-[#022525]/0 z-20" />
               <h4 className="text-[#E2FFFB] font-semibold text-[6px] sm:text-xs xl:text-[15px] whitespace-nowrap">
                 TRUSTED / VALIDATED <br />

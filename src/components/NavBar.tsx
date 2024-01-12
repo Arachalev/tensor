@@ -8,7 +8,8 @@ import { Banner } from "./Banner/Banner";
 import MobileNav from "@/components/MobileNav";
 import SideNav from "./SideNav";
 import LoadingScreen from "./LoadingScreen";
-import homeTensor from "../../public/assets/images/tensor.svg";
+// import HomeTensor from "../../public/assets/images/Tensor.tsx";
+import Tensor from "../../public/assets/images/tensor";
 
 const NavBar = () => {
   const [showMobileNav, setShowMobileNav] = useState(false);
@@ -71,10 +72,15 @@ const NavBar = () => {
       className={`z-[50] ${bg} w-screen h-[52px] sm:h-[0px] fixed top-0 2xl:flex 2xl:items-center 2xl:justify-center`}
     >
       {firstLoad && <LoadingScreen />}
-      <div className="h-full items-center  sm:h-full w-full 2xl:w-[1400px] flex relative ">
+      <div className="h-full items-center  sm:h-full w-full 2xl:w-[1400px] min-[1800px]:w-[2000px] flex relative border-4 border-red-500">
         {showSideNav && (
-          <div className="fixed top-4 left-1">
-            <Link href="" className={`font-semibold text-xs text-[#D1FFF8]`}>
+          <div className="fixed top-4 left-1 2xl:left-12">
+            <Link
+              href=""
+              className={`font-semibold text-xs ${
+                path === "/who-we-are" ? "" : "text-[#D1FFF8]"
+              }`}
+            >
               User Login
             </Link>
             <span className="block w-[16px] min-h-[2px] bg-[#417871]" />
@@ -84,9 +90,12 @@ const NavBar = () => {
         {showSideNav && (
           <Link
             href="/"
-            className="z-[50] fixed left-0 top-[40vh] w-[80px] h-20 sm:min-w-[60px] xl:w-[158px] self-center rotat-[-90deg] "
+            className="z-[50] fixed left-0 2xl:left-12 top-[40vh] w-[80px] h-20 sm:min-w-[60px] xl:w-[158px] self-center rotat-[-90deg] "
           >
-            <Image src={homeTensor} alt="two tensor" className="" />
+            {/* <Image src={homeTensor} alt="two tensor" className="" /> */}
+            <div>
+              <Tensor fill={path === "/who-we-are" ? "#000000" : "#D1FFF8"} />
+            </div>
           </Link>
         )}
         {showMenu && (
@@ -108,7 +117,7 @@ const NavBar = () => {
           </div>
         )}
         {showSideNav && (
-          <div className="hidden sm:block absolute top-20 right-6 sm:right-10 xl:right-11 z-[500]">
+          <div className="hidden sm:block absolute top-20 right-6 sm:right-10 xl:right-11 2xl:right-20 min-[1800px]:right-64 z-[500]">
             <SideNav showInvestor />
           </div>
         )}

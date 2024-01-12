@@ -9,6 +9,7 @@ import comfortDelgro from "../../../public/assets/images/banner/banner3.svg";
 import borusan from "../../../public/assets/images/banner/banner4.svg";
 import cervin from "../../../public/assets/images/banner/banner5.svg";
 import mobility from "../../../public/assets/images/banner/banner6.svg";
+import clever from "../../../public/assets/images/banner/banner7.svg";
 
 export const images = [
   {
@@ -45,14 +46,21 @@ export const images = [
     width: 30,
     w1: "min-w-[30px]",
     w2: "sm:min-w-[30px]",
-    w3: "xl:min-w-[50px]",
+    w3: "xl:min-w-[40px]",
   },
   {
     image: mobility,
     width: 60,
     w1: "min-w-[61px]",
-    w2: "sm:min-w-[75px]",
-    w3: "xl:min-w-[92px]",
+    w2: "sm:min-w-[65px]",
+    w3: "xl:min-w-[80px]",
+  },
+  {
+    image: clever,
+    width: 60,
+    w1: "min-w-[35px]",
+    w2: "sm:min-w-[45px]",
+    w3: "xl:min-w-[55px]",
   },
 ];
 // style={{ "--speed": `${speed}ms` }}

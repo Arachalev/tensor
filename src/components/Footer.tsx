@@ -19,8 +19,15 @@ const Footer = () => {
   const path = usePathname();
   // bg-[#000202]
   useEffect(() => {
-    if (path === "/" || path === "/how-it-works" || path === "/faq-library") {
+    if (
+      path === "/" ||
+      path === "/how-it-works" ||
+      path === "/faq-library" ||
+      path === "/how-to-join"
+    ) {
       setBg(``);
+    } else if (path === "/who-we-are") {
+      setBg("bg-white");
     } else {
       setBg("bg-darkGreen");
     }
@@ -30,7 +37,9 @@ const Footer = () => {
 
   return !hideFooter ? (
     <footer
-      className={`${bg} min-h-[100vh] w-screen  2xl:w-[1400px]  text-softBlue px-6 sm:px-10 xl:pl-28 pt-16 sm:pt-[117px] xl:pt-[173px] 
+      className={`${bg} min-h-[100vh] w-screen  2xl:w-[1400px]  ${
+        path === "/who-we-are" ? "text-black" : "text-softBlue"
+      } px-6 sm:px-10 xl:pl-28 pt-16 sm:pt-[117px] xl:pt-[173px] 
     pb-8 sm:pb-14 xl:pb-[120px] sm:pbfont-inter flex flex-col gap-10 sm:gap-x-[146px] xl:gap-x-[121px] sm:gap-y-[110px] 
      sm:grid sm:grid-cols-2 xl:grid-cols-3  xl:grid-rows-2`}
     >
@@ -78,9 +87,11 @@ const Footer = () => {
         </ul>
       </div>
       <div className="">
-        <Link href= "/who-we-are" className="font-semibold border-b-2 border-b-[#417871] w-fit xl:w-[300px] mb-3 xl:text-2xl">
+        <h4
+          className="font-semibold border-b-2 border-b-[#417871] w-fit xl:w-[300px] mb-3 xl:text-2xl"
+        >
           Who We Are
-        </Link>
+        </h4>
 
         <ul className="flex flex-col gap-[6px] list-none text-sm sm:text-base">
           <li>
@@ -118,9 +129,11 @@ const Footer = () => {
         </ul>
       </div> */}
       <div>
-        <Link href="/how-to-join" className="font-semibold border-b-2 border-b-[#417871] w-fit xl:w-[300px] mb-3 xl:text-2xl ">
+        <h4
+          className="font-semibold border-b-2 border-b-[#417871] w-fit xl:w-[300px] mb-3 xl:text-2xl "
+        >
           How to Join
-        </Link>
+        </h4>
 
         <ul className="flex flex-col gap-[6px] list-none text-sm sm:text-base">
           <li>
@@ -205,11 +218,11 @@ const Footer = () => {
         </ul>
       </div>
       <div className="text-[8px] sm:text-base ">
-        <Link href="" className=" border-b-2 border-b-softBlue ">
+        <Link href="" className=" border-b-2 border-b-[#417871] ">
           Online Statement
         </Link>{" "}
         <br />
-        <Link href="" className=" border-b-2 border-b-softBlue ">
+        <Link href="" className=" border-b-2 border-b-[#417871] ">
           Important Disclosures
         </Link>
         <p className="text-[7px] sm:text-sm no-underline whitespace-nowrap mt-1 ">
