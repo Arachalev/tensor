@@ -44,7 +44,7 @@ const Footer = () => {
      sm:grid sm:grid-cols-2 xl:grid-cols-3  xl:grid-rows-2`}
     >
       <div className="">
-        <h4 className="font-semibold border-b-2 border-b-[#417871] w-[300px] mb-3 xl:text-2xl ">
+        <h4 className="font-semibold border-b-2 border-b-[#417871] w-fit xl:w-[300px] mb-3 xl:text-2xl ">
           Most Visited
         </h4>
 
