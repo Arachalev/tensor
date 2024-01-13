@@ -54,7 +54,7 @@ const Page = () => {
           </div>
         </div>
       </section>
-      <section className="min-h-[100vh] bg-fadedBlue sm:bg-inherit  px-6 sm:px-10 xl:px-28 pt-7 sm:pt-24 pb-16 sm:pb-0  text-softBlue flex items-center ">
+      <section className="min-h-[100vh] bg-fadedBlue sm:bg-inherit  px-6 sm:px-10 xl:px-28 pt-7 sm:pt-24 pb-16 sm:pb-0  text-softBlue flex justify-center items-center ">
         <div className="sm:bg-fadedBlue sm:px-11 xl:px-16 sm:pb-20 sm:pt-14 xl:pt-24 xl:flex xl:gap-20 2xl:justify-center w-fit">
           <div className="text-darkGreen/90 sm:w-[288px] flex flex-col gap-6 justify-between mb-16 xl:mb-0 xl:py-8 ">
             <h4 className="font-bold text-2xl sm:text-3xl xl:text-[34px] leading-8 xl:leading-10 whitespace-nowrap  ">
@@ -73,8 +73,8 @@ const Page = () => {
             </div>
           </div>
 
-          <div className="bg-[#8CEDE1] text-darkGreen rounded-[10px] sm:px-6 pt-6 sm:pb-7 xl:w-[750px]">
-            <div className="  flex  items-center gap-2  border-b-2 border-b-darkGreen sm:border-none mb-2">
+          <div className="bg-[#8CEDE1] text-darkGreen rounded-[10px] px-6 pt-6 sm:pb-7 w-full xl:w-[750px]">
+            <div className="  flex  items-center gap-2 mb-2">
               <h4 className="font-bold text-lg sm:text-xl xl:text-2xl leading-6 xl:leading-8">
                 ONTOLOGY
               </h4>{" "}
