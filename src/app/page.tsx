@@ -31,6 +31,7 @@ export default function Home() {
 
   // bg-gradient-to-tr from-[#000202] to-[#025A5A]
   return (
+
     <main className="w-full flex flex-col items-center max-w-[2000px]">
       <section className="relative h-full min-h-[100vh]  flex font-inter px-6 sm:px-10 2xl:px-28 pt-14 xl:pt-20 pb-16 sm:pb-[73px] xl:pb-[200px] text-white w-full ">
         <div className="flex flex-col  gap-14 sm:gap-28 items-cente justify-between w-full ">
@@ -122,6 +123,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </main>
+</main>
   );
 }
