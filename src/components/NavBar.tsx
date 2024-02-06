@@ -71,7 +71,7 @@ const NavBar = () => {
     <nav
       className={`z-[50] ${bg} w-screen h-[52px] sm:h-[0px] fixed top-0 2xl:flex 2xl:items-center 2xl:justify-center`}
     >
-      {firstLoad && <LoadingScreen />}
+      {/* {firstLoad && <LoadingScreen />} */}
       <div className="h-full items-center  sm:h-full w-full 2xl:w-[1400px] min-[1800px]:w-[2000px] flex relative">
         {showSideNav && (
           <div className="fixed top-4 left-1 2xl:left-12">

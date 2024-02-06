@@ -9,13 +9,15 @@ import {
   mobileCompaniesThreadData,
 } from "@/store/staticData/companiesThreadData";
 import CompaniesThread from "@/components/CompaniesThread";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { AppContext } from "@/store/contexts/appContext";
 import Link from "next/link";
 
 import { Banner } from "@/components/Banner/Banner";
 import { homePageData } from "@/store/staticData/homePageCardsData";
 import HomeCards from "@/components/HomeCards";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 export default function Home() {
   const { deviceWidth } = useContext(AppContext);
@@ -29,15 +31,45 @@ export default function Home() {
     body.style.backgroundColor = "#022525";
   }, []);
 
+  const threadsContainer = useRef(null);
+
+  // GSAP animation for company threads
+  useGSAP(
+    () => {
+      let count = 0;
+      // let compThread = gsap.utils.toArray(".comp-thread");
+      // gsap.from(gsap.utils.shuffle(compThread), {
+      gsap.from(".comp-thread", {
+        // y: count % 2 == 0 ? 100 : -100,
+        y: (index) => {
+          return index % 2 == 0 ? 100 : -100;
+        },
+        stagger: {
+          // y: () => {},
+          each: 0.05,
+          // amount: 2.5,
+          from: "center",
+          grid: "auto",
+          ease: "power2.inOut",
+          // yoyo: true,
+          // onComplete: () => {
+          //   ++count;
+          //   console.log(count, count % 2 == 0, "count-----");
+          // },
+        },
+      });
+    },
+    { scope: threadsContainer }
+  );
+
   // bg-gradient-to-tr from-[#000202] to-[#025A5A]
   return (
-
     <main className="w-full flex flex-col items-center max-w-[2000px]">
       <section className="relative h-full min-h-[100vh]  flex font-inter px-6 sm:px-10 2xl:px-28 pt-14 xl:pt-20 pb-16 sm:pb-[73px] xl:pb-[200px] text-white w-full ">
         <div className="flex flex-col  gap-14 sm:gap-28 items-cente justify-between w-full ">
           {/* hero section */}
           <div className="w-full relative flex items-center">
-            <div className="w-full">
+            <div className="w-full" ref={threadsContainer}>
               <CompaniesThread
                 companies={
                   deviceWidth > 1280
@@ -123,6 +155,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-</main>
+    </main>
   );
 }

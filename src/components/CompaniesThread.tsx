@@ -98,7 +98,7 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
   return (
     <div className="flex items-center justify-between gap-2  ">
       {companies.map((item, index) => (
-        <div key={index} className="flex flex-col items-center gap-2">
+        <div key={index} className="flex flex-col items-center gap-2 comp-thread">
           {item.comp1 ? (
             <div
               className={`${
