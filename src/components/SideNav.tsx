@@ -1,11 +1,12 @@
 "use client";
 import Link from "next/link";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import arrow from "../../public/assets/icons/arrow.svg";
 import arrowWhite from "../../public/assets/icons/arrow-white.svg";
 import { AppContext } from "@/store/contexts/appContext";
 import { useRouter } from "next/navigation";
+import { useGSAP } from "@gsap/react";
 
 const SideNav = ({ showInvestor = true }: { showInvestor?: boolean }) => {
   const [variant, setVariant] = useState("light");
@@ -28,6 +29,10 @@ const SideNav = ({ showInvestor = true }: { showInvestor?: boolean }) => {
   //   return () => window.removeEventListener("scroll", updateLogin);
   // }, []);
 
+  // const sideNavRef = useRef(null);
+
+  // useGSAP(() => {}, {});
+
   return (
     <div id="sideNav">
       {/* {!hideLogin && (
@@ -36,7 +41,8 @@ const SideNav = ({ showInvestor = true }: { showInvestor?: boolean }) => {
         </Link>
       )} */}
       <div
-        className={`z-50 font-inter bg-[#012525]/80 py-4 rounded-[4px] flex flex-col mt-5 gap-4 w-[147px] ${
+        // ref={sideNavRef}
+        className={`sideNav z-50 font-inter bg-[#012525]/80 py-4 rounded-[4px] flex flex-col mt-5 gap-4 w-[147px] ${
           variant === "light" ? " sm:px-4" : ""
         }`}
       >

@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect,  useState } from "react";
 import { AppContext } from "@/store/contexts/appContext";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
@@ -10,6 +10,7 @@ import SideNav from "./SideNav";
 import LoadingScreen from "./LoadingScreen";
 // import HomeTensor from "../../public/assets/images/Tensor.tsx";
 import Tensor from "./Tensor";
+ 
 
 const NavBar = () => {
   const [showMobileNav, setShowMobileNav] = useState(false);
@@ -67,9 +68,11 @@ const NavBar = () => {
 
   const showSideNav = path !== "/our-experts" && path !== "/pricing-model";
 
+  
+
   return (
     <nav
-      className={`z-[50] ${bg} w-screen h-[52px] sm:h-[0px] fixed top-0 2xl:flex 2xl:items-center 2xl:justify-center`}
+      className={`z-[50] ${bg} w-screen h-[52px] sm:h-[0px] fixed top-0 2xl:flex 2xl:items-center 2xl:justify-center  `}
     >
       {/* {firstLoad && <LoadingScreen />} */}
       <div className="h-full items-center  sm:h-full w-full 2xl:w-[1400px] min-[1800px]:w-[2000px] flex relative">

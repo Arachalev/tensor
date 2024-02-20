@@ -36,21 +36,23 @@ export default function Home() {
   // GSAP animation for company threads
   useGSAP(
     () => {
-      let count = 0;
-      // let compThread = gsap.utils.toArray(".comp-thread");
-      // gsap.from(gsap.utils.shuffle(compThread), {
-      gsap.from(".comp-thread", {
-        // y: count % 2 == 0 ? 100 : -100,
+      let heroTL = gsap.timeline();
+      const compTween = gsap.from(".comp-thread", {
         y: (index) => {
           return index % 2 == 0 ? 100 : -100;
         },
+        // duration: 2.5,
+        // ease: "elastic.inOut(0.1,0.8)",
+        // delay: 4,
+        ease: "back.inOut",
+        scale: 0.01,
+        opacity: 0,
         stagger: {
-          // y: () => {},
-          each: 0.05,
-          // amount: 2.5,
+          each: 0.04,
+          // amount: 1,
           from: "center",
+          // ease: "ease",
           grid: "auto",
-          ease: "power2.inOut",
           // yoyo: true,
           // onComplete: () => {
           //   ++count;
@@ -58,8 +60,20 @@ export default function Home() {
           // },
         },
       });
+
+      const sideNavTween = gsap.from(".sideNav", {
+        opacity: 0,
+        x: 100,
+        scale: 1.05,
+        duration: 2.5,
+        backgroundColor: "rgb(1 37 37)",
+        ease: "elastic.out(1.2,0.8)",
+      });
+
+      heroTL.add(compTween).add(sideNavTween, "+=0.5");
     },
-    { scope: threadsContainer }
+    // undefined
+    { revertOnUpdate: true, dependencies: undefined }
   );
 
   // bg-gradient-to-tr from-[#000202] to-[#025A5A]
