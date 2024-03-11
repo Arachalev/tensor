@@ -30,6 +30,7 @@ export default function Home() {
 
     body.style.backgroundColor = "#022525";
   }, []);
+  gsap.registerPlugin(useGSAP);
 
   const threadsContainer = useRef(null);
 
@@ -41,24 +42,15 @@ export default function Home() {
         y: (index) => {
           return index % 2 == 0 ? 100 : -100;
         },
-        // duration: 2.5,
-        // ease: "elastic.inOut(0.1,0.8)",
-        // delay: 4,
         ease: "back.inOut",
         scale: 0.01,
         opacity: 0,
         stagger: {
           each: 0.04,
-          // amount: 1,
           from: "center",
-          // ease: "ease",
           grid: "auto",
-          // yoyo: true,
-          // onComplete: () => {
-          //   ++count;
-          //   console.log(count, count % 2 == 0, "count-----");
-          // },
         },
+        clearProps: "all",
       });
 
       const sideNavTween = gsap.from(".sideNav", {
@@ -73,7 +65,7 @@ export default function Home() {
       heroTL.add(compTween).add(sideNavTween, "+=0.5");
     },
     // undefined
-    { revertOnUpdate: true, dependencies: undefined }
+    { revertOnUpdate: false, dependencies: undefined }
   );
 
   // bg-gradient-to-tr from-[#000202] to-[#025A5A]
