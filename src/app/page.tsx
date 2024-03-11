@@ -53,7 +53,7 @@ export default function Home() {
         clearProps: "all",
       });
 
-      const sideNavTween = gsap.from(".sideNav", {
+      const sideNavTween = gsap.from(".sideNav ", {
         opacity: 0,
         x: 100,
         scale: 1.05,
@@ -61,8 +61,13 @@ export default function Home() {
         backgroundColor: "rgb(1 37 37)",
         ease: "elastic.out(1.2,0.8)",
       });
+      const loginTween = gsap.from(".userLogin", {
+        x: -100,
+        ease: "elastic.out(1.2,0.8)",
+        duration: 2.5,
+      });
 
-      heroTL.add(compTween).add(sideNavTween, "+=0.5");
+      heroTL.add(compTween).add(sideNavTween, "+=0.5").add(loginTween, "-=2.5");
     },
     // undefined
     { revertOnUpdate: false, dependencies: undefined }

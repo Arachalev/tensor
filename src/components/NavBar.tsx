@@ -77,7 +77,7 @@ const NavBar = () => {
       {/* {firstLoad && <LoadingScreen />} */}
       <div className="h-full items-center  sm:h-full w-full 2xl:w-[1400px] min-[1800px]:w-[2000px] flex relative">
         {showSideNav && (
-          <div className="fixed top-4 left-1 2xl:left-12">
+          <div className="userLogin fixed top-4 left-1 2xl:left-12">
             <Link
               href=""
               className={`font-semibold text-xs ${
