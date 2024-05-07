@@ -16,7 +16,7 @@ const HomeCards = (props: HomeCardsProps) => {
     <Link
       href={link}
       target="_blank"
-      className=" font-inter w-[250px] h-[320px] flex flex-col gap-3 text-black bg-white px-6 py-5 "
+      className="cardsNewsScroll font-inter w-[250px] h-[320px] flex flex-col gap-3 text-black bg-white px-6 py-5 "
     >
       <div>
         <h4 className="font-semibold text-sm sm:text-base pb-1 border-b-2 border-b-black">

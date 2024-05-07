@@ -17,6 +17,7 @@ import { Banner } from "@/components/Banner/Banner";
 import { homePageData } from "@/store/staticData/homePageCardsData";
 import HomeCards from "@/components/HomeCards";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
 export default function Home() {
@@ -31,6 +32,7 @@ export default function Home() {
     body.style.backgroundColor = "#022525";
   }, []);
   gsap.registerPlugin(useGSAP);
+  gsap.registerPlugin(ScrollTrigger);
 
   const threadsContainer = useRef(null);
 
@@ -73,6 +75,45 @@ export default function Home() {
     { revertOnUpdate: false, dependencies: undefined }
   );
 
+  useGSAP(
+    () => {
+      gsap.from(".investmentData", {
+        scrollTrigger: {
+          trigger: ".investmentData",
+          // scrub: true,
+          // end: 300,
+          // start: 300,
+          toggleActions: "play none none reset",
+        },
+        y: 300,
+      });
+    },
+    { revertOnUpdate: true }
+  );
+
+  useGSAP(
+    () => {
+      gsap.from(".cardsNewsScroll", {
+        scrollTrigger: {
+          trigger: ".cardsNewsScroll",
+          start: "top center",
+          // scroller: ".cardNewsContainer",
+          toggleActions: "play none none reset",
+          markers: {
+            startColor: "white",
+            endColor: "white",
+            fontSize: "18px",
+            fontWeight: "bold",
+            indent: 20,
+          },
+        },
+        scale: 1.05,
+        y: 200,
+      });
+    },
+    { revertOnUpdate: true }
+  );
+
   // bg-gradient-to-tr from-[#000202] to-[#025A5A]
   return (
     <main className="w-full flex flex-col items-center max-w-[2000px]">
@@ -95,7 +136,7 @@ export default function Home() {
 
             {/* <div className="absolute bottom-0 right-0 w-full h-20 bg-gradient-to-t from-[#005050]/90 to-[#005050]/40 hidden sm:block" /> */}
           </div>
-          <div className="mt-4 pr-6 w-full  2xl:w-[1400px]">
+          <div className="investmentData mt-4 pr-6 w-full  2xl:w-[1400px]">
             <p className="font-medium text-[7px] sm:text-[10px] xl:text-sm mb-1">
               INVESTMENT INTENT DATA
             </p>
@@ -126,11 +167,11 @@ export default function Home() {
           <SideNav variant="light" showInvestor />
         </div> */}
       </section>
-      <section className="min-h-[100vh] relative flex justify-between   py-14 pt-16 xl:py-32  2xl:w-[1400px] ">
+      <section className="cardNewsContainer  border-4 border-blue-500 min-h-[100vh] relative flex justify-between   py-14 pt-16 xl:py-32  2xl:w-[1400px] ">
         <div className=" max-w-full font-inter px-[24px] sm:px-[60px] xl:px-[142px] pt-6 pb-24">
           <div className="flex flex-col items-center justify-center gap-10 ">
             <div className="w-full flex flex-col gap-4  sm:gap-14 pb-4 border-b-2 border-b-[#417871]">
-              <div className="w-full flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-10 xl:gap-20 ">
+              <div className="cardsNewsScroll border-4 border-red-400 w-full flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-10 xl:gap-20 ">
                 {homePageData.map((item, index) => (
                   <HomeCards
                     key={`${(item.heading, index)}`}

@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext, useEffect,  useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "@/store/contexts/appContext";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
@@ -10,12 +10,12 @@ import SideNav from "./SideNav";
 import LoadingScreen from "./LoadingScreen";
 // import HomeTensor from "../../public/assets/images/Tensor.tsx";
 import Tensor from "./Tensor";
- 
 
 const NavBar = () => {
   const [showMobileNav, setShowMobileNav] = useState(false);
   const [firstLoad, setFirstLoad] = useState(true);
   const [showMenu, setShowMenu] = useState(true);
+  const [hideSideNav, setHideSideNav] = useState(false);
 
   const { deviceWidth, updateDeviceWidth } = useContext(AppContext);
 
@@ -38,6 +38,7 @@ const NavBar = () => {
     return () => clearTimeout(firstLoadTimer);
   }, []);
 
+  // Effect to update visibility of side nav and mobilemenu when scrolling
   useEffect(() => {
     const updateLogin = () => {
       if (window.scrollY == 0) {
@@ -47,8 +48,23 @@ const NavBar = () => {
       }
     };
 
+    window.addEventListener("scroll", () => {
+      setHideSideNav(true);
+    });
+    window.addEventListener("scrollend", () => {
+      setHideSideNav(false);
+    });
+
     window.addEventListener("scroll", updateLogin);
-    return () => window.removeEventListener("scroll", updateLogin);
+    return () => {
+      window.removeEventListener("scroll", updateLogin);
+      window.removeEventListener("scroll", () => {
+        setHideSideNav(true);
+      });
+      window.removeEventListener("scrollend", () => {
+        setHideSideNav(false);
+      });
+    };
   }, []);
 
   // stop scrolling in body when menu is open
@@ -67,8 +83,6 @@ const NavBar = () => {
       : "bg-[#026969 sm:bg-inherit";
 
   const showSideNav = path !== "/our-experts" && path !== "/pricing-model";
-
-  
 
   return (
     <nav
@@ -121,6 +135,7 @@ const NavBar = () => {
         )}
         {showSideNav && (
           <div className="hidden sm:block absolute top-20 right-6 sm:right-10 xl:right-11 2xl:right-20 min-[1800px]:right-64 z-[500]">
+            {/* {!hideSideNav && <SideNav showInvestor />} */}
             <SideNav showInvestor />
           </div>
         )}

@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useRef } from "react";
 import type { Companies } from "./CompaniesThread";
 import Image from "next/image";
 import "./CompanyCardStyles.css";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 interface CompanyCardProps extends Companies {
   handleClose: () => void;
@@ -28,9 +30,27 @@ const CompanyCard = (props: CompanyCardProps) => {
     handleClose,
   } = props;
 
+  gsap.registerPlugin(useGSAP);
+
+  const containerRef = useRef(null);
+
+  useGSAP(
+    () => {
+      let cardTl = gsap.timeline();
+
+      const containerTween = gsap.from(".company-card", {
+        x: 100,
+        ease: "back.inOut",
+        scale: 0.01,
+      });
+    },
+    // { scope: containerRef, revertOnUpdate: true, dependencies:[] }
+  );
+
   return (
     <div
-      className="z-[1000] scale-[1.8]  bg-softBlue h-[231px] w-[186px] px-3 pt-[14px]  flex flex-col gap-2 rounded-[9px]  text-darkGreen font-inter"
+      // ref={containerRef}
+      className="company-card z-[1000] scale-[1.8]  bg-softBlue h-[231px] w-[186px] px-3 pt-[14px]  flex flex-col gap-2 rounded-[9px]  text-darkGreen font-inter"
       onMouseLeave={() => handleClose()}
     >
       <div className="font-bold flex items-start gap-[5px]">
