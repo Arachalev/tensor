@@ -82,6 +82,7 @@ export default function Home() {
           trigger: ".investmentData",
           end: "bottom 50%",
           // start: 300,
+          toggleActions: "play none restart reset",
         },
         duration: 1.5,
         y: 300,

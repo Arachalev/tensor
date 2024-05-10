@@ -17,10 +17,6 @@ export const footerData = [
         href: "",
       },
       {
-        text: "2023 In Numbers",
-        href: "",
-      },
-      {
         text: "Intent Data One Pager",
         href: "",
       },

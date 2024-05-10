@@ -40,23 +40,109 @@ const Footer = () => {
 
   const footerRef = useRef(null);
 
-  useGSAP(() => {
-    gsap.utils.toArray(".footerCard").forEach((card) => {
-      if (card instanceof Element) {
-        gsap.from(card, {
-          opacity: 0,
-          y: 400,
-          duration: 4,
-          scrollTrigger: {
-            trigger: footerRef.current,
-            start: "top center",
-            markers: true,
-            
-          },
+  gsap.registerPlugin(useGSAP);
+
+  useGSAP(
+    (context, contextSafe) => {
+      // gsap.utils.toArray(".footerCard").forEach((card) => {
+      //   if (card instanceof Element) {
+      //     gsap.from(card, {
+      //       opacity: 0,
+      //       y: 400,
+      //       duration: 2.5,
+      //       stagger: {
+      //         each: 0.05,
+      //         grid: "auto",
+      //       },
+      //       scrollTrigger: {
+      //         trigger: footerRef.current,
+      //         start: "top center",
+      //         markers: true,
+      //         toggleActions: "play none restart reset",
+      //       },
+      //     });
+      //   }
+      // });
+
+      let footerTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: footerRef.current,
+          start: "top center",
+          markers: true,
+          toggleActions: "play none restart reset",
+        },
+        stagger: {
+          each: 0.1,
+          ease: "expo.inOut",
+        },
+      });
+
+      let footerCardTween = gsap.from(".footerCard", {
+        opacity: 0,
+        y: 400,
+        duration: 1,
+        stagger: {
+          each: 0.2,
+        },
+        // scrollTrigger: {
+        //   trigger: footerRef.current,
+        //   start: "top center",
+        //   markers: true,
+        //   toggleActions: "play none restart reset",
+        // },
+      });
+
+      let linksTween = gsap.from(".footerLinks", {
+        y: -50,
+        x: -10,
+        opacity: 0,
+        // delay: 1,
+        clearProps: "all",
+        stagger: {
+          each: 0.1,
+          // ease: "expo.inOut",
+        },
+      });
+
+      // const linksHoverTween = gsap.to(".footerLinks", {
+      //   x: 50,
+      //   scale: 1.05,
+      // });
+
+      const hoverEnter = contextSafe!((element) => {
+        console.log("entereddd");
+        gsap.to(element, {
+          x: 50,
+          scale: 1.05,
         });
-      }
-    });
-  }, {});
+      });
+      const hoverLeave = contextSafe!((element) => {
+        gsap.to(element, {
+          x: 0,
+          scale: 1,
+        });
+      });
+
+      const linksElements = document.getElementsByClassName(".footerLinks");
+      Array.from(linksElements).forEach((link) => {
+        link.addEventListener("mouseenter", hoverEnter);
+        link.addEventListener("mouseleave", hoverLeave);
+      });
+
+      footerCardTween.play();
+      linksTween.play();
+
+      return () => {
+        Array.from(linksElements).forEach((link) => {
+          link.removeEventListener("mouseenter", hoverEnter);
+          link.removeEventListener("mouseleave", hoverLeave);
+        });
+      };
+
+      // footerTl.add(footerCardTween).add(linksTween,"+=0.5");
+    },
+    { scope: footerRef, revertOnUpdate: true }
+  );
 
   const hideFooter = path === "/pricing-model" || path === "/our-experts";
 
@@ -71,18 +157,25 @@ const Footer = () => {
      sm:grid sm:grid-cols-2 xl:grid-cols-3  xl:grid-rows-2`}
     >
       {footerData.map((linkData) => (
-        <div className={`${linkData.style} footerCard`} key={linkData.heading}>
-          <h4 className="font-semibold border-b-2 border-b-[#417871] w-fit xl:w-[300px] mb-3 xl:text-2xl ">
-            {linkData.heading}
-          </h4>
+        <div
+          className={` overflow-y-clip overflow-x-clip h-fit ${
+            linkData.style ? "xl:col-span-3" : ""
+          }`}
+          key={linkData.heading}
+        >
+          <div className={` footerCard`}>
+            <h4 className="font-semibold border-b-2 border-b-[#417871] w-fit xl:w-[300px] mb-3 xl:text-2xl ">
+              {linkData.heading}
+            </h4>
 
-          <ul className="flex flex-col gap-[6px] list-none text-sm sm:text-base">
-            {linkData.links.map((singleLink) => (
-              <li key={singleLink.text}>
-                <Link href={singleLink.href}>{singleLink.text}</Link>
-              </li>
-            ))}
-          </ul>
+            <ul className="flex flex-col gap-[6px] list-none text-sm sm:text-base">
+              {linkData.links.map((singleLink) => (
+                <li key={singleLink.text} className=" footerLinks">
+                  <Link href={singleLink.href}>{singleLink.text}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       ))}
 
