@@ -15,7 +15,6 @@ const NavBar = () => {
   const [showMobileNav, setShowMobileNav] = useState(false);
   const [firstLoad, setFirstLoad] = useState(true);
   const [showMenu, setShowMenu] = useState(true);
-  const [hideSideNav, setHideSideNav] = useState(false);
 
   const { deviceWidth, updateDeviceWidth } = useContext(AppContext);
 
@@ -48,22 +47,9 @@ const NavBar = () => {
       }
     };
 
-    window.addEventListener("scroll", () => {
-      setHideSideNav(true);
-    });
-    window.addEventListener("scrollend", () => {
-      setHideSideNav(false);
-    });
-
     window.addEventListener("scroll", updateLogin);
     return () => {
       window.removeEventListener("scroll", updateLogin);
-      window.removeEventListener("scroll", () => {
-        setHideSideNav(true);
-      });
-      window.removeEventListener("scrollend", () => {
-        setHideSideNav(false);
-      });
     };
   }, []);
 
@@ -135,7 +121,6 @@ const NavBar = () => {
         )}
         {showSideNav && (
           <div className="hidden sm:block absolute top-20 right-6 sm:right-10 xl:right-11 2xl:right-20 min-[1800px]:right-64 z-[500]">
-            {/* {!hideSideNav && <SideNav showInvestor />} */}
             <SideNav showInvestor />
           </div>
         )}
@@ -147,3 +132,4 @@ const NavBar = () => {
 };
 
 export default NavBar;
+             

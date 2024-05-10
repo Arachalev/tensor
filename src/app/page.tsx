@@ -9,7 +9,7 @@ import {
   mobileCompaniesThreadData,
 } from "@/store/staticData/companiesThreadData";
 import CompaniesThread from "@/components/CompaniesThread";
-import { useContext, useEffect, useRef } from "react";
+import { DOMElement, useContext, useEffect, useRef } from "react";
 import { AppContext } from "@/store/contexts/appContext";
 import Link from "next/link";
 
@@ -80,39 +80,46 @@ export default function Home() {
       gsap.from(".investmentData", {
         scrollTrigger: {
           trigger: ".investmentData",
-          // scrub: true,
-          // end: 300,
+          end: "bottom 50%",
           // start: 300,
-          toggleActions: "play none none reset",
         },
+        duration: 1.5,
         y: 300,
       });
     },
     { revertOnUpdate: true }
   );
 
-  useGSAP(
-    () => {
-      gsap.from(".cardsNewsScroll", {
-        scrollTrigger: {
-          trigger: ".cardsNewsScroll",
-          start: "top center",
-          // scroller: ".cardNewsContainer",
-          toggleActions: "play none none reset",
-          markers: {
-            startColor: "white",
-            endColor: "white",
-            fontSize: "18px",
-            fontWeight: "bold",
-            indent: 20,
-          },
-        },
-        scale: 1.05,
-        y: 200,
-      });
-    },
-    { revertOnUpdate: true }
-  );
+  // useGSAP(
+  //   () => {
+  //     let newsTL = gsap.timeline();
+
+  //     gsap.utils.toArray(".cardNewsScroll").forEach((card) => {
+  //       if (card instanceof Element) {
+  //         gsap.to(card, {
+  //           scale: 1.2,
+  //           x: 200,
+  //           // y: "50vh",
+  //           scrollTrigger: {
+  //             trigger: card,
+  //             start: "top center",
+  //             pin: true,
+  //             pinSpacing: false,
+  //             scrub: true,
+  //             markers: {
+  //               startColor: "white",
+  //               endColor: "white",
+  //               fontSize: "18px",
+  //               fontWeight: "bold",
+  //               indent: 20,
+  //             },
+  //           },
+  //         });
+  //       }
+  //     });
+  //   },
+  //   { revertOnUpdate: true }
+  // );
 
   // bg-gradient-to-tr from-[#000202] to-[#025A5A]
   return (
@@ -171,7 +178,7 @@ export default function Home() {
         <div className=" max-w-full font-inter px-[24px] sm:px-[60px] xl:px-[142px] pt-6 pb-24">
           <div className="flex flex-col items-center justify-center gap-10 ">
             <div className="w-full flex flex-col gap-4  sm:gap-14 pb-4 border-b-2 border-b-[#417871]">
-              <div className="cardsNewsScroll border-4 border-red-400 w-full flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-10 xl:gap-20 ">
+              <div className="cardsNewsScrollContainer border-4 border-red-400 w-full flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-10 xl:gap-20 ">
                 {homePageData.map((item, index) => (
                   <HomeCards
                     key={`${(item.heading, index)}`}
