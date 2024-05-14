@@ -71,10 +71,10 @@ const Footer = () => {
           markers: true,
           toggleActions: "play none restart reset",
         },
-        stagger: {
-          each: 0.1,
-          ease: "expo.inOut",
-        },
+        // stagger: {
+        //   each: 0.1,
+        //   ease: "expo.inOut",
+        // },
       });
 
       let footerCardTween = gsap.from(".footerCard", {
@@ -98,51 +98,58 @@ const Footer = () => {
         opacity: 0,
         // delay: 1,
         clearProps: "all",
+        // scrollTrigger: {
+        //   trigger: footerRef.current,
+        //   start: "top center",
+        //   // markers: true,
+        //   toggleActions: "play none restart reset",
+        // },
         stagger: {
           each: 0.1,
           // ease: "expo.inOut",
         },
       });
 
-      // const linksHoverTween = gsap.to(".footerLinks", {
-      //   x: 50,
-      //   scale: 1.05,
-      // });
+      footerTl.add(footerCardTween).add(linksTween, "-=25%");
 
-      const hoverEnter = contextSafe!((element) => {
+      const hoverEnter = (element) => {
         console.log("entereddd");
         gsap.to(element, {
-          x: 50,
-          scale: 1.05,
+          x: 10,
+          duration: 0.3,
+          color: "#417871",
+          // scale: 1,
         });
-      });
-      const hoverLeave = contextSafe!((element) => {
+      };
+      const hoverLeave = (element) => {
         gsap.to(element, {
           x: 0,
-          scale: 1,
-        });
-      });
-
-      const linksElements = document.getElementsByClassName(".footerLinks");
-      Array.from(linksElements).forEach((link) => {
-        link.addEventListener("mouseenter", hoverEnter);
-        link.addEventListener("mouseleave", hoverLeave);
-      });
-
-      footerCardTween.play();
-      linksTween.play();
-
-      return () => {
-        Array.from(linksElements).forEach((link) => {
-          link.removeEventListener("mouseenter", hoverEnter);
-          link.removeEventListener("mouseleave", hoverLeave);
+          duration: 0.3,
+          color: "white",
+          // scale: 1,
         });
       };
 
-      // footerTl.add(footerCardTween).add(linksTween,"+=0.5");
+      const linksElements = document.getElementsByClassName("footerLinks");
+      Array.from(linksElements).forEach((link) => {
+        link.addEventListener("mouseenter", () => hoverEnter(link));
+        link.addEventListener("mouseleave", () => hoverLeave(link));
+      });
+
+      // footerCardTween.play();
+      // linksTween.play();
+
+      return () => {
+        Array.from(linksElements).forEach((link) => {
+          link.removeEventListener("mouseenter", () => hoverEnter(link));
+          link.removeEventListener("mouseleave", () => hoverLeave(link));
+        });
+      };
     },
     { scope: footerRef, revertOnUpdate: true }
   );
+
+  useEffect(() => {}, []);
 
   const hideFooter = path === "/pricing-model" || path === "/our-experts";
 
@@ -170,7 +177,10 @@ const Footer = () => {
 
             <ul className="flex flex-col gap-[6px] list-none text-sm sm:text-base">
               {linkData.links.map((singleLink) => (
-                <li key={singleLink.text} className=" footerLinks">
+                <li
+                  key={singleLink.text}
+                  className=" footerLinks w-fit xl:w-[300px] cursor-pointer"
+                >
                   <Link href={singleLink.href}>{singleLink.text}</Link>
                 </li>
               ))}
