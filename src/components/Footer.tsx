@@ -64,61 +64,98 @@ const Footer = () => {
       //   }
       // });
 
-      let footerTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: footerRef.current,
-          start: "top center",
-          markers: true,
-          toggleActions: "play none restart reset",
-        },
-        // stagger: {
-        //   each: 0.1,
-        //   ease: "expo.inOut",
-        // },
-      });
+      // let footerTl = gsap.timeline({
+      //   scrollTrigger: {
+      //     trigger: footerRef.current,
+      //     start: "top center",
+      //     markers: true,
+      //     toggleActions: "play none restart reset",
+      //   },
+      //   // stagger: {
+      //   //   each: 0.1,
+      //   //   ease: "expo.inOut",
+      //   // },
+      // });
 
       let footerCardTween = gsap.from(".footerCard", {
         opacity: 0,
         y: 400,
-        duration: 1,
-        stagger: {
-          each: 0.2,
+        duration: 1.5,
+
+        scrollTrigger: {
+          trigger: footerRef.current,
+          start: "top center",
+          // markers: true,
+          toggleActions: "play none restart reset",
         },
-        // scrollTrigger: {
-        //   trigger: footerRef.current,
-        //   start: "top center",
-        //   markers: true,
-        //   toggleActions: "play none restart reset",
-        // },
       });
 
       let linksTween = gsap.from(".footerLinks", {
         y: -50,
         x: -10,
         opacity: 0,
-        // delay: 1,
         clearProps: "all",
-        // scrollTrigger: {
-        //   trigger: footerRef.current,
-        //   start: "top center",
-        //   // markers: true,
-        //   toggleActions: "play none restart reset",
-        // },
+        delay: 1,
+        scrollTrigger: {
+          trigger: footerRef.current,
+          start: "top center",
+          // markers: true,
+          toggleActions: "play none restart reset",
+        },
         stagger: {
           each: 0.1,
           // ease: "expo.inOut",
         },
       });
 
-      footerTl.add(footerCardTween).add(linksTween, "-=25%");
+      let socialMediaLinks = gsap.from(".footerSocialMediaLinks", {
+        x: -100,
+        duration: 1,
+        stagger: {
+          each: 0.1,
+        },
+        
+        scrollTrigger: {
+          trigger: ".footerSocialMediaLinks",
+          // start: "top center",
+          toggleActions: "play none restart reset",
+          // markers: true,
+        },
+      });
+
+      let copyrightTL = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".footerCopyrightContainer",
+          toggleActions: "play none restart reset",
+          markers: true,
+        },
+      });
+
+      let copyrightLinks = gsap.from(".footerCopyright", {
+        width: 0,
+        duration: 1,
+        stagger: {
+          each: 0.1,
+        },
+      });
+
+      let copyrightContainer = gsap.from(".footerCopyrightContainer", {
+        y: 100,
+        duration: 1,
+      });
+
+      copyrightTL.add(copyrightContainer).add(copyrightLinks, "-=0.5");
+
+      // linksTween.play();
+      // footerCardTween.play();
+
+      // footerTl.add(footerCardTween).add(linksTween, "-=25%");
 
       const hoverEnter = (element) => {
-        console.log("entereddd");
         gsap.to(element, {
           x: 10,
           duration: 0.3,
           color: "#417871",
-          // scale: 1,
         });
       };
       const hoverLeave = (element) => {
@@ -126,7 +163,6 @@ const Footer = () => {
           x: 0,
           duration: 0.3,
           color: "white",
-          // scale: 1,
         });
       };
 
@@ -135,9 +171,6 @@ const Footer = () => {
         link.addEventListener("mouseenter", () => hoverEnter(link));
         link.addEventListener("mouseleave", () => hoverLeave(link));
       });
-
-      // footerCardTween.play();
-      // linksTween.play();
 
       return () => {
         Array.from(linksElements).forEach((link) => {
@@ -194,7 +227,7 @@ const Footer = () => {
           {footerImagesData.map((dataImages) => (
             <li
               key={dataImages.alt}
-              className="bg-[#74DDD0] w-6 sm:w-9 h-6 sm:h-9 rounded-full flex items-center justify-center "
+              className="footerSocialMediaLinks bg-[#74DDD0] w-6 sm:w-9 h-6 sm:h-9 rounded-full flex items-center justify-center "
             >
               <Link href="" className="">
                 <Image
@@ -207,14 +240,18 @@ const Footer = () => {
           ))}
         </ul>
       </div>
-      <div className="text-[8px] sm:text-base ">
-        <Link href="" className=" border-b-2 border-b-[#417871] ">
-          Online Statement
-        </Link>{" "}
-        <br />
-        <Link href="" className=" border-b-2 border-b-[#417871] ">
-          Important Disclosures
-        </Link>
+      <div className="footerCopyrightContainer text-[8px] sm:text-base ">
+        <div className="">
+          <p className="footerCopyright whitespace-nowrap overflow-clip block w-fit border-b-2 border-b-[#417871] ">
+            Online Statement
+          </p>{" "}
+        </div>
+        {/* <br /> */}
+        <div className="">
+          <p className="footerCopyright whitespace-nowrap overflow-clip block w-fit border-b-2 border-b-[#417871] ">
+            Important Disclosures
+          </p>
+        </div>
         <p className="text-[7px] sm:text-sm no-underline whitespace-nowrap mt-1 ">
           COPYRIGHT &copy; {year} TWOTENSOR . ALL RIGHTS RESERVED
         </p>
