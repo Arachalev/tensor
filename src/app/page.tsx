@@ -47,6 +47,29 @@ export default function Home() {
         ease: "back.inOut",
         scale: 0.01,
         opacity: 0,
+        // scrollTrigger: {
+        //   trigger: "companiesContainer",
+        //   toggleActions: "play none restart restart",
+        //   markers: true,
+        //   start: "top top",
+        //   end: "bottom top",
+        //   onEnter: () => {
+        //     // heroTL.play();
+        //     heroTL.restart();
+        //   },
+        //   onEnterBack: () => {
+        //     // heroTL.pause();
+        //     heroTL.restart();
+        //   },
+        //   onLeave: () => {
+        //     // heroTL.play();
+        //     // heroTL;
+        //   },
+        //   onLeaveBack: () => {
+        //     // heroTL.restart();
+        //     heroTL.play();
+        //   },
+        // },
         stagger: {
           each: 0.04,
           from: "center",
@@ -70,9 +93,10 @@ export default function Home() {
       });
 
       heroTL.add(compTween).add(sideNavTween, "+=0.5").add(loginTween, "-=2.5");
+      // heroTL.play();
     },
     // undefined
-    { revertOnUpdate: false, dependencies: undefined }
+    { revertOnUpdate: true, dependencies: undefined }
   );
 
   useGSAP(
@@ -91,36 +115,87 @@ export default function Home() {
     { revertOnUpdate: true }
   );
 
-  // useGSAP(
-  //   () => {
-  //     let newsTL = gsap.timeline();
+  useGSAP(
+    () => {
+      let newsTL = gsap.timeline();
 
-  //     gsap.utils.toArray(".cardNewsScroll").forEach((card) => {
-  //       if (card instanceof Element) {
-  //         gsap.to(card, {
-  //           scale: 1.2,
-  //           x: 200,
-  //           // y: "50vh",
-  //           scrollTrigger: {
-  //             trigger: card,
-  //             start: "top center",
-  //             pin: true,
-  //             pinSpacing: false,
-  //             scrub: true,
-  //             markers: {
-  //               startColor: "white",
-  //               endColor: "white",
-  //               fontSize: "18px",
-  //               fontWeight: "bold",
-  //               indent: 20,
-  //             },
-  //           },
-  //         });
-  //       }
-  //     });
-  //   },
-  //   { revertOnUpdate: true }
-  // );
+      gsap.utils
+        .toArray(".cardNewsScroll")
+        .forEach((card, index, cardArray) => {
+          if (card instanceof Element) {
+            gsap.from(card, {
+              x: -600,
+              y: -300,
+              opacity: 0,
+              duration: index === cardArray.length - 1 ? 0.5 : 1,
+              scrollTrigger: {
+                trigger: card,
+                start: "top center",
+                pinSpacing: false,
+
+                onEnter: () => {
+                  gsap.to(card, {
+                    scale: 1.5,
+                  });
+                },
+                onEnterBack: () => {
+                  gsap.to(card, {
+                    scale: 1.5,
+                  });
+                },
+
+                onLeave: () => {
+                  gsap.to(card, {
+                    x: "100vw",
+                    duration: 1,
+                    scale: 1,
+                  });
+                  if (index === cardArray.length - 1) {
+                    gsap.to(card, {
+                      y: 300,
+                      opacity: 0,
+                    });
+                  }
+                  // x: "100vw",
+                },
+                toggleActions: "play none restart reset",
+                // markers: {
+                //   startColor: "white",
+                //   endColor: "white",
+                //   fontSize: "18px",
+                //   fontWeight: "bold",
+                //   indent: 20,
+                // },
+              },
+            });
+          }
+        });
+
+      gsap.from(".hundredMile", {
+        x: "-100vw",
+        duration: 1,
+        scrollTrigger: {
+          trigger: ".hundredMile",
+          toggleActions: "play none restart reset",
+        },
+      });
+
+      gsap.from(".localComp", {
+        y: 300,
+        duration: 1.5,
+        ease: "back.inOut(1.7)",
+        stagger: {
+          // ease: "back.inOut(1.7)",
+          each: 0.1,
+        },
+        scrollTrigger: {
+          trigger: ".hundredMile",
+          toggleActions: "play none restart reset",
+        },
+      });
+    },
+    { revertOnUpdate: true }
+  );
 
   // bg-gradient-to-tr from-[#000202] to-[#025A5A]
   return (
@@ -129,7 +204,7 @@ export default function Home() {
         <div className="flex flex-col  gap-14 sm:gap-28 items-cente justify-between w-full ">
           {/* hero section */}
           <div className="w-full relative flex items-center">
-            <div className="w-full" ref={threadsContainer}>
+            <div className="w-full companiesContainer" ref={threadsContainer}>
               <CompaniesThread
                 companies={
                   deviceWidth > 1280
@@ -175,11 +250,11 @@ export default function Home() {
           <SideNav variant="light" showInvestor />
         </div> */}
       </section>
-      <section className="cardNewsContainer  border-4 border-blue-500 min-h-[100vh] relative flex justify-between   py-14 pt-16 xl:py-32  2xl:w-[1400px] ">
+      <section className="cardNewsContainer min-h-[100vh] relative flex justify-between   py-14 pt-16 xl:py-32  2xl:w-[1400px] ">
         <div className=" max-w-full font-inter px-[24px] sm:px-[60px] xl:px-[142px] pt-6 pb-24">
           <div className="flex flex-col items-center justify-center gap-10 ">
             <div className="w-full flex flex-col gap-4  sm:gap-14 pb-4 border-b-2 border-b-[#417871]">
-              <div className="cardsNewsScrollContainer border-4 border-red-400 w-full flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-10 xl:gap-20 ">
+              <div className="cardsNewsScrollContainer relative min-h-screen w-full flex flex-col d:flex-row items-center justify-center gap-4 sm:gap-10 xl:gap-20 ">
                 {homePageData.map((item, index) => (
                   <HomeCards
                     key={`${(item.heading, index)}`}
@@ -195,16 +270,16 @@ export default function Home() {
 
             <div className="flex flex-col gap-10  text-[#E3F8F5]">
               <div className="mt-5 xl:mt-10 sm:flex gap-6 xl:gap-14">
-                <h4 className="font-bold xl:text-4xl leading-6 xl:leading-[60px] mb-4">
+                <h4 className="hundredMile font-bold xl:text-4xl leading-6 xl:leading-[60px] mb-4">
                   Outside the 100-mile preference radius of your target
                   geography?
                 </h4>
                 <div className="text-[9px] xl:text-base xl:w-1/2 font-medium flex flex-col gap-4 xl:gap-6">
-                  <p>
+                  <p className="localComp">
                     Your local competitors have a 126% to 144% higher chance of
                     closing a deal than you, Hochberg et al, Journal of Finance.
                   </p>
-                  <p>
+                  <p className="localComp">
                     <span className="underline">Investment Intent signals</span>
                     : a live, deal-by-deal dataset for timing investors&apos;
                     moves when you can&apos;t be there.

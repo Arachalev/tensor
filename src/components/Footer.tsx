@@ -33,10 +33,10 @@ const Footer = () => {
     }
   }, [path]);
 
-  useEffect(() => {
-    const el = document.getElementById("footer");
-    el?.scrollIntoView({ behavior: "smooth" });
-  }, []);
+  // useEffect(() => {
+  //   const el = document.getElementById("footer");
+  //   el?.scrollIntoView({ behavior: "smooth" });
+  // }, []);
 
   const footerRef = useRef(null);
 
@@ -127,7 +127,7 @@ const Footer = () => {
         scrollTrigger: {
           trigger: ".footerCopyrightContainer",
           toggleActions: "play none restart reset",
-          markers: true,
+          // markers: true,
         },
       });
 
@@ -190,7 +190,7 @@ const Footer = () => {
     <footer
       id="footer"
       ref={footerRef}
-      className={`${bg} border-red-900 border-4 min-h-[100vh] w-screen  2xl:w-[1400px]  ${
+      className={`${bg} min-h-[100vh] w-screen  2xl:w-[1400px]  ${
         path === "/who-we-are" ? "text-black" : "text-softBlue"
       } px-6 sm:px-10 xl:pl-28 pt-16 sm:pt-[117px] xl:pt-[173px] 
     pb-8 sm:pb-14 xl:pb-[120px] sm:pbfont-inter flex flex-col gap-10 sm:gap-x-[146px] xl:gap-x-[121px] sm:gap-y-[110px] 

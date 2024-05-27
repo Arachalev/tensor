@@ -8,6 +8,9 @@ import FaqButtons from "@/components/FaqButtons";
 import plusIcon from "../../../public/assets/icons/plus.svg";
 import Image from "next/image";
 import LibraryCards, { libraryCardTypes } from "@/components/LibraryCards";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Page = () => {
   const [activeFaq, setActiveFaq] = useState(["FAQ"]);
