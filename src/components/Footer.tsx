@@ -8,8 +8,7 @@ import { footerData, footerImagesData } from "@/store/staticData/footerData";
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { link } from "fs";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Footer = () => {
   const [bg, setBg] = useState("bg-darkGreen");
@@ -32,11 +31,7 @@ const Footer = () => {
       setBg("bg-darkGreen");
     }
   }, [path]);
-
-  // useEffect(() => {
-  //   const el = document.getElementById("footer");
-  //   el?.scrollIntoView({ behavior: "smooth" });
-  // }, []);
+ 
 
   const footerRef = useRef(null);
 
@@ -44,39 +39,7 @@ const Footer = () => {
 
   useGSAP(
     (context, contextSafe) => {
-      // gsap.utils.toArray(".footerCard").forEach((card) => {
-      //   if (card instanceof Element) {
-      //     gsap.from(card, {
-      //       opacity: 0,
-      //       y: 400,
-      //       duration: 2.5,
-      //       stagger: {
-      //         each: 0.05,
-      //         grid: "auto",
-      //       },
-      //       scrollTrigger: {
-      //         trigger: footerRef.current,
-      //         start: "top center",
-      //         markers: true,
-      //         toggleActions: "play none restart reset",
-      //       },
-      //     });
-      //   }
-      // });
-
-      // let footerTl = gsap.timeline({
-      //   scrollTrigger: {
-      //     trigger: footerRef.current,
-      //     start: "top center",
-      //     markers: true,
-      //     toggleActions: "play none restart reset",
-      //   },
-      //   // stagger: {
-      //   //   each: 0.1,
-      //   //   ease: "expo.inOut",
-      //   // },
-      // });
-
+      
       let footerCardTween = gsap.from(".footerCard", {
         opacity: 0,
         y: 400,

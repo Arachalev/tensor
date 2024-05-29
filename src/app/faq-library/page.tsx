@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { faqButtonsData } from "@/store/staticData/faqButtonsData";
 import { faqData, faqResearchData } from "@/store/staticData/faqData";
 import FaqButtons from "@/components/FaqButtons";
@@ -39,6 +39,71 @@ const Page = () => {
     body.style.backgroundColor = "#022525";
   }, []);
 
+  gsap.registerPlugin(useGSAP);
+
+  const circlesRef = useRef(null);
+
+  useGSAP(
+    () => {
+      gsap.from(".faqCircles", {
+        x: -100,
+        opacity: 0,
+        scale: 0.5,
+        // ease: "bounce.inOut",
+        stagger: {
+          each: 0.1,
+        },
+      });
+
+      gsap.from(".faqButtons", {
+        y: 50,
+        stagger: {
+          each: 0.1,
+        },
+      });
+
+      gsap.from(".libraryHead", {
+        scale: 0.1,
+        x: -300,
+        opacity: 0,
+        duration: 1,
+      });
+    },
+    // null
+    {
+      revertOnUpdate: true,
+      dependencies: [circlesRef.current],
+      scope: circlesRef,
+    }
+  );
+
+  useGSAP(
+    () => {
+      gsap.utils.toArray(".faqLibraryCards").forEach((card) => {
+        if (card instanceof Element) {
+          gsap.from(card, {
+            y: 300,
+            scale: 0.5,
+            duration: 0.8,
+            stagger: {
+              each: 0.1,
+            },
+            scrollTrigger: {
+              trigger: card,
+              markers: true,
+              toggleActions: "play none restart reset",
+              // end: "-=300px",
+              start: "-200px bottom",
+            },
+          });
+        }
+      });
+    },
+    {
+      dependencies: [],
+    }
+  );
+
   return (
     <div className="font-inter w-full 2xl:w-[1400px] relative">
       <section className=" px-6 sm:px-10 xl:px-28 py-14 sm:py-20 xl:pt-40 xl:pb-80 text-softBlue  ">
@@ -51,29 +116,29 @@ const Page = () => {
           </p>
         </Link> */}
 
-        <div className=" ">
+        <div className=" " ref={circlesRef}>
           <div className="flex items-center sm:items-start gap-2 sm:gap-6 xl:gap-9 justify-between sm:justify-normal  mb-3 sm:mb-4">
-            <div className="bg-[#417871] h-2 sm:h-3 xl:h-6 w-[1px] ml-2 self-center" />
-            <div className="bg-homeCircle w-4 sm:w-6 xl:min-w-[44px] h-4 sm:h-6 xl:min-h-[44px] rounded-full" />
-            <div className="bg-softBlue w-4 sm:w-6 xl:min-w-[44px] h-4 sm:h-6 xl:min-h-[44px] rounded-full " />
-            <div className="bg-homeCircle w-4 sm:w-6 xl:min-w-[44px] h-4 sm:h-6 xl:min-h-[44px] rounded-full" />
+            <div className="faqCircles bg-[#417871] h-2 sm:h-3 xl:h-6 w-[1px] ml-2 self-center" />
+            <div className="faqCircles bg-homeCircle w-4 sm:w-6 xl:min-w-[44px] h-4 sm:h-6 xl:min-h-[44px] rounded-full" />
+            <div className="faqCircles bg-softBlue w-4 sm:w-6 xl:min-w-[44px] h-4 sm:h-6 xl:min-h-[44px] rounded-full " />
+            <div className="faqCircles bg-homeCircle w-4 sm:w-6 xl:min-w-[44px] h-4 sm:h-6 xl:min-h-[44px] rounded-full" />
 
-            <h4 className="font-sora text-sm sm:text-xl xl:text-4xl text-softBlue font-semibold px-1 xl:px-2 ">
+            <h4 className="libraryHead font-sora text-sm sm:text-xl xl:text-4xl text-softBlue font-semibold px-1 xl:px-2 ">
               Library
             </h4>
-            <div className="bg-homeCircle w-4 sm:w-6 xl:min-w-[44px] h-4 sm:h-6 xl:min-h-[44px] rounded-full" />
-            <div className="bg-softBlue w-4 sm:w-6 xl:min-w-[44px] h-4 sm:h-6 xl:min-h-[44px] rounded-full " />
-            <div className="bg-[#417871] h-2 sm:h-3 xl:h-6 w-[1px] ml-2 self-center" />
+            <div className="faqCircles bg-homeCircle w-4 sm:w-6 xl:min-w-[44px] h-4 sm:h-6 xl:min-h-[44px] rounded-full" />
+            <div className="faqCircles bg-softBlue w-4 sm:w-6 xl:min-w-[44px] h-4 sm:h-6 xl:min-h-[44px] rounded-full " />
+            <div className="faqCircles bg-[#417871] h-2 sm:h-3 xl:h-6 w-[1px] ml-2 self-center" />
 
-            <div className="bg-homeCircle w-4 sm:w-6 xl:min-w-[44px] h-4 sm:h-6 xl:min-h-[44px] rounded-full" />
+            <div className="faqCircles bg-homeCircle w-4 sm:w-6 xl:min-w-[44px] h-4 sm:h-6 xl:min-h-[44px] rounded-full" />
 
-            <div className="bg-[#417871] h-2 sm:h-3 xl:h-6 w-[1px] ml-2 self-center hidden xl:block" />
+            <div className="faqCircles bg-[#417871] h-2 sm:h-3 xl:h-6 w-[1px] ml-2 self-center hidden xl:block" />
             <div className="bg-homeCircle w-4 sm:w-6 xl:min-w-[44px] h-4 sm:h-6 xl:min-h-[44px] rounded-full hidden xl:block" />
 
-            <div className="bg-[#417871] h-2 sm:h-3 xl:h-6 w-[1px] ml-2 self-center" />
-            <div className="bg-homeCircle w-4 sm:w-6 xl:min-w-[44px] h-4 sm:h-6 xl:min-h-[44px] rounded-full " />
+            <div className="faqCircles bg-[#417871] h-2 sm:h-3 xl:h-6 w-[1px] ml-2 self-center" />
+            <div className="faqCircles bg-homeCircle w-4 sm:w-6 xl:min-w-[44px] h-4 sm:h-6 xl:min-h-[44px] rounded-full " />
           </div>
-          <div className="flex items-center gap-1 sm:gap-2 xl:gap-[10px] justify-center sm:justify-start mb-6 sm:mg-8">
+          <div className="faqButtonsContainer flex items-center gap-1 sm:gap-2 xl:gap-[10px] justify-center sm:justify-start mb-6 sm:mg-8">
             {faqButtonsData.map((item, index) => (
               <FaqButtons
                 key={`${item.name}-${index}`}

@@ -93,7 +93,7 @@ const NavBar = () => {
         {showSideNav && (
           <Link
             href="/"
-            className="z-[50] fixed left-0 2xl:left-12 top-[40vh] w-[80px] h-20 sm:min-w-[60px] xl:w-[158px] self-center rotat-[-90deg] "
+            className="z-[50] fixed left-0 2xl:left-12 top-[40vh] w-[80px] h-20 sm:min-w-[60px] self-center rotat-[-90deg] "
           >
             {/* <Image src={homeTensor} alt="two tensor" className="" /> */}
             <div>
