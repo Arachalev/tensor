@@ -56,14 +56,14 @@ const FaqButtons = (props: FaqButtonsProps) => {
   gsap.registerPlugin(useGSAP);
 
   useGSAP(() => {
-    const hoverEnter = (element) => {
+    const hoverEnter = (element: gsap.TweenTarget) => {
       gsap.to(element, {
         scale: 1.1,
         // x: 10,
         // color: "#417871",
       });
     };
-    const hoverLeave = (element) => {
+    const hoverLeave = (element: gsap.TweenTarget) => {
       gsap.to(element, {
         scale: 1,
         // x: 0,

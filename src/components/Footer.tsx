@@ -114,14 +114,14 @@ const Footer = () => {
 
       // footerTl.add(footerCardTween).add(linksTween, "-=25%");
 
-      const hoverEnter = (element) => {
+      const hoverEnter = (element: gsap.TweenTarget) => {
         gsap.to(element, {
           x: 10,
           duration: 0.3,
           color: "#417871",
         });
       };
-      const hoverLeave = (element) => {
+      const hoverLeave = (element: gsap.TweenTarget) => {
         gsap.to(element, {
           x: 0,
           duration: 0.3,
