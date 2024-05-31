@@ -9,13 +9,16 @@ import {
   mobileCompaniesThreadData,
 } from "@/store/staticData/companiesThreadData";
 import CompaniesThread from "@/components/CompaniesThread";
-import { useContext, useEffect } from "react";
+import { DOMElement, useContext, useEffect, useRef } from "react";
 import { AppContext } from "@/store/contexts/appContext";
 import Link from "next/link";
 
 import { Banner } from "@/components/Banner/Banner";
 import { homePageData } from "@/store/staticData/homePageCardsData";
 import HomeCards from "@/components/HomeCards";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
 export default function Home() {
   const { deviceWidth } = useContext(AppContext);
@@ -28,16 +31,180 @@ export default function Home() {
 
     body.style.backgroundColor = "#022525";
   }, []);
+  gsap.registerPlugin(useGSAP);
+  gsap.registerPlugin(ScrollTrigger);
+
+  const threadsContainer = useRef(null);
+
+  // GSAP animation for company threads
+  useGSAP(
+    () => {
+      let heroTL = gsap.timeline();
+      const compTween = gsap.from(".comp-thread", {
+        y: (index) => {
+          return index % 2 == 0 ? 100 : -100;
+        },
+        ease: "back.inOut",
+        scale: 0.01,
+        opacity: 0,
+        // scrollTrigger: {
+        //   trigger: "companiesContainer",
+        //   toggleActions: "play none restart restart",
+        //   markers: true,
+        //   start: "top top",
+        //   end: "bottom top",
+        //   onEnter: () => {
+        //     // heroTL.play();
+        //     heroTL.restart();
+        //   },
+        //   onEnterBack: () => {
+        //     // heroTL.pause();
+        //     heroTL.restart();
+        //   },
+        //   onLeave: () => {
+        //     // heroTL.play();
+        //     // heroTL;
+        //   },
+        //   onLeaveBack: () => {
+        //     // heroTL.restart();
+        //     heroTL.play();
+        //   },
+        // },
+        stagger: {
+          each: 0.04,
+          from: "center",
+          grid: "auto",
+        },
+        clearProps: "all",
+      });
+
+      const sideNavTween = gsap.from(".sideNav ", {
+        opacity: 0,
+        x: 100,
+        scale: 1.05,
+        duration: 2.5,
+        backgroundColor: "rgb(1 37 37)",
+        ease: "elastic.out(1.2,0.8)",
+      });
+      const loginTween = gsap.from(".userLogin", {
+        x: -100,
+        ease: "elastic.out(1.2,0.8)",
+        duration: 2.5,
+      });
+
+      heroTL.add(compTween).add(sideNavTween, "+=0.5").add(loginTween, "-=2.5");
+      // heroTL.play();
+    },
+    // undefined
+    { revertOnUpdate: true, dependencies: undefined }
+  );
+
+  useGSAP(
+    () => {
+      gsap.from(".investmentData", {
+        scrollTrigger: {
+          trigger: ".investmentData",
+          end: "bottom 50%",
+          // start: 300,
+          toggleActions: "play none restart reset",
+        },
+        duration: 1.5,
+        y: 300,
+      });
+    },
+    { revertOnUpdate: true }
+  );
+
+  useGSAP(
+    () => {
+      let newsTL = gsap.timeline();
+
+      gsap.utils
+        .toArray(".cardNewsScroll")
+        .forEach((card, index, cardArray) => {
+          if (card instanceof Element) {
+            gsap.from(card, {
+              x: -600,
+              y: -300,
+              opacity: 0,
+              duration: index === cardArray.length - 1 ? 0.5 : 1,
+              scrollTrigger: {
+                trigger: card,
+                start: "top center",
+                pinSpacing: false,
+
+                onEnter: () => {
+                  gsap.to(card, {
+                    scale: 1.5,
+                  });
+                },
+                onEnterBack: () => {
+                  gsap.to(card, {
+                    scale: 1.5,
+                  });
+                },
+
+                onLeave: () => {
+                  gsap.to(card, {
+                    x: "100vw",
+                    duration: 1,
+                    scale: 1,
+                  });
+                  if (index === cardArray.length - 1) {
+                    gsap.to(card, {
+                      y: 300,
+                      opacity: 0,
+                    });
+                  }
+                  // x: "100vw",
+                },
+                toggleActions: "play none restart reset",
+                // markers: {
+                //   startColor: "white",
+                //   endColor: "white",
+                //   fontSize: "18px",
+                //   fontWeight: "bold",
+                //   indent: 20,
+                // },
+              },
+            });
+          }
+        });
+
+      gsap.from(".hundredMile", {
+        x: "-100vw",
+        duration: 1,
+        scrollTrigger: {
+          trigger: ".hundredMile",
+          toggleActions: "play none restart reset",
+        },
+      });
+
+      gsap.from(".localComp", {
+        y: 300,
+        duration: 1.5,
+        ease: "back.inOut(1.7)",
+        stagger: {
+          // ease: "back.inOut(1.7)",
+          each: 0.1,
+        },
+        scrollTrigger: {
+          trigger: ".hundredMile",
+          toggleActions: "play none restart reset",
+        },
+      });
+    },
+    { revertOnUpdate: true }
+  );
 
   // bg-gradient-to-tr from-[#000202] to-[#025A5A]
   return (
-
     <main className="w-full flex flex-col items-center max-w-[2000px]">
       <section className="relative h-full min-h-[100vh]  flex font-inter px-6 sm:px-10 2xl:px-28 pt-14 xl:pt-20 pb-16 sm:pb-[73px] xl:pb-[200px] text-white w-full ">
         <div className="flex flex-col  gap-14 sm:gap-28 items-cente justify-between w-full ">
           {/* hero section */}
           <div className="w-full relative flex items-center">
-            <div className="w-full">
+            <div className="w-full companiesContainer" ref={threadsContainer}>
               <CompaniesThread
                 companies={
                   deviceWidth > 1280
@@ -52,7 +219,7 @@ export default function Home() {
 
             {/* <div className="absolute bottom-0 right-0 w-full h-20 bg-gradient-to-t from-[#005050]/90 to-[#005050]/40 hidden sm:block" /> */}
           </div>
-          <div className="mt-4 pr-6 w-full  2xl:w-[1400px]">
+          <div className="investmentData mt-4 pr-6 w-full  2xl:w-[1400px]">
             <p className="font-medium text-[7px] sm:text-[10px] xl:text-sm mb-1">
               INVESTMENT INTENT DATA
             </p>
@@ -83,11 +250,11 @@ export default function Home() {
           <SideNav variant="light" showInvestor />
         </div> */}
       </section>
-      <section className="min-h-[100vh] relative flex justify-between   py-14 pt-16 xl:py-32  2xl:w-[1400px] ">
+      <section className="cardNewsContainer min-h-[100vh] relative flex justify-between   py-14 pt-16 xl:py-32  2xl:w-[1400px] ">
         <div className=" max-w-full font-inter px-[24px] sm:px-[60px] xl:px-[142px] pt-6 pb-24">
           <div className="flex flex-col items-center justify-center gap-10 ">
             <div className="w-full flex flex-col gap-4  sm:gap-14 pb-4 border-b-2 border-b-[#417871]">
-              <div className="w-full flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-10 xl:gap-20 ">
+              <div className="cardsNewsScrollContainer relative min-h-screen w-full flex flex-col d:flex-row items-center justify-center gap-4 sm:gap-10 xl:gap-20 ">
                 {homePageData.map((item, index) => (
                   <HomeCards
                     key={`${(item.heading, index)}`}
@@ -103,16 +270,16 @@ export default function Home() {
 
             <div className="flex flex-col gap-10  text-[#E3F8F5]">
               <div className="mt-5 xl:mt-10 sm:flex gap-6 xl:gap-14">
-                <h4 className="font-bold xl:text-4xl leading-6 xl:leading-[60px] mb-4">
+                <h4 className="hundredMile font-bold xl:text-4xl leading-6 xl:leading-[60px] mb-4">
                   Outside the 100-mile preference radius of your target
                   geography?
                 </h4>
                 <div className="text-[9px] xl:text-base xl:w-1/2 font-medium flex flex-col gap-4 xl:gap-6">
-                  <p>
+                  <p className="localComp">
                     Your local competitors have a 126% to 144% higher chance of
                     closing a deal than you, Hochberg et al, Journal of Finance.
                   </p>
-                  <p>
+                  <p className="localComp">
                     <span className="underline">Investment Intent signals</span>
                     : a live, deal-by-deal dataset for timing investors&apos;
                     moves when you can&apos;t be there.
@@ -123,6 +290,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-</main>
+    </main>
   );
 }

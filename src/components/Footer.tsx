@@ -1,15 +1,14 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import mailIcon from "../../public/assets/icons/footer/mail.svg";
-import arxicIcon from "../../public/assets/icons/footer/arxic.svg";
-import doiIcon from "../../public/assets/icons/footer/doi.svg";
-import githubIcon from "../../public/assets/icons/footer/github.svg";
-import linkedinIcon from "../../public/assets/icons/footer/linkedin.svg";
-import mediumIcon from "../../public/assets/icons/footer/medium.svg";
-import xIcon from "../../public/assets/icons/footer/x.svg";
+import React, { useEffect, useRef, useState } from "react";
+
 import { usePathname } from "next/navigation";
+import { footerData, footerImagesData } from "@/store/staticData/footerData";
+
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Footer = () => {
   const [bg, setBg] = useState("bg-darkGreen");
@@ -32,199 +31,190 @@ const Footer = () => {
       setBg("bg-darkGreen");
     }
   }, [path]);
+ 
+
+  const footerRef = useRef(null);
+
+  gsap.registerPlugin(useGSAP);
+
+  useGSAP(
+    (context, contextSafe) => {
+      
+      let footerCardTween = gsap.from(".footerCard", {
+        opacity: 0,
+        y: 400,
+        duration: 1.5,
+
+        scrollTrigger: {
+          trigger: footerRef.current,
+          start: "top center",
+          // markers: true,
+          toggleActions: "play none restart reset",
+        },
+      });
+
+      let linksTween = gsap.from(".footerLinks", {
+        y: -50,
+        x: -10,
+        opacity: 0,
+        clearProps: "all",
+        delay: 1,
+        scrollTrigger: {
+          trigger: footerRef.current,
+          start: "top center",
+          // markers: true,
+          toggleActions: "play none restart reset",
+        },
+        stagger: {
+          each: 0.1,
+          // ease: "expo.inOut",
+        },
+      });
+
+      let socialMediaLinks = gsap.from(".footerSocialMediaLinks", {
+        x: -100,
+        duration: 1,
+        stagger: {
+          each: 0.1,
+        },
+        
+        scrollTrigger: {
+          trigger: ".footerSocialMediaLinks",
+          // start: "top center",
+          toggleActions: "play none restart reset",
+          // markers: true,
+        },
+      });
+
+      let copyrightTL = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".footerCopyrightContainer",
+          toggleActions: "play none restart reset",
+          // markers: true,
+        },
+      });
+
+      let copyrightLinks = gsap.from(".footerCopyright", {
+        width: 0,
+        duration: 1,
+        stagger: {
+          each: 0.1,
+        },
+      });
+
+      let copyrightContainer = gsap.from(".footerCopyrightContainer", {
+        y: 100,
+        duration: 1,
+      });
+
+      copyrightTL.add(copyrightContainer).add(copyrightLinks, "-=0.5");
+
+      // linksTween.play();
+      // footerCardTween.play();
+
+      // footerTl.add(footerCardTween).add(linksTween, "-=25%");
+
+      const hoverEnter = (element: gsap.TweenTarget) => {
+        gsap.to(element, {
+          x: 10,
+          duration: 0.3,
+          color: "#417871",
+        });
+      };
+      const hoverLeave = (element: gsap.TweenTarget) => {
+        gsap.to(element, {
+          x: 0,
+          duration: 0.3,
+          color: "white",
+        });
+      };
+
+      const linksElements = document.getElementsByClassName("footerLinks");
+      Array.from(linksElements).forEach((link) => {
+        link.addEventListener("mouseenter", () => hoverEnter(link));
+        link.addEventListener("mouseleave", () => hoverLeave(link));
+      });
+
+      return () => {
+        Array.from(linksElements).forEach((link) => {
+          link.removeEventListener("mouseenter", () => hoverEnter(link));
+          link.removeEventListener("mouseleave", () => hoverLeave(link));
+        });
+      };
+    },
+    { scope: footerRef, revertOnUpdate: true }
+  );
+
+  useEffect(() => {}, []);
 
   const hideFooter = path === "/pricing-model" || path === "/our-experts";
 
   return !hideFooter ? (
     <footer
+      id="footer"
+      ref={footerRef}
       className={`${bg} min-h-[100vh] w-screen  2xl:w-[1400px]  ${
         path === "/who-we-are" ? "text-black" : "text-softBlue"
       } px-6 sm:px-10 xl:pl-28 pt-16 sm:pt-[117px] xl:pt-[173px] 
     pb-8 sm:pb-14 xl:pb-[120px] sm:pbfont-inter flex flex-col gap-10 sm:gap-x-[146px] xl:gap-x-[121px] sm:gap-y-[110px] 
      sm:grid sm:grid-cols-2 xl:grid-cols-3  xl:grid-rows-2`}
     >
-      <div className="">
-        <h4 className="font-semibold border-b-2 border-b-[#417871] w-fit xl:w-[300px] mb-3 xl:text-2xl ">
-          Most Visited
-        </h4>
-
-        <ul className="flex flex-col gap-[6px] list-none text-sm sm:text-base">
-          <li>
-            <Link href="">2023 In Numbers</Link>
-          </li>
-          <li>
-            <Link href="">Intent Data One Pager</Link>
-          </li>
-          <li>
-            <Link href="">Product Demo</Link>
-          </li>
-          <li>
-            <Link href="">FAQ</Link>
-          </li>
-          <li>
-            <Link href="">Research</Link>
-          </li>
-        </ul>
-      </div>
-      <div className=" xl:col-span-3">
-        <h4 className="font-semibold border-b-2 border-b-[#417871] w-fit xl:w-[300px] mb-3 xl:text-2xl ">
-          Stress Testing
-        </h4>
-
-        <ul className="flex flex-col gap-[6px] list-none text-sm sm:text-base">
-          <li>
-            <Link href="">Comfort Del Gro</Link>
-          </li>
-          <li>
-            <Link href="">GS Futures</Link>
-          </li>
-          <li>
-            <Link href="">Mobility Fund</Link>
-          </li>
-          <li>
-            <Link href="">Cervin</Link>
-          </li>
-        </ul>
-      </div>
-      <div className="">
-        <h4
-          className="font-semibold border-b-2 border-b-[#417871] w-fit xl:w-[300px] mb-3 xl:text-2xl"
+      {footerData.map((linkData) => (
+        <div
+          className={` overflow-y-clip overflow-x-clip h-fit ${
+            linkData.style ? "xl:col-span-3" : ""
+          }`}
+          key={linkData.heading}
         >
-          Who We Are
-        </h4>
+          <div className={` footerCard`}>
+            <h4 className="font-semibold border-b-2 border-b-[#417871] w-fit xl:w-[300px] mb-3 xl:text-2xl ">
+              {linkData.heading}
+            </h4>
 
-        <ul className="flex flex-col gap-[6px] list-none text-sm sm:text-base">
-          <li>
-            <Link href="/who-we-are#leadership">Leadership</Link>
-          </li>
-          <li>
-            <Link href="/who-we-are#founder">Founder</Link>
-          </li>
-          <li>
-            <Link href="/who-we-are#our-people">Our People</Link>
-          </li>
-          <li>
-            <Link href="/who-we-are#diversity">Diversity</Link>
-          </li>
-          <li>
-            <Link href="/who-we-are#principles">Core Principles</Link>
-          </li>
-          <li>
-            <Link href="/who-we-are#community">Community Impact</Link>
-          </li>
-        </ul>
-      </div>
-      {/* <div>
-        <h4 className="font-semibold  border-b-2 border-b-[#417871] w-fit xl:w-[300px] mb-3 xl:text-2xl  ">
-          What We Do
-        </h4>
-
-        <ul className="flex flex-col gap-[6px] list-none text-sm sm:text-base">
-          <li>
-            <Link href="/how-it-works">Our Product</Link>
-          </li>
-          <li>
-            <Link href="/pricing-model">Pricing</Link>
-          </li>
-        </ul>
-      </div> */}
-      <div>
-        <h4
-          className="font-semibold border-b-2 border-b-[#417871] w-fit xl:w-[300px] mb-3 xl:text-2xl "
-        >
-          How to Join
-        </h4>
-
-        <ul className="flex flex-col gap-[6px] list-none text-sm sm:text-base">
-          <li>
-            <Link href="/how-to-join#career">Career Development</Link>
-          </li>
-          <li>
-            <Link href="/how-to-join#path">Choose Your Path</Link>
-          </li>
-          <li>
-            <Link href="/how-to-join#interview">Interviewing</Link>
-          </li>
-          <li>
-            <Link href="/how-to-join#faq">Application FAQ</Link>
-          </li>
-        </ul>
-      </div>
-      <div>
-        <h4 className="font-semibold border-b-2 border-b-[#417871] w-fit xl:w-[300px] mb-3 xl:text-2xl ">
-          Performance Review
-        </h4>
-
-        <ul className="flex flex-col gap-[6px] list-none text-sm sm:text-base">
-          <li>
-            <Link href="">2023 Verified Results</Link>
-          </li>
-        </ul>
-      </div>
+            <ul className="flex flex-col gap-[6px] list-none text-sm sm:text-base">
+              {linkData.links.map((singleLink) => (
+                <li
+                  key={singleLink.text}
+                  className=" footerLinks w-fit xl:w-[300px] cursor-pointer"
+                >
+                  <Link href={singleLink.href}>{singleLink.text}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
 
       <div className=" sm:col-span-2 xl:col-span-4 ">
         <ul className="flex items-center gap-3 w-full">
-          <li className="bg-[#74DDD0] w-6 sm:w-9 h-6 sm:h-9 rounded-full flex items-center justify-center ">
-            <Link href="" className="">
-              <Image src={mailIcon} className="sm:w-5 h-3" alt="mail link" />{" "}
-            </Link>
-          </li>
-          <li className="bg-[#74DDD0] w-6 sm:w-9 h-6 sm:h-9 rounded-full flex items-center justify-center ">
-            <Link href="">
-              <Image
-                src={linkedinIcon}
-                alt="linkedin link"
-                className="sm:w-4 sm:h-4"
-              />{" "}
-            </Link>
-          </li>
-          <li className="bg-[#74DDD0] w-6 sm:w-9 h-6 sm:h-9 rounded-full flex items-center justify-center ">
-            <Link href="">
-              <Image src={xIcon} alt="x link" className="sm:h-5 sm:w-4" />{" "}
-            </Link>
-          </li>
-          <li className="bg-[#74DDD0] w-6 sm:w-9 h-6 sm:h-9 rounded-full flex items-center justify-center ">
-            <Link href="">
-              <Image
-                src={mediumIcon}
-                alt="medium link"
-                className="sm:h-6 sm:w-5"
-              />{" "}
-            </Link>
-          </li>
-          <li className="bg-[#74DDD0] w-6 sm:w-9 h-6 sm:h-9 rounded-full flex items-center justify-center ">
-            <Link href="">
-              <Image src={doiIcon} alt="doi link" className="sm:w-6 sm:h-5" />{" "}
-            </Link>
-          </li>
-          <li className="bg-[#74DDD0] w-6 sm:w-9 h-6 sm:h-9 rounded-full flex items-center justify-center ">
-            <Link href="">
-              <Image
-                src={githubIcon}
-                alt="github link"
-                className="sm:w-9 sm:h-9"
-              />{" "}
-            </Link>
-          </li>
-          <li className="bg-[#74DDD0] w-6 sm:w-9 h-6 sm:h-9 rounded-full flex items-center justify-center ">
-            <Link href="">
-              <Image
-                src={arxicIcon}
-                alt="arxic link"
-                className="sm:w-6 sm:h-6"
-              />{" "}
-            </Link>
-          </li>
+          {footerImagesData.map((dataImages) => (
+            <li
+              key={dataImages.alt}
+              className="footerSocialMediaLinks bg-[#74DDD0] w-6 sm:w-9 h-6 sm:h-9 rounded-full flex items-center justify-center "
+            >
+              <Link href="" className="">
+                <Image
+                  src={dataImages.image}
+                  className="sm:w-5 h-3"
+                  alt={dataImages.alt}
+                />{" "}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
-      <div className="text-[8px] sm:text-base ">
-        <Link href="" className=" border-b-2 border-b-[#417871] ">
-          Online Statement
-        </Link>{" "}
-        <br />
-        <Link href="" className=" border-b-2 border-b-[#417871] ">
-          Important Disclosures
-        </Link>
+      <div className="footerCopyrightContainer text-[8px] sm:text-base ">
+        <div className="">
+          <p className="footerCopyright whitespace-nowrap overflow-clip block w-fit border-b-2 border-b-[#417871] ">
+            Online Statement
+          </p>{" "}
+        </div>
+        {/* <br /> */}
+        <div className="">
+          <p className="footerCopyright whitespace-nowrap overflow-clip block w-fit border-b-2 border-b-[#417871] ">
+            Important Disclosures
+          </p>
+        </div>
         <p className="text-[7px] sm:text-sm no-underline whitespace-nowrap mt-1 ">
           COPYRIGHT &copy; {year} TWOTENSOR . ALL RIGHTS RESERVED
         </p>

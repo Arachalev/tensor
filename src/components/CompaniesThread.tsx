@@ -98,7 +98,7 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
   return (
     <div className="flex items-center justify-between gap-2  ">
       {companies.map((item, index) => (
-        <div key={index} className="flex flex-col items-center gap-2">
+        <div key={index} className="flex flex-col items-center gap-2 comp-thread">
           {item.comp1 ? (
             <div
               className={`${
@@ -140,7 +140,7 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
                     width={30}
                     height={30}
                     // onClick={() => handleModal(item.comp1?.name!, "comp1")}
-                    className="w-8 sm:w-[43px] h-8 sm:h-[43px]  min-[1700px]:min-h-[55px] min-[1700px]:min-w-[55px]  rounded-full cursor-pointer"
+                    className="w-8 sm:w-[43px] h-8 sm:h-[43px] min-[1700px]:min-h-[55px] min-[1700px]:min-w-[55px]  rounded-full cursor-pointer"
                     src={item.comp1.img}
                     alt={item.comp1.name}
                   />
@@ -163,7 +163,7 @@ const CompaniesThread = (props: CompaniesThreadProps) => {
                       showCompany.showModal &&
                       item.comp1.name === showCompany.company.name &&
                       "w-screen h-screen"
-                    }  sm:w-auto sm:h-auto flex justify-center  pt-20 sm:pt-0 sm:absolute sm:top-28 sm:left-28 z-[60]`}
+                    }  sm:w-auto sm:h-auto flex justify-center  pt-20 sm:pt-0 sm:absolute sm:top-28 sm:left-28 z-[600]`}
                   >
                     {showCompany.showModal &&
                       item.comp1.name === showCompany.company.name && (

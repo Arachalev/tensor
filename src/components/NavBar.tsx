@@ -37,6 +37,7 @@ const NavBar = () => {
     return () => clearTimeout(firstLoadTimer);
   }, []);
 
+  // Effect to update visibility of side nav and mobilemenu when scrolling
   useEffect(() => {
     const updateLogin = () => {
       if (window.scrollY == 0) {
@@ -47,7 +48,9 @@ const NavBar = () => {
     };
 
     window.addEventListener("scroll", updateLogin);
-    return () => window.removeEventListener("scroll", updateLogin);
+    return () => {
+      window.removeEventListener("scroll", updateLogin);
+    };
   }, []);
 
   // stop scrolling in body when menu is open
@@ -69,12 +72,12 @@ const NavBar = () => {
 
   return (
     <nav
-      className={`z-[50] ${bg} w-screen h-[52px] sm:h-[0px] fixed top-0 2xl:flex 2xl:items-center 2xl:justify-center`}
+      className={`z-[50] ${bg} w-screen h-[52px] sm:h-[0px] fixed top-0 2xl:flex 2xl:items-center 2xl:justify-center  `}
     >
-      {firstLoad && <LoadingScreen />}
+      {/* {firstLoad && <LoadingScreen />} */}
       <div className="h-full items-center  sm:h-full w-full 2xl:w-[1400px] min-[1800px]:w-[2000px] flex relative">
         {showSideNav && (
-          <div className="fixed top-4 left-1 2xl:left-12">
+          <div className="userLogin fixed top-4 left-1 2xl:left-12">
             <Link
               href=""
               className={`font-semibold text-xs ${
@@ -90,7 +93,7 @@ const NavBar = () => {
         {showSideNav && (
           <Link
             href="/"
-            className="z-[50] fixed left-0 2xl:left-12 top-[40vh] w-[80px] h-20 sm:min-w-[60px] xl:w-[158px] self-center rotat-[-90deg] "
+            className="z-[50] fixed left-0 2xl:left-12 top-[40vh] w-[80px] h-20 sm:min-w-[60px] self-center rotat-[-90deg] "
           >
             {/* <Image src={homeTensor} alt="two tensor" className="" /> */}
             <div>
@@ -129,3 +132,4 @@ const NavBar = () => {
 };
 
 export default NavBar;
+             

@@ -1,11 +1,14 @@
 "use client";
 import Link from "next/link";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import arrow from "../../public/assets/icons/arrow.svg";
 import arrowWhite from "../../public/assets/icons/arrow-white.svg";
 import { AppContext } from "@/store/contexts/appContext";
 import { useRouter } from "next/navigation";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const SideNav = ({ showInvestor = true }: { showInvestor?: boolean }) => {
   const [variant, setVariant] = useState("light");
@@ -15,28 +18,57 @@ const SideNav = ({ showInvestor = true }: { showInvestor?: boolean }) => {
 
   const router = useRouter();
 
-  // useEffect(() => {
-  //   const updateLogin = () => {
-  //     if (window.scrollY == 0) {
-  //       setHideLogin(false);
-  //     } else {
-  //       setHideLogin(true);
-  //     }
-  //   };
+  const sideNavRef = useRef(null);
 
-  //   window.addEventListener("scroll", updateLogin);
-  //   return () => window.removeEventListener("scroll", updateLogin);
-  // }, []);
+  gsap.registerPlugin(ScrollTrigger);
+
+  useGSAP(
+    () => {
+      const element = sideNavRef.current;
+
+      let tl = gsap.timeline({ paused: true });
+
+      tl.to(element, {
+        opacity: 0,
+        duration: 2.5,
+        x: 100,
+        scale: 1.05,
+        backgroundColor: "rgb(1 37 37)",
+        ease: "elastic.out(1.2,0.8)",
+      });
+
+      let scrollTimeout: string | number | NodeJS.Timeout | undefined;
+
+      const handleScroll = () => {
+        clearTimeout(scrollTimeout);
+        if (!tl.isActive()) {
+          tl.play();
+        }
+        scrollTimeout = setTimeout(() => {
+          tl.reverse();
+        }, 500); // Adjust this timeout as needed
+      };
+
+      window.addEventListener("scroll", handleScroll);
+
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+        clearTimeout(scrollTimeout);
+        tl.kill();
+      };
+    },
+    { scope: sideNavRef, revertOnUpdate: true }
+  );
 
   return (
-    <div id="sideNav">
+    <div id="sideNav" ref={sideNavRef}>
       {/* {!hideLogin && (
         <Link href="" className={`font-semibold text-[13px] text-[#74DDD0] ml-4`}>
           User Login
         </Link>
       )} */}
       <div
-        className={`z-50 font-inter bg-[#012525]/80 py-4 rounded-[4px] flex flex-col mt-5 gap-4 w-[147px] ${
+        className={`sideNav z-50 font-inter bg-[#012525]/80 py-4 rounded-[4px] flex flex-col mt-5 gap-4 w-[147px] ${
           variant === "light" ? " sm:px-4" : ""
         }`}
       >
