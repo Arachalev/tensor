@@ -5,6 +5,8 @@ import libraryArrawIcon from "../../public/assets/icons/library-arrow.svg";
 import plusIcon from "../../public/assets/icons/plus.svg";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+// import { ScrollTrigger } from "gsap/all";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export type libraryCardTypes =
   | "Research"
@@ -26,14 +28,10 @@ interface LibraryCardsProps {
 }
 
 const LibraryCards = (props: LibraryCardsProps) => {
-  const [showFaq, setShowFaq] = useState(true);
+  const [hideFaq, setHideFaq] = useState(true);
 
   const { title, content, type, socials, date, link, readTime, openFaq } =
     props;
-
-  useEffect(() => {
-    setShowFaq(true);
-  }, [openFaq]);
 
   let bg = {
     Research: "",
@@ -65,43 +63,83 @@ const LibraryCards = (props: LibraryCardsProps) => {
   }
 
   gsap.registerPlugin(useGSAP);
+  gsap.registerPlugin(ScrollTrigger);
 
   const contentRef = useRef(null);
   const contentContainerRef = useRef(null);
+  const triggerRef = useRef(null);
 
   const { context, contextSafe } = useGSAP(
     () => {
       // contentGsapRef.current = gsap.to(contentRef, {});
-      showFaq ? showContent() : hideContent();
+      // hideFaq ? showContent() : hideContent();
+      // openFaq || hideFaq ? showContent() : hideContent();
     },
-    { dependencies: [showFaq], scope: contentContainerRef }
+    { dependencies: [hideFaq], scope: contentContainerRef }
   );
 
+  useGSAP(
+    () => {
+      gsap.to(triggerRef.current, {
+        width: "100%",
+        duration: 2,
+        stagger: {
+          each: 0.2,
+        },
+        scrollTrigger: {
+          trigger: triggerRef.current,
+          toggleActions: "play pause restart reset",
+        },
+      });
+    },
+    { scope: triggerRef }
+  );
+
+  useEffect(() => {
+    openFaq ? showContent() : hideContent();
+  }, [openFaq]);
+
   const showContent = contextSafe(() => {
-    gsap.from(contentRef.current, {
-      y: 200,
-      onComplete: () => {
-        setShowFaq(true);
+    // hideFaq && console.log(hideFaq, "show faq clicked");
+    // hideFaq &&
+    gsap.fromTo(
+      contentRef.current,
+      {
+        y: 200,
+        opacity: 0,
+        display: "none",
+        // display: "block",
       },
-      opacity: 0,
-      display: "block",
-    });
+      {
+        display: "block",
+        opacity: 1,
+        y: 0,
+        onComplete: () => {
+          setHideFaq(false);
+        },
+      }
+    );
   });
   const hideContent = contextSafe(() => {
     // usestate update
 
+    // console.log(hideFaq, "faq");
+    // !hideFaq && console.log("clicked");
+
+    // !hideFaq &&
     gsap.to(contentRef.current, {
       y: 200,
       opacity: 0,
-      display: "hidden",
+      display: "none",
       onComplete: () => {
-        setShowFaq(false);
+        setHideFaq(true);
       },
     });
   });
 
   return (
-    <div className="faqLibraryCards text-softBlue font-inter pb-3 sm:pb-6 xl:pb-8 border-b-[2px] border-b-[#E3F8F5]/40">
+    <div className="faqLibraryCards text-softBlue font-inter pb-3 sm:pb-6 xl:pb-8 ">
+      {/* <div className="faqLibraryCards text-softBlue font-inter pb-3 sm:pb-6 xl:pb-8 border-b-[2px] border-b-[#E3F8F5]/40"> */}
       <div className="flex items-center justify-between mb-3 sm:mb-5 xl:mb-14">
         <div className="flex items-center gap-3 xl:gap-6 font-sora">
           <p className=" font-medium font-sora text-[5px] sm:text-[7px] xl:text-sm">
@@ -142,20 +180,10 @@ const LibraryCards = (props: LibraryCardsProps) => {
       </div>
       <div className="flex gap-3 xl:gap-6 ">
         <div className="min-w-[12px] sm:min-w-[20px] xl:min-w-[35px]">
-          {showFaq ? (
+          {hideFaq ? (
             <div
               onClick={() => {
-                // setShowFaq(false);
-                hideContent();
-              }}
-              className="w-full h-full   cursor-pointer "
-            >
-              <div className="min-w-[12px] sm:min-w-[16px] xl:max-w-[24px] h-[3px] bg-softBlue mt-2 sm:mt-4 xl:mt-6 " />
-            </div>
-          ) : (
-            <div
-              onClick={() => {
-                // setShowFaq(true);
+                // setHideFaq(true);
                 showContent();
               }}
               className="w-full h-full cursor-pointer"
@@ -166,22 +194,32 @@ const LibraryCards = (props: LibraryCardsProps) => {
                 alt="plusicon"
               />
             </div>
+          ) : (
+            <div
+              onClick={() => {
+                // setHideFaq(false);
+                hideContent();
+              }}
+              className="w-full h-full   cursor-pointer "
+            >
+              <div className=" min-w-[12px] sm:min-w-[16px] xl:max-w-[24px] h-[3px] bg-softBlue mt-2 sm:mt-4 xl:mt-6 " />
+            </div>
           )}
         </div>
         <div ref={contentContainerRef} className="pr-2 sm:pr-8">
           <h4
             onClick={() => {
-              // setShowFaq(true);
+              // setHideFaq(true);
               showContent();
             }}
             className="font-bold text-[10px] sm:text-lg xl:text-3xl leading-4 sm:leading-8 xl:leading-[55px] mb-3 sm:mb-5 xl:mb-9 cursor-pointer"
           >
             {title}
           </h4>
-          {/* {showFaq && ( */}
+          {/* {!hideFaq && ( */}
           <p
             ref={contentRef}
-            className="faqContent font-medium text-[8px] sm:text-sm xl:text-xl leading-[14px] sm:leading-6 xl:leading-9"
+            className="faqContent hidden font-medium text-[8px] sm:text-sm xl:text-xl leading-[14px] sm:leading-6 xl:leading-9"
           >
             {content}
           </p>
@@ -190,7 +228,7 @@ const LibraryCards = (props: LibraryCardsProps) => {
             <div className="mt-2 sm:mt-4 xl:mt-8 flex items-center gap-1 sm;gap-2 xl:gap-3">
               <Link
                 className=" font-serif font-bold text-[9px] sm:text-base xl:text-[28px] text-white border-b-[3px] border-b-softBlue"
-                href={link}
+                href={"/faq-library"}
               >
                 Read All
               </Link>{" "}
@@ -203,6 +241,10 @@ const LibraryCards = (props: LibraryCardsProps) => {
           )}
         </div>
       </div>
+      <hr
+        ref={triggerRef}
+        className="faqHr h-[2px] bg-[#E3F8F5]/40  mt-8 border-none w-[0px] "
+      />
     </div>
   );
 };
