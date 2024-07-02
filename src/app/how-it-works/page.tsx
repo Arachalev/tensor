@@ -67,7 +67,7 @@ const Page = () => {
       },
     });
 
-    let logoTween: gsap.core.TimelineChild | gsap.core.Tween[] = [];
+    let logoTween: gsap.core.Tween[] = [];
     gsap.utils.toArray(".ontologyImages").forEach((item) => {
       if (item instanceof Element) {
         const tween = gsap.from(item, {
@@ -83,7 +83,6 @@ const Page = () => {
 
     coreTimeline.current.add(cardTween).add(imageTween).add(logoTween);
   }, {});
-
 
   return (
     <div className="font-inter w-full 2xl:w-[1400px] relative ">
