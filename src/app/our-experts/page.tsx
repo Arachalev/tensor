@@ -1,47 +1,76 @@
 "use client";
-
 import DataSetForm from "@/components/DataSetForm";
-import ExpertsCard from "@/components/ExpertsCard";
-import { expertCardsData } from "@/store/staticData/expertsCardsData";
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { pricingModelData } from "@/store/staticData/pricingModelData";
+import PricingModelCards from "@/components/PricingModelCards";
 import { useRouter } from "next/navigation";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const Page = () => {
   const router = useRouter();
-  return (
-    <div className="flex flex-col xl:flex-row w-full">
-      <section
-        onClick={() => router.push("/")}
-        className="w-full min-h-[100vh] flex flex-col items-center 2xl:justify-center px-6 sm:px-10 xl:px-11 pt-10 bg-fadedBlue text-darkGreen xl:order-2"
-      >
-        <div className="text-center flex flex-col gap-2 sm:gap-3 items-center">
-          <h4 className="text-[7px] sm:text-sm">OUR EXPERTS</h4>
-          <h2 className="text-2xl sm:text-4xl font-bold  ">Meet TwoTensor</h2>
-          <p className="font-medium text-[8px] sm:text-sm sm:w-[550px] xl:w-[700px] ">
-            We operate in a sophisticated team tailored to specialist private
-            equity challenges. Learning from one another, we advance AI
-            boundaries while acquiring broader, more rounded insights.
-          </p>
-        </div>
 
-        <div className="max-w-[1200px]  pt-9 pb-20 xl:pt-16 flex flex-col xl:flex-row sm:grid sm:grid-cols-[305px_305px] xl:flex sm:justify-center sm:items-start xl:gap-4 sm:justify-items-center gap-7 sm:gap-x-5 sm:gap-y-20 items-center">
-          {expertCardsData.map((item, index) => (
-            <ExpertsCard
-              key={`${item.name}${index}`}
-              profile={item.profile}
-              name={item.name}
-              social={item.social}
-              title={item.title}
-              details={item.details}
-              links={item.links}
-              variant="experts"
-            />
-          ))}
-        </div>
-      </section>
-      <section className="min-h-[100vh] xl:order-1 ">
-        <DataSetForm />
-      </section>
+  const modelContainerRef = useRef(null);
+  const containerRef = useRef(null);
+  const datasetRef = useRef(null);
+
+  gsap.registerPlugin(useGSAP);
+
+  const pricingTl = gsap.timeline({ paused: false });
+  const { contextSafe } = useGSAP(
+    () => {
+      const containerTween = gsap.from(modelContainerRef.current, {
+        x: 300,
+      });
+      const dataSetTween = gsap.from(datasetRef.current, {
+        x: -300,
+      });
+      const cardTween = gsap.from(".priceModelCard", {
+        y: 200,
+        // delay: 1,
+        stagger: { each: 0.2 },
+      });
+      pricingTl.add(containerTween).add(dataSetTween, "<").add(cardTween, "<");
+    },
+    { scope: containerRef }
+  );
+
+  const handleRouteChange = contextSafe(() => {
+    const duration = pricingTl.duration();
+    pricingTl.reverse().call(
+      () => {
+        gsap.to(containerRef.current, { opacity: 0 });
+        router.push("/");
+      },
+      [],
+      duration - 0.4
+    );
+  });
+
+  return (
+    <div
+      ref={containerRef}
+      className="font-inter flex flex-col xl:flex-row w-full relative min-h-[100vh]"
+    >
+      <div
+        ref={modelContainerRef}
+        onClick={handleRouteChange}
+        className="bg-[#F6FFFE] pt-14  sm:pt-20 xl:pt-40 2xl:pt-0 xl:order-2 xl:w-full 2xl:items-center 2xl:justify-center 2xl:flex 2xl:flex-col"
+      >
+        {pricingModelData.map((item, index) => (
+          <PricingModelCards
+            key={`${item.title}-${index}`}
+            title={item.title}
+            category={item.category}
+            // billedSection={item.}
+            details={item.details}
+            packages={item.packages}
+          />
+        ))}
+      </div>
+      <div ref={datasetRef} className="xl:order-1">
+        <DataSetForm closeFunction={handleRouteChange} />
+      </div>
     </div>
   );
 };
