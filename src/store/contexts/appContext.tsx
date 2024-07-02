@@ -1,6 +1,8 @@
 "use client";
 
 import React, { createContext, useState, useEffect } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 export const AppContext = createContext({
   deviceWidth: 1300,
@@ -36,6 +38,16 @@ export const AppContextProvider = ({
   const updateDeviceWidth = (value: number) => {
     setDeviceWidth(value);
   };
+
+  // gsap.registerPlugin(useGSAP);
+
+  gsap.registerEffect({
+    name: "primaryBtnHoverEnter",
+    effect: (targets: gsap.TweenTarget, config: any) => {
+      return gsap.to(targets, {});
+    },
+    extendTimeline: true,
+  });
 
   return (
     <AppContext.Provider

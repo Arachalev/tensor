@@ -31,7 +31,6 @@ const Footer = () => {
       setBg("bg-darkGreen");
     }
   }, [path]);
- 
 
   const footerRef = useRef(null);
 
@@ -39,7 +38,6 @@ const Footer = () => {
 
   useGSAP(
     (context, contextSafe) => {
-      
       let footerCardTween = gsap.from(".footerCard", {
         opacity: 0,
         y: 400,
@@ -77,7 +75,7 @@ const Footer = () => {
         stagger: {
           each: 0.1,
         },
-        
+
         scrollTrigger: {
           trigger: ".footerSocialMediaLinks",
           // start: "top center",
@@ -142,10 +140,8 @@ const Footer = () => {
         });
       };
     },
-    { scope: footerRef, revertOnUpdate: true }
+    { scope: footerRef, dependencies: [path], revertOnUpdate: true }
   );
-
-  useEffect(() => {}, []);
 
   const hideFooter = path === "/pricing-model" || path === "/our-experts";
 

@@ -90,7 +90,7 @@ const Page = () => {
             },
             scrollTrigger: {
               trigger: card,
-              markers: true,
+              // markers: true,
               toggleActions: "play none restart reset",
               // end: "-=300px",
               start: "-200px bottom",
@@ -153,20 +153,36 @@ const Page = () => {
           </div>
 
           <div className=" sm:w-[505px] xl:w-[980px]">
-            <div
-              onClick={() => setOpenAllFaq((state) => !state)}
-              className="flex items-center gap-1 pb-2 xl:pb-5  border-b-[#E3F8F5]/30 border-b-[2px] mb-3 sm:mb-4 xl:mb-6 cursor-pointer"
-            >
-              <Image
-                src={plusIcon}
-                className="sm:w-[8px] xl:w-4"
-                alt="plus icon"
-              />
+            {!openAllFaq ? (
+              <div
+                onClick={() => setOpenAllFaq(true)}
+                className="flex items-center gap-2 pb-2 xl:pb-5  border-b-[#E3F8F5]/30 border-b-[2px] mb-3 sm:mb-4 xl:mb-6 cursor-pointer"
+              >
+                <div className=" min-w-[12px] sm:min-w-[16px] xl:max-w-[24px]">
+                  <Image
+                    src={plusIcon}
+                    className="sm:w-[8px] xl:w-4"
+                    alt="plus icon"
+                  />
+                </div>
 
-              <p className="font-semibold text-[6.5px] sm:text-[9px] xl:text-lg">
-                Expand All
-              </p>
-            </div>
+                <p className="font-semibold text-[6.5px] sm:text-[9px] xl:text-lg">
+                  Expand All
+                </p>
+              </div>
+            ) : (
+              <div
+                onClick={() => {
+                  setOpenAllFaq(false);
+                }}
+                className="flex items-center gap-2 pb-2 xl:pb-5  border-b-[#E3F8F5]/30 border-b-[2px] mb-3 sm:mb-4 xl:mb-6 cursor-pointer"
+              >
+                <div className=" min-w-[12px] sm:min-w-[16px] xl:max-w-[24px] h-[3px] bg-softBlue " />
+                <p className="font-semibold text-[6.5px] sm:text-[9px] xl:text-lg">
+                  Collapse All
+                </p>
+              </div>
+            )}
             <div className="flex flex-col gap-3 sm:gap-5 xl:gap-14 ">
               {libraryData.map((item, index) => (
                 <LibraryCards

@@ -5,12 +5,9 @@ import Select, { CSSObjectWithLabel } from "react-select";
 import { AppContext } from "@/store/contexts/appContext";
 import Image from "next/image";
 import plusIcon from "../../public/assets/icons/close.svg";
-import { useRouter } from "next/navigation";
 
-const DataSetForm = () => {
+const DataSetForm = ({ closeFunction }: { closeFunction: () => void }) => {
   const { deviceWidth } = useContext(AppContext);
-
-  const router = useRouter();
 
   const options = [
     { value: "chocolate", label: "Linkedin" },
@@ -20,7 +17,7 @@ const DataSetForm = () => {
   return (
     <div className="h-full relative pt-14 sm:pt-16 xl:pt-14 pb-20 sm:pb-32 px-8 sm:px-11 font-inter bg-white text-darkGreen flex flex-col gap-10 sm:gap-20 sm:w-[523px] xl:w-[406px]">
       <div
-        onClick={() => router.push("/")}
+        onClick={closeFunction}
         className="self-end absolute top-2 right-8 sm:right-11 cursor-pointer"
       >
         <Image
