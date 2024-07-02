@@ -8,6 +8,9 @@ import community2 from "../../../public/assets/images/who-we-are/community2.png"
 import community1 from "../../../public/assets/images/who-we-are/community1.png";
 import founder from "../../../public/assets/images/who-we-are/founder.png";
 import Link from "next/link";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Page = () => {
   useEffect(() => {

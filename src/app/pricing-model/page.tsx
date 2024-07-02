@@ -1,6 +1,6 @@
 "use client";
 import DataSetForm from "@/components/DataSetForm";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { pricingModelData } from "@/store/staticData/pricingModelData";
 import PricingModelCards from "@/components/PricingModelCards";
 import { useRouter } from "next/navigation";
@@ -16,23 +16,36 @@ const Page = () => {
 
   gsap.registerPlugin(useGSAP);
 
-  useGSAP(
+  const pricingTl = gsap.timeline({ paused: false });
+  const { contextSafe } = useGSAP(
     () => {
-      gsap.from(modelContainerRef.current, {
+      const containerTween = gsap.from(modelContainerRef.current, {
         x: 300,
       });
-      gsap.from(datasetRef.current, {
+      const dataSetTween = gsap.from(datasetRef.current, {
         x: -300,
       });
-
-      gsap.from(".priceModelCard", {
+      const cardTween = gsap.from(".priceModelCard", {
         y: 200,
         // delay: 1,
         stagger: { each: 0.2 },
       });
+      pricingTl.add(containerTween).add(dataSetTween, "<").add(cardTween, "<");
     },
     { scope: containerRef }
   );
+
+  const handleRouteChange = contextSafe(() => {
+    const duration = pricingTl.duration();
+    pricingTl.reverse().call(
+      () => {
+        gsap.to(containerRef.current, { opacity: 0 });
+        router.push("/");
+      },
+      [],
+      duration - 0.4
+    );
+  });
 
   return (
     <div
@@ -41,7 +54,7 @@ const Page = () => {
     >
       <div
         ref={modelContainerRef}
-        onClick={() => router.push("/")}
+        onClick={handleRouteChange}
         className="bg-[#F6FFFE] pt-14  sm:pt-20 xl:pt-40 2xl:pt-0 xl:order-2 xl:w-full 2xl:items-center 2xl:justify-center 2xl:flex 2xl:flex-col"
       >
         {pricingModelData.map((item, index) => (
@@ -56,7 +69,7 @@ const Page = () => {
         ))}
       </div>
       <div ref={datasetRef} className="xl:order-1">
-        <DataSetForm />
+        <DataSetForm closeFunction={handleRouteChange} />
       </div>
     </div>
   );

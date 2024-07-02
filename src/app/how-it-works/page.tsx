@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import coreArrowIcon from "../../../public/assets/icons/coreArrow.svg";
 import targetIcon from "../../../public/assets/icons/target.svg";
 import stockIcon from "../../../public/assets/icons/stock.svg";
@@ -10,6 +10,9 @@ import Image from "next/image";
 import dellImage from "../../../public/assets/images/homePage/DELL.svg";
 import phillipsImage from "../../../public/assets/images/homePage/PHILIPS.svg";
 import ciscoImage from "../../../public/assets/images/homePage/CISCO.svg";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const Page = () => {
   useEffect(() => {
@@ -17,6 +20,71 @@ const Page = () => {
 
     body.style.backgroundColor = "#022525";
   }, []);
+
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(useGSAP);
+
+  const coreTimeline = useRef(
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: ".coreContainer",
+        toggleActions: "play pause restart reset",
+      },
+    })
+  );
+
+  useGSAP(() => {
+    // coreTimeline.current = gsap.timeline();
+    gsap.utils.toArray(".worksAIText").forEach((item) => {
+      if (item instanceof Element) {
+        gsap.from(item, {
+          y: 250,
+          duration: 1.25,
+          opacity: 0,
+          scrollTrigger: {
+            trigger: item,
+            toggleActions: "play pause restart reset",
+          },
+        });
+      }
+    });
+
+    const cardTween = gsap.from(".ontologyCards", {
+      y: 200,
+      opacity: 0,
+      duration: 1,
+      stagger: {
+        each: 0.2,
+      },
+    });
+
+    const imageTween = gsap.from(".coreImage", {
+      scale: 0.8,
+      ease: "bounce.inOut",
+      duration: 0.35,
+      stagger: {
+        each: 0.1,
+      },
+    });
+
+    let logoTween: gsap.core.TimelineChild | gsap.core.Tween[] = [];
+    gsap.utils.toArray(".ontologyImages").forEach((item) => {
+      if (item instanceof Element) {
+        const tween = gsap.from(item, {
+          rotation: 360,
+          x: -100,
+          opacity: 0,
+          stagger: 0.1,
+          duration: 0.5,
+        });
+        logoTween.push(tween);
+      }
+    });
+
+    coreTimeline.current.add(cardTween).add(imageTween).add(logoTween);
+  }, {});
+
+
   return (
     <div className="font-inter w-full 2xl:w-[1400px] relative ">
       <section className="min-h-[100vh] px-6 sm:px-10 xl:px-28 py-14 sm:pt-20 xl:pt-40 text-softBlue  ">
@@ -36,10 +104,10 @@ const Page = () => {
             </div>
           </div>
           <div className="mt-5 xl:mt-10 sm:flex gap-6 xl:gap-14">
-            <h4 className="font-bold xl:text-4xl leading-6 xl:leading-[60px] mb-4">
+            <h4 className="worksAIText font-bold xl:text-4xl leading-6 xl:leading-[60px] mb-4">
               AI Deployed to the Operational Edge
             </h4>
-            <div className="text-[9px] xl:text-base xl:w-1/2 font-medium flex flex-col gap-4 xl:gap-6">
+            <div className="worksAIText text-[9px] xl:text-base xl:w-1/2 font-medium flex flex-col gap-4 xl:gap-6">
               <p>
                 Artificial intelligence and machine learning models built in
                 labs typically fail in an evolving operational context - but
@@ -54,7 +122,7 @@ const Page = () => {
           </div>
         </div>
       </section>
-      <section className="min-h-[100vh] bg-fadedBlue sm:bg-inherit  px-6 sm:px-10 xl:px-28 pt-7 sm:pt-24 pb-16 sm:pb-0  text-softBlue flex justify-center items-center ">
+      <section className="worksAIText min-h-[100vh] bg-fadedBlue sm:bg-inherit  px-6 sm:px-10 xl:px-28 pt-7 sm:pt-24 pb-16 sm:pb-0  text-softBlue flex justify-center items-center ">
         <div className="sm:bg-fadedBlue sm:px-11 xl:px-16 sm:pb-20 sm:pt-14 xl:pt-24 xl:flex xl:gap-20 2xl:justify-center w-fit">
           <div className="text-darkGreen/90 sm:w-[288px] flex flex-col gap-6 justify-between mb-16 xl:mb-0 xl:py-8 ">
             <h4 className="font-bold text-2xl sm:text-3xl xl:text-[34px] leading-8 xl:leading-10 whitespace-nowrap  ">
@@ -67,13 +135,25 @@ const Page = () => {
               deals.
             </p>
             <div className="flex items-center gap-6">
-              <Image src={dellImage} alt="dell" className="xl:w-10" />
-              <Image src={phillipsImage} alt="phiilps" className="xl:w-8" />
-              <Image src={ciscoImage} alt="cisco" className="xl:w-12" />
+              <Image
+                src={dellImage}
+                alt="dell"
+                className="ontologyImages xl:w-10"
+              />
+              <Image
+                src={phillipsImage}
+                alt="phiilps"
+                className="ontologyImages xl:w-8"
+              />
+              <Image
+                src={ciscoImage}
+                alt="cisco"
+                className="ontologyImages xl:w-12"
+              />
             </div>
           </div>
 
-          <div className="bg-[#8CEDE1] text-darkGreen rounded-[10px] px-6 pt-6 sm:pb-7 w-full xl:w-[750px]">
+          <div className="coreContainer bg-[#8CEDE1] text-darkGreen rounded-[10px] px-6 pt-6 sm:pb-7 w-full xl:w-[750px]">
             <div className="  flex  items-center gap-2 mb-2">
               <h4 className="font-bold text-lg sm:text-xl xl:text-2xl leading-6 xl:leading-8">
                 ONTOLOGY
@@ -87,7 +167,7 @@ const Page = () => {
             </div>
 
             <div className="flex flex-col text-darkGreen/90 w-full ">
-              <div className="h-[185px] sm:h-[81px] xl:h-[90px] flex px-1 xl:px-3 py-5  gap-5 border-y-2 border-y-darkGreen">
+              <div className="ontologyCards h-[185px] sm:h-[81px] xl:h-[90px] flex px-1 xl:px-3 py-5  gap-5 border-y-2 border-y-darkGreen">
                 <Image
                   src={searchIcon}
                   className="h-[60px] sm:hidden"
@@ -97,7 +177,7 @@ const Page = () => {
                   <div className="sm:w-[60px]">
                     <Image
                       src={searchIcon}
-                      className="sm:justify-self-start h-[60px] sm:h-[50px] xl:h-[55px] hidden sm:block"
+                      className="coreImage sm:justify-self-start h-[60px] sm:h-[50px] xl:h-[55px] hidden sm:block"
                       alt="search"
                     />
                   </div>
@@ -118,17 +198,17 @@ const Page = () => {
                   </div>
                 </div>
               </div>
-              <div className="h-[185px]  sm:h-[81px] xl:h-[90px] px-1 xl:px-3 py-5 flex gap-5 border-b-2 border-b-darkGreen">
+              <div className="ontologyCards h-[185px] sm:h-[81px] xl:h-[90px] px-1 xl:px-3 py-5 flex gap-5 border-b-2 border-b-darkGreen">
                 <Image
                   src={shakeIcon}
-                  className="h-[51px]  sm:hidden"
+                  className="coreImage h-[51px] sm:hidden"
                   alt="handshake"
                 />
                 <div className="sm:flex sm:justify-between sm:gap-11 sm:items-center  sm:w-full">
                   <div className="sm:w-[60px]">
                     <Image
                       src={shakeIcon}
-                      className="sm:justify-self-start h-[46px] xl:h-[50px] hidden sm:block"
+                      className="coreImage sm:justify-self-start h-[46px] xl:h-[50px] hidden sm:block"
                       alt="handshake"
                     />
                   </div>
@@ -152,17 +232,17 @@ const Page = () => {
                   </div>
                 </div>
               </div>
-              <div className="h-[185px]  sm:h-[81px] xl:h-[90px] px-1 xl:px-3 py-5 flex gap-5 border-b-2 border-b-darkGreen">
+              <div className="ontologyCards h-[185px] sm:h-[81px] xl:h-[90px] px-1 xl:px-3 py-5 flex gap-5 border-b-2 border-b-darkGreen">
                 <Image
                   src={stockIcon}
-                  className="h-[51px] sm:hidden"
+                  className="coreImage h-[51px] sm:hidden"
                   alt="stock"
                 />
                 <div className="sm:flex sm:justify-between sm:gap-11 sm:items-center  sm:w-full">
                   <div className="sm:w-[60px]">
                     <Image
                       src={stockIcon}
-                      className="sm:justify-self-start h-[44px] xl:h-[50px] hidden sm:block"
+                      className="coreImage sm:justify-self-start h-[44px] xl:h-[50px] hidden sm:block"
                       alt="stock"
                     />
                   </div>
@@ -183,17 +263,17 @@ const Page = () => {
                   </div>
                 </div>
               </div>
-              <div className="h-[185px] sm:h-[81px] xl:h-[90px] px-1 xl:px-3 py-5 flex gap-5 ">
+              <div className="ontologyCards h-[185px] sm:h-[81px] xl:h-[90px] px-1 xl:px-3 py-5 flex gap-5 ">
                 <Image
                   src={targetIcon}
-                  className="h-[53px] sm:hidden"
+                  className="coreImage h-[53px] sm:hidden"
                   alt="target"
                 />
                 <div className="sm:flex sm:justify-between sm:gap-11 sm:items-center  sm:w-full">
                   <div className="sm:w-[60px]">
                     <Image
                       src={targetIcon}
-                      className="  h-[48px] xl:h-[53px] hidden sm:block"
+                      className="coreImage h-[48px] xl:h-[53px] hidden sm:block"
                       alt="target"
                     />
                   </div>
