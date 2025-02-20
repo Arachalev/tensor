@@ -7,7 +7,7 @@ export const faqData = [
     title: `How does the software work, and where does 
         the data come from?`,
     content: `The software gathers public data from various sources and uses 
-        algorithms to ensure the information is accurate. It’s designed 
+        algorithms to ensure the information is accurate. It is designed 
         to be easy to use.`,
     type: ["FAQ"],
     socials: [
