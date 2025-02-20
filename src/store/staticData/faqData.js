@@ -8,7 +8,7 @@ export const faqData = [
         the data come from?`,
     content: `The software gathers public data from various sources and uses 
         algorithms to ensure the information is accurate. It is designed 
-        to be easy to use.`,
+        so it is easy to use.`,
     type: ["FAQ"],
     socials: [
       {
